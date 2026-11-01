@@ -1,0 +1,2537 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#072a1a" />
+    <meta
+      name="description"
+      content="Explore AgriLedger's illustrative agricultural market previews. Market data is simulated and no trading is connected."
+    />
+    <title>Markets | AgriLedger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --agri-forest: #072a1a;
+        --agri-forest-2: #0d3b25;
+        --agri-emerald: #15803d;
+        --agri-bright: #22a653;
+        --agri-lime: #a3e635;
+        --agri-white: #fff;
+        --agri-off-white: #f8fafc;
+        --agri-mint: #eaf5ed;
+        --agri-ink: #17251c;
+        --agri-muted: #6c757d;
+        --agri-border: #e4ebe6;
+        --agri-shadow: 0 16px 45px rgba(7, 42, 26, 0.08);
+        --agri-shadow-hover: 0 22px 52px rgba(7, 42, 26, 0.14);
+        --agri-radius: 20px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--agri-ink);
+        background: var(--agri-white);
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.65;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .navbar-brand {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .container {
+        max-width: 1180px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 2000;
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        transform: translateY(-150%);
+        border-radius: 8px;
+        color: #fff;
+        background: var(--agri-forest);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-nav {
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        border-bottom: 1px solid rgba(7, 42, 26, 0.07);
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+      }
+
+      .site-nav .navbar {
+        min-height: 78px;
+      }
+
+      .navbar-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--agri-forest);
+        font-size: 21px;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border-radius: 12px;
+        color: var(--agri-emerald);
+        background: var(--agri-mint);
+        font-size: 19px;
+      }
+
+      .navbar-brand:hover {
+        color: var(--agri-forest);
+      }
+
+      .site-nav .nav-link {
+        padding: 10px 11px !important;
+        color: #526258;
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 180ms ease;
+      }
+
+      .site-nav .nav-link:hover,
+      .site-nav .nav-link[aria-current="page"] {
+        color: var(--agri-emerald);
+      }
+
+      .navbar-toggler {
+        border-color: var(--agri-border);
+        box-shadow: none !important;
+      }
+
+      .navbar-collapse {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-agri,
+      .btn-agri-outline {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 11px 20px;
+        border: 1px solid transparent;
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 800;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .btn-agri {
+        color: #fff;
+        background: linear-gradient(135deg, #1ba34d, #117337);
+        box-shadow: 0 7px 18px rgba(21, 128, 61, 0.18);
+      }
+
+      .btn-agri:hover {
+        color: #fff;
+        background: linear-gradient(135deg, #22b65a, #0d632f);
+        box-shadow: 0 12px 25px rgba(21, 128, 61, 0.24);
+        transform: translateY(-2px);
+      }
+
+      .btn-agri-outline {
+        border-color: rgba(7, 42, 26, 0.18);
+        color: var(--agri-forest);
+        background: #fff;
+      }
+
+      .btn-agri-outline:hover {
+        border-color: var(--agri-emerald);
+        color: var(--agri-emerald);
+        transform: translateY(-2px);
+      }
+
+      .markets-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 78px 0 76px;
+        color: #fff;
+        background:
+          radial-gradient(
+            ellipse at 82% 10%,
+            rgba(34, 166, 83, 0.24),
+            transparent 35%
+          ),
+          linear-gradient(118deg, #072a1a, #0d3b25 72%, #10492c);
+      }
+
+      .markets-hero::before,
+      .markets-hero::after {
+        position: absolute;
+        width: 410px;
+        height: 410px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .markets-hero::before {
+        top: -245px;
+        right: 3%;
+      }
+
+      .markets-hero::after {
+        top: -195px;
+        right: calc(3% + 50px);
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 850px;
+      }
+
+      .hero-badge,
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--agri-emerald);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .hero-badge {
+        padding: 8px 13px;
+        border: 1px solid rgba(163, 230, 53, 0.27);
+        border-radius: 30px;
+        color: #cbf59a;
+        background: rgba(255, 255, 255, 0.065);
+      }
+
+      .hero-copy h1 {
+        max-width: 830px;
+        margin: 20px 0 15px;
+        color: #fff;
+        font-size: clamp(38px, 5.4vw, 61px);
+        line-height: 1.1;
+      }
+
+      .hero-copy p {
+        max-width: 760px;
+        margin: 0;
+        color: #d3e2d7;
+        font-size: 15px;
+      }
+
+      .hero-disclaimer {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+        color: #c5d8ca;
+        font-size: 11px;
+      }
+
+      .hero-disclaimer i {
+        color: var(--agri-lime);
+      }
+
+      .ticker-wrap {
+        overflow: hidden;
+        border-bottom: 1px solid var(--agri-border);
+        background: #f4f8f5;
+      }
+
+      .ticker-inner {
+        display: flex;
+        align-items: stretch;
+        min-height: 66px;
+      }
+
+      .ticker-label {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 8px;
+        padding: 0 20px 0 0;
+        color: var(--agri-forest);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        white-space: nowrap;
+      }
+
+      .ticker-label i {
+        color: var(--agri-emerald);
+      }
+
+      .ticker-track {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #b7c9bc transparent;
+      }
+
+      .ticker-item {
+        display: flex;
+        min-width: max-content;
+        align-items: center;
+        gap: 9px;
+        padding: 0 21px;
+        border-left: 1px solid var(--agri-border);
+        font-size: 10px;
+      }
+
+      .ticker-symbol {
+        color: #526258;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+      }
+
+      .ticker-price {
+        color: var(--agri-ink);
+        font-weight: 800;
+      }
+
+      .ticker-change {
+        color: #69786e;
+        font-weight: 700;
+      }
+
+      .ticker-stamp {
+        display: block;
+        padding: 0 0 0 14px;
+        color: #65756a;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        line-height: 1.4;
+        text-align: right;
+      }
+
+      .market-section {
+        padding: 62px 0 86px;
+        background: var(--agri-off-white);
+      }
+
+      .market-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 25px;
+      }
+
+      .market-heading h2 {
+        margin: 8px 0 5px;
+        color: var(--agri-forest);
+        font-size: clamp(28px, 3.4vw, 38px);
+      }
+
+      .market-heading p {
+        margin: 0;
+        color: var(--agri-muted);
+        font-size: 12px;
+      }
+
+      .market-count {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        border: 1px solid var(--agri-border);
+        border-radius: 30px;
+        color: #53645a;
+        background: #fff;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .market-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        margin: 0 0 22px;
+        padding: 14px 16px;
+        border: 1px solid #dcebe0;
+        border-radius: 12px;
+        color: #53665a;
+        background: #f0f8f2;
+        font-size: 11px;
+      }
+
+      .market-notice i {
+        margin-top: 2px;
+        color: var(--agri-emerald);
+      }
+
+      .market-toolbar {
+        padding: 18px;
+        border: 1px solid var(--agri-border);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(7, 42, 26, 0.035);
+      }
+
+      .filter-list {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 1px 12px;
+        scrollbar-width: thin;
+      }
+
+      .filter-pill {
+        min-height: 39px;
+        flex: 0 0 auto;
+        padding: 8px 13px;
+        border: 1px solid var(--agri-border);
+        border-radius: 30px;
+        color: #526258;
+        background: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        transition:
+          color 160ms ease,
+          background 160ms ease,
+          border 160ms ease;
+      }
+
+      .filter-pill:hover,
+      .filter-pill[aria-pressed="true"] {
+        border-color: var(--agri-forest);
+        color: #fff;
+        background: var(--agri-forest);
+      }
+
+      .toolbar-controls {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 230px);
+        gap: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #edf1ee;
+      }
+
+      .toolbar-controls .form-control,
+      .toolbar-controls .form-select {
+        min-height: 43px;
+        border-color: #e1e9e3;
+        border-radius: 9px;
+        font-size: 12px;
+      }
+
+      .toolbar-controls .form-control:focus,
+      .toolbar-controls .form-select:focus {
+        border-color: var(--agri-emerald);
+        box-shadow: 0 0 0 0.2rem rgba(21, 128, 61, 0.12);
+      }
+
+      .market-grid {
+        margin-top: 20px;
+      }
+
+      .market-card {
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid var(--agri-border);
+        border-radius: 17px;
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(7, 42, 26, 0.045);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .market-card:hover {
+        border-color: rgba(21, 128, 61, 0.3);
+        box-shadow: var(--agri-shadow-hover);
+        transform: translateY(-4px);
+      }
+
+      .market-card[hidden] {
+        display: none !important;
+      }
+
+      .asset-visual {
+        position: relative;
+        height: 168px;
+        overflow: hidden;
+        background: #dfece2;
+      }
+
+      .asset-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 450ms ease;
+      }
+
+      .market-card:hover .asset-visual img {
+        transform: scale(1.04);
+      }
+
+      .asset-visual::after {
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(transparent, rgba(7, 42, 26, 0.24));
+        content: "";
+        pointer-events: none;
+      }
+
+      .asset-badges {
+        position: absolute;
+        z-index: 1;
+        inset: 12px 12px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .market-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 30px;
+        color: var(--agri-forest);
+        background: rgba(255, 255, 255, 0.93);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.45px;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+      }
+
+      .market-badge.badge-active {
+        color: #5b4310;
+        background: #fff5d6;
+      }
+
+      .market-badge.badge-hot {
+        color: #713e12;
+        background: #fff0dd;
+      }
+
+      .market-badge.badge-new {
+        color: #174e31;
+        background: #e7f7eb;
+      }
+
+      .asset-chart {
+        position: absolute;
+        z-index: 1;
+        right: 14px;
+        bottom: 12px;
+        width: 92px;
+        height: 35px;
+        filter: drop-shadow(0 1px 3px rgba(7, 42, 26, 0.25));
+      }
+
+      .asset-chart polyline {
+        fill: none;
+        stroke: #b4f2c4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.5;
+      }
+
+      .market-card-body {
+        padding: 17px;
+      }
+
+      .market-origin {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--agri-muted);
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .market-origin i {
+        color: var(--agri-emerald);
+      }
+
+      .market-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 8px 0 3px;
+      }
+
+      .market-title-row h3 {
+        margin: 0;
+        color: var(--agri-forest);
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .asset-ticker {
+        flex: 0 0 auto;
+        padding: 5px 7px;
+        border-radius: 6px;
+        color: #315440;
+        background: #eef6f0;
+        font-size: 9px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .market-subtitle {
+        margin: 0;
+        color: var(--agri-muted);
+        font-size: 10px;
+      }
+
+      .market-value-row {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 16px 0 12px;
+      }
+
+      .market-value-label,
+      .market-value {
+        display: block;
+      }
+
+      .market-value-label {
+        color: var(--agri-muted);
+        font-size: 9px;
+      }
+
+      .market-value {
+        margin-top: 2px;
+        color: var(--agri-forest);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      .market-change {
+        color: var(--agri-emerald);
+        font-size: 10px;
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .demo-caption {
+        display: block;
+        margin-top: 2px;
+        color: #86928a;
+        font-size: 8px;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .pool-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 6px;
+        color: #64736a;
+        font-size: 9px;
+      }
+
+      .sample-market-metrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin: 11px 0;
+        padding: 9px 10px;
+        border: 1px solid #edf1ee;
+        border-radius: 9px;
+        background: #fbfcfb;
+      }
+
+      .sample-market-metrics span,
+      .sample-market-metrics strong {
+        display: block;
+      }
+
+      .sample-market-metrics span {
+        color: var(--agri-muted);
+        font-size: 8px;
+      }
+
+      .sample-market-metrics strong {
+        margin-top: 2px;
+        color: #34463a;
+        font-size: 10px;
+      }
+
+      .pool-row strong {
+        color: #34463a;
+        font-size: 9px;
+      }
+
+      .progress {
+        height: 6px;
+        overflow: hidden;
+        border-radius: 10px;
+        background: #eaf0eb;
+      }
+
+      .progress-bar {
+        border-radius: inherit;
+        background: linear-gradient(90deg, #22a653, #87d79a);
+        transition: width 700ms ease;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 15px 0;
+        padding: 12px 0;
+        border-top: 1px solid #edf1ee;
+        border-bottom: 1px solid #edf1ee;
+      }
+
+      .stat-cell {
+        min-width: 0;
+      }
+
+      .stat-cell + .stat-cell {
+        padding-left: 8px;
+        border-left: 1px solid #edf1ee;
+      }
+
+      .stat-cell span,
+      .stat-cell strong {
+        display: block;
+      }
+
+      .stat-cell span {
+        color: var(--agri-muted);
+        font-size: 8px;
+      }
+
+      .stat-cell strong {
+        margin-top: 3px;
+        color: var(--agri-ink);
+        font-size: 10px;
+      }
+
+      .stat-cell strong.pending {
+        color: #727d75;
+      }
+
+      .market-card .btn-agri {
+        width: 100%;
+        min-height: 42px;
+        font-size: 11px;
+      }
+
+      .market-empty {
+        display: none;
+        margin: 22px 0 0;
+        padding: 28px;
+        border: 1px dashed #cbd9ce;
+        border-radius: 14px;
+        color: #607066;
+        background: #fff;
+        text-align: center;
+      }
+
+      .market-empty.show {
+        display: block;
+      }
+
+      .market-empty i {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--agri-emerald);
+        font-size: 24px;
+      }
+
+      .market-risk-note {
+        max-width: 980px;
+        margin: 25px auto 0;
+        color: #77847c;
+        font-size: 10px;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .cta-banner {
+        position: relative;
+        overflow: hidden;
+        padding: 62px 0;
+        color: #fff;
+        background:
+          radial-gradient(
+            ellipse at 90% -10%,
+            rgba(163, 230, 53, 0.17),
+            transparent 35%
+          ),
+          linear-gradient(115deg, #072a1a, #0d3b25);
+      }
+
+      .cta-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .cta-content h2 {
+        max-width: 720px;
+        margin: 10px 0 8px;
+        color: #fff;
+        font-size: clamp(28px, 4vw, 42px);
+      }
+
+      .cta-content p {
+        margin: 0;
+        color: #c1d5c8;
+        font-size: 12px;
+      }
+
+      .btn-agri-light {
+        flex: 0 0 auto;
+        color: var(--agri-forest);
+        background: #fff;
+      }
+
+      .btn-agri-light:hover {
+        color: var(--agri-forest);
+        background: #eaf5ed;
+      }
+
+      .newsletter-section {
+        padding: 48px 0;
+        color: #fff;
+        background: #0a2116;
+      }
+
+      .newsletter-grid {
+        display: grid;
+        grid-template-columns: 1fr minmax(280px, 0.8fr);
+        align-items: center;
+        gap: 30px;
+      }
+
+      .newsletter-section h2 {
+        margin: 7px 0;
+        color: #fff;
+        font-size: 23px;
+      }
+
+      .newsletter-section p {
+        margin: 0;
+        color: #bdcfc3;
+        font-size: 11px;
+      }
+
+      .newsletter-kicker {
+        color: #9ce4ae;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 8px;
+      }
+
+      .newsletter-form .form-control {
+        min-height: 44px;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 11px;
+      }
+
+      .newsletter-form .form-control::placeholder {
+        color: #c1d0c7;
+      }
+
+      .newsletter-status {
+        grid-column: 2;
+        min-height: 15px;
+        margin-top: -22px;
+        color: #a7e6b6;
+        font-size: 9px;
+      }
+
+      .site-footer {
+        padding: 58px 0 20px;
+        color: #fff;
+        background: #071a11;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 35px;
+        padding-bottom: 35px;
+      }
+
+      .footer-brand {
+        margin-bottom: 14px;
+      }
+
+      .footer-brand .brand-mark {
+        color: #c5f4d0;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-description {
+        max-width: 290px;
+        color: #afc2b5;
+        font-size: 10px;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .footer-socials a {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        color: #d5e4d9;
+        transition:
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .footer-socials a:hover {
+        color: #fff;
+        background: var(--agri-emerald);
+      }
+
+      .footer-column h3 {
+        margin: 4px 0 13px;
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 0;
+      }
+
+      .footer-column a {
+        display: block;
+        width: fit-content;
+        margin: 8px 0;
+        color: #afc2b5;
+        font-size: 10px;
+        transition: color 180ms ease;
+      }
+
+      .footer-column a:hover {
+        color: #9ce4ae;
+      }
+
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding-top: 17px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: #9bb0a1;
+        font-size: 9px;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      .footer-legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .footer-legal a {
+        color: inherit;
+      }
+
+      .legal-note {
+        margin: 12px 0 0;
+        color: #819788;
+        font-size: 9px;
+      }
+
+      .modal-content {
+        border: 0;
+        border-radius: 18px;
+      }
+
+      .modal-header {
+        border-bottom-color: var(--agri-border);
+      }
+
+      .modal-title {
+        color: var(--agri-forest);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 800;
+      }
+
+      :focus-visible {
+        outline: 3px solid #8ad69c;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 991.98px) {
+        .site-nav .navbar {
+          min-height: 70px;
+        }
+
+        .market-heading {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .market-count {
+          display: none;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .markets-hero {
+          padding: 62px 0;
+        }
+
+        .market-section {
+          padding: 52px 0 65px;
+        }
+
+        .toolbar-controls {
+          grid-template-columns: 1fr;
+        }
+
+        .asset-visual {
+          height: 195px;
+        }
+
+        .cta-content {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .newsletter-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .newsletter-status {
+          grid-column: 1;
+          margin-top: -14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-copy h1 {
+          font-size: 39px;
+        }
+
+        .hero-copy p {
+          font-size: 13px;
+        }
+
+        .ticker-inner {
+          min-height: 58px;
+        }
+
+        .ticker-label {
+          padding-right: 10px;
+          font-size: 8px;
+        }
+
+        .ticker-item {
+          gap: 6px;
+          padding: 0 12px;
+          font-size: 9px;
+        }
+
+        .ticker-stamp {
+          padding-left: 9px;
+          font-size: 7px;
+        }
+
+        .market-toolbar {
+          padding: 12px;
+        }
+
+        .market-card-body {
+          padding: 15px;
+        }
+
+        .newsletter-form {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .newsletter-form .btn-agri {
+          width: 100%;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 24px 18px;
+        }
+
+        .footer-brand-column {
+          grid-column: 1 / -1;
+        }
+
+        .footer-bottom {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-nav">
+      <nav
+        class="navbar navbar-expand-lg container"
+        aria-label="Main navigation"
+      >
+        <a href="index.html" class="brand">
+          <span class="brand-icon">
+            <i data-lucide="sprout"></i>
+          </span>
+          <span>Agri<span>Invest</span></span>
+        </a>
+
+        <!-- <a class="navbar-brand" href="index.html" aria-label="AgriLedger home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="bi bi-flower1"></i>
+          </span>
+          <span>AgriLedger</span>
+        </a> -->
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#primaryNav"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="primaryNav">
+          <ul class="navbar-nav mx-auto my-3 my-lg-0">
+            <!-- <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="markets.html" aria-current="page"
+                >Markets</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plans.html">Investment Plans</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#faq">FAQs</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" href="index.html#faq">Contact</a></li> -->
+          </ul>
+          <div class="d-flex flex-column flex-lg-row gap-2 pb-3 pb-lg-0">
+            <a class="btn-agri-outline btnn" href="index.html#home">Login</a>
+            <a class="btn-agri" href="index.html#home">
+              Get Started
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="markets-hero" aria-labelledby="markets-title">
+        <div class="container">
+          <div class="hero-copy">
+            <span class="hero-badge">
+              <i class="bi bi-globe2" aria-hidden="true"></i>
+              Decentralized commodity exchange
+            </span>
+            <h1 id="markets-title">
+              Global Agricultural Markets &amp; Tokenized Assets
+            </h1>
+            <p>
+              Trade, stake, and invest in immutable, blockchain-verified
+              agricultural commodities, smart hydroponic yields, and sustainable
+              crop futures.
+            </p>
+            <div class="hero-disclaimer">
+              <i class="bi bi-info-circle" aria-hidden="true"></i>
+              Preview only — no live market feed, wallet, or trading is
+              connected.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker-wrap" aria-label="Simulated market ticker">
+        <div class="container ticker-inner">
+          <div class="ticker-label">
+            <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+            SAMPLE MARKET FEED
+          </div>
+          <div class="ticker-track">
+            <div class="ticker-item">
+              <span class="ticker-symbol">CORN-T</span>
+              <span class="ticker-price">$4.82</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">BEEF-X</span>
+              <span class="ticker-price">$18.40</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">BERRY-O</span>
+              <span class="ticker-price">$7.16</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">WHEAT-EU</span>
+              <span class="ticker-price">$6.28</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">HYDRO-V</span>
+              <span class="ticker-price">$1.24</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">CARBON-G</span>
+              <span class="ticker-price">$12.60</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+          </div>
+          <span class="ticker-stamp">SIMULATED<br />NOT LIVE DATA</span>
+        </div>
+      </section>
+
+      <section
+        class="market-section"
+        id="market-list"
+        aria-labelledby="market-list-title"
+      >
+        <div class="container">
+          <div class="market-heading">
+            <div>
+              <span class="section-kicker">Explore the ecosystem</span>
+              <h2 id="market-list-title">Agricultural market previews</h2>
+              <p>
+                Filter sample listings by asset class, origin, or token symbol.
+              </p>
+            </div>
+            <span class="market-count" id="marketCount" aria-live="polite"
+              >6 sample markets</span
+            >
+          </div>
+
+          <div class="market-notice" id="market-notice" role="note">
+            <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
+            <span>
+              <strong>Demonstration data only.</strong> Names, token tickers,
+              prices, 24-hour changes, volume, pool capitalization, and
+              utilization are fictional interface samples—not live quotes,
+              verified assets, market activity, or investment offers. APY,
+              settlement terms, and risk tiers are not provided or assessed. No
+              trade or wallet connection is available.
+            </span>
+          </div>
+
+          <div class="market-toolbar">
+            <div
+              class="filter-list"
+              role="group"
+              aria-label="Filter markets by asset class"
+            >
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                All Markets
+              </button>
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="grain"
+                aria-pressed="false"
+              >
+                Grain Futures
+              </button>
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="livestock"
+                aria-pressed="false"
+              >
+                Livestock &amp; Protein
+              </button>
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="specialty"
+                aria-pressed="false"
+              >
+                Specialty Crops
+              </button>
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="carbon"
+                aria-pressed="false"
+              >
+                Green Carbon Credits
+              </button>
+              <button
+                class="filter-pill"
+                type="button"
+                data-filter="farmland"
+                aria-pressed="false"
+              >
+                Farmland Real Estate
+              </button>
+            </div>
+            <div class="toolbar-controls">
+              <div class="input-group">
+                <span
+                  class="input-group-text bg-white border-end-0"
+                  aria-hidden="true"
+                >
+                  <i class="bi bi-search text-secondary"></i>
+                </span>
+                <input
+                  class="form-control border-start-0"
+                  id="marketSearch"
+                  type="search"
+                  placeholder="Search markets or ticker..."
+                  aria-label="Search markets"
+                />
+              </div>
+              <select
+                class="form-select"
+                id="marketSort"
+                aria-label="Sort markets"
+              >
+                <option value="default">Sort: Featured</option>
+                <option value="yield" disabled>
+                  Highest yield — not provided
+                </option>
+                <option value="volume">Sort: 24h volume* (sample)</option>
+                <option value="cap">Sort: Pool capitalization* (sample)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row g-3 g-lg-4 market-grid" id="marketGrid">
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="grain"
+              data-search="grade a yellow corn futures corn t corn-t grain north america corn commodity"
+              data-yield="0"
+              data-volume="830000"
+              data-cap="4200000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Golden corn ready for harvest"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-active"
+                      ><i class="bi bi-dot"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,31 14,25 24,28 36,16 48,22 60,12 73,16 84,8 98,11"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> North American node · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Grade-A Yellow Corn Futures</h3>
+                    <span class="asset-ticker">$CORN-T</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative tokenized grain pool
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample token price</span
+                      ><strong class="market-value">$4.82</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$830k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$4.2m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>64% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="64"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 64%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Grade-A Yellow Corn Futures"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="livestock"
+              data-search="black angus beef commodity pool beef x beef-x livestock protein usa"
+              data-yield="0"
+              data-volume="590000"
+              data-cap="3100000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Cattle grazing on a green pasture"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-hot"
+                      ><i class="bi bi-lightning-charge"></i> Sample</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,14 14,19 24,13 36,25 48,18 60,29 73,20 84,25 98,12"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Great Plains node · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Black Angus Beef Commodity Pool</h3>
+                    <span class="asset-ticker">$BEEF-X</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative livestock and protein pool
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample token price</span
+                      ><strong class="market-value">$18.40</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$590k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$3.1m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>48% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="48"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 48%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Black Angus Beef Commodity Pool"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="specialty"
+              data-search="central valley organic berry index berry o berry-o specialty crop california"
+              data-yield="0"
+              data-volume="420000"
+              data-cap="1800000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Fresh strawberries and berries"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-new"
+                      ><i class="bi bi-stars"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,29 14,18 24,22 36,13 48,19 60,10 73,20 84,14 98,8"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Central Valley node · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Central Valley Organic Berry Index</h3>
+                    <span class="asset-ticker">$BERRY-O</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative specialty crop index
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample index value</span
+                      ><strong class="market-value">$7.16</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$420k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$1.8m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>73% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="73"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 73%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Central Valley Organic Berry Index"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="grain"
+              data-search="central european wheat token wheat eu wheat-eu grain europe"
+              data-yield="0"
+              data-volume="710000"
+              data-cap="3900000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Golden wheat growing in a field"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-active"
+                      ><i class="bi bi-dot"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,25 14,22 24,28 36,16 48,18 60,11 73,17 84,10 98,7"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Central Europe node · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Central European Wheat Token</h3>
+                    <span class="asset-ticker">$WHEAT-EU</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative tokenized grain index
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample token price</span
+                      ><strong class="market-value">$6.28</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$710k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$3.9m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>56% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="56"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 56%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Central European Wheat Token"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="specialty"
+              data-search="vertical hydroponic yield pool hydro v hydro-v greenhouse specialty crops"
+              data-yield="0"
+              data-volume="960000"
+              data-cap="5100000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Modern greenhouse and controlled growing space"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-new"
+                      ><i class="bi bi-stars"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,33 14,25 24,27 36,16 48,19 60,8 73,13 84,7 98,4"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Urban farm node · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Vertical Hydroponic Yield Pool</h3>
+                    <span class="asset-ticker">$HYDRO-V</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative controlled-environment pool
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample token price</span
+                      ><strong class="market-value">$1.24</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$960k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$5.1m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>39% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="39"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 39%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Vertical Hydroponic Yield Pool"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="carbon"
+              data-search="global carbon offset credits carbon g carbon-g green carbon offset sustainability"
+              data-yield="0"
+              data-volume="280000"
+              data-cap="1400000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Sunlight filtering through a green forest"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-hot"
+                      ><i class="bi bi-leaf"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,28 14,31 24,21 36,23 48,14 60,18 73,11 84,15 98,6"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Global registry concept · not
+                    verified
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Global Carbon Offset Credits</h3>
+                    <span class="asset-ticker">$CARBON-G</span>
+                  </div>
+                  <p class="market-subtitle">Illustrative green-credit pool</p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample credit value</span
+                      ><strong class="market-value">$12.60</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$280k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$1.4m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>27% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="27"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 27%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Global Carbon Offset Credits"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="col-12 col-md-6 col-lg-4 market-item"
+              data-category="farmland"
+              data-search="global farmland equity tier land global farmland property real estate"
+              data-yield="0"
+              data-volume="350000"
+              data-cap="2700000"
+            >
+              <article class="market-card">
+                <div class="asset-visual">
+                  <img
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                    alt="Open farmland with cultivated rows and distant fields"
+                    loading="lazy"
+                  />
+                  <div class="asset-badges">
+                    <span class="market-badge badge-active"
+                      ><i class="bi bi-dot"></i> Preview</span
+                    >
+                    <span class="market-badge">Demo data</span>
+                  </div>
+                  <svg
+                    class="asset-chart"
+                    viewBox="0 0 100 40"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="2,29 14,21 24,24 36,19 48,21 60,12 73,15 84,8 98,11"
+                    />
+                  </svg>
+                </div>
+                <div class="market-card-body">
+                  <div class="market-origin">
+                    <i class="bi bi-geo-alt"></i> Multi-region concept · sample
+                    location
+                  </div>
+                  <div class="market-title-row">
+                    <h3>Global Farmland Equity Tier</h3>
+                    <span class="asset-ticker">$LAND-G</span>
+                  </div>
+                  <p class="market-subtitle">
+                    Illustrative farmland interest concept
+                  </p>
+                  <div class="market-value-row">
+                    <div>
+                      <span class="market-value-label">Sample unit value</span
+                      ><strong class="market-value">$24.10</strong>
+                    </div>
+                    <div>
+                      <span class="market-change">+0.0% · sample</span
+                      ><span class="demo-caption">24h change not live</span>
+                    </div>
+                  </div>
+                  <div class="sample-market-metrics">
+                    <div>
+                      <span>Sample 24h volume</span><strong>$350k</strong>
+                    </div>
+                    <div>
+                      <span>Sample pool cap</span><strong>$2.7m</strong>
+                    </div>
+                  </div>
+                  <div class="pool-row">
+                    <span>Sample pool utilization</span
+                    ><strong>52% · illustrative</strong>
+                  </div>
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Illustrative sample pool utilization"
+                    aria-valuenow="52"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <div class="progress-bar" style="width: 52%"></div>
+                  </div>
+                  <div class="stat-grid">
+                    <div class="stat-cell">
+                      <span>Expected APY</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Settlement</span
+                      ><strong class="pending">Not provided</strong>
+                    </div>
+                    <div class="stat-cell">
+                      <span>Risk tier</span
+                      ><strong class="pending">Not assessed</strong>
+                    </div>
+                  </div>
+                  <button
+                    class="btn-agri market-action"
+                    type="button"
+                    data-market-name="Global Farmland Equity Tier"
+                  >
+                    View market preview <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="market-empty" id="marketEmpty" role="status">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            No sample markets match those filters. Try another category or
+            search.
+          </div>
+          <p class="market-risk-note" id="risk-disclosure">
+            *Sorting uses the explicitly simulated sample values shown on this
+            page. No yield is provided or implied. Agricultural, commodity,
+            tokenized-asset, and carbon-credit activities can involve material
+            risk, including loss of capital and liquidity, market, custody,
+            operational, regulatory, and environmental-claim risks. Verify asset
+            rights, methodologies, offering documents, and applicable
+            regulations independently.
+          </p>
+        </div>
+      </section>
+
+      <section class="cta-banner" aria-labelledby="cta-title">
+        <div class="container cta-content">
+          <div>
+            <span class="hero-badge"
+              >Agriculture · technology · transparency</span
+            >
+            <h2 id="cta-title">
+              Empowering Food Security Through Decentralization.
+            </h2>
+            <p>
+              Explore the platform concept and review verified information
+              before considering any investment.
+            </p>
+          </div>
+          <a class="btn-agri btn-agri-light" href="investment-plans.html">
+            Explore the platform
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <section class="newsletter-section" aria-labelledby="newsletter-title">
+      <div class="container newsletter-grid">
+        <div>
+          <span class="newsletter-kicker">STAY INFORMED</span>
+          <h2 id="newsletter-title">
+            A thoughtful perspective on agriculture.
+          </h2>
+          <p>
+            Newsletter preview form only; no subscription service is connected.
+          </p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <label class="visually-hidden" for="newsletterEmail"
+            >Email address</label
+          >
+          <input
+            class="form-control"
+            type="email"
+            id="newsletterEmail"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+          />
+          <button class="btn-agri" type="submit">
+            Subscribe <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+        <div
+          class="newsletter-status"
+          id="newsletterStatus"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
+    <!-- <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a class="navbar-brand footer-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"
+                ><i class="bi bi-flower1"></i
+              ></span>
+              <span>AgriLedger</span>
+            </a>
+            <p class="footer-description">
+              Connecting agricultural opportunities with thoughtful digital
+              experiences. Explore the platform with care and clear information.
+            </p>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#" aria-label="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+          <nav class="footer-column" aria-label="Platform links">
+            <h3>Platform</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="investment-plans.html">Investment Plans</a>
+            <a href="markets.html">Markets</a>
+            <a href="index.html#faq">FAQs</a>
+          </nav>
+          <nav class="footer-column" aria-label="Agricultural assets">
+            <h3>Market classes</h3>
+            <a href="#market-list" data-footer-filter="grain">Grain futures</a>
+            <a href="#market-list" data-footer-filter="livestock"
+              >Livestock &amp; protein</a
+            >
+            <a href="#market-list" data-footer-filter="specialty"
+              >Specialty crops</a
+            >
+            <a href="#market-list" data-footer-filter="carbon"
+              >Green carbon credits</a
+            >
+            <a href="#market-list" data-footer-filter="farmland"
+              >Farmland real estate</a
+            >
+          </nav>
+          <nav class="footer-column" aria-label="Support and legal">
+            <h3>Support</h3>
+            <a href="index.html#faq">Contact</a>
+            <a href="#risk-disclosure">Risk disclosure</a>
+            <a href="#legal-note">Privacy notice (not provided)</a>
+            <a href="#legal-note">Terms (not provided)</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgriLedger. All rights reserved.
+          </p>
+          <div class="footer-legal">
+            <a href="#legal-note">Privacy</a>
+            <a href="#legal-note">Terms</a>
+            <a href="#risk-disclosure">Risk disclosure</a>
+          </div>
+        </div>
+        <p class="legal-note" id="legal-note">
+          Privacy and terms documents were not supplied for this demonstration.
+          Review official platform documents before providing personal or
+          financial information.
+        </p>
+      </div>
+    </footer> -->
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="#home" class="brand footer-brand">
+              <span class="brand-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <span>Agric<span>Invest</span></span>
+            </a>
+
+            <p>
+              Connecting agricultural opportunities with modern digital finance.
+              Discover a smarter perspective on agricultural asset markets.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Platform</h4>
+
+            <a href="markets.html">Markets</a>
+            <a href="plans.html">Asset Portfolios</a>
+            <a href="#calculator">ROI Calculator</a>
+            <!-- <a href="markets.html">Markets</a> -->
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+
+            <a href="about.html">How It Works</a>
+            <a href="plans.html">Investment Plan</a>
+            <a href="#faq">Help Center</a>
+            <!-- <a href="#faq">Risk Information</a> -->
+            <a href="#faq">Contact Support</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+
+            <a href="#" class="legal-link" data-legal="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="legal-link" data-legal="Terms of Service"
+              >Terms of Service</a
+            >
+            <a href="#" class="legal-link" data-legal="Risk Disclosure"
+              >Risk Disclosure</a
+            >
+            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              >Cookie Policy</a
+            > -->
+          </div>
+        </div>
+
+        <!-- <div class="footer-disclaimer">
+          <strong>Important Risk Disclosure</strong>
+
+          <p>
+            Agricultural investments involve substantial risks, including loss
+            of capital, commodity price volatility, weather-related events,
+            operational risks, regulatory changes and liquidity limitations.
+            Past performance does not guarantee future results. Any percentages,
+            projections, asset valuations, testimonials, market prices and
+            activity shown on this demonstration website are illustrative and do
+            not represent actual investment products, guaranteed returns or
+            verified transactions. Do not invest without independently reviewing
+            the relevant offering documents and risks.
+          </p>
+        </div> -->
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgricInvest. All rights reserved.
+          </p>
+
+          <span>Built for a sustainable agricultural future.</span>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="previewModal"
+      tabindex="-1"
+      aria-labelledby="previewModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="previewModalTitle">
+              Market preview
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-2">
+              <strong id="previewAssetName">Sample market</strong>
+            </p>
+            <p class="small text-secondary mb-0">
+              This is a visual demonstration only. The market, asset data, and
+              token are not verified; no wallet, order, or trading service is
+              connected. Review independently before making financial decisions.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn-agri-outline"
+              data-bs-dismiss="modal"
+            >
+              Close preview
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (() => {
+        "use strict";
+
+        const cards = [...document.querySelectorAll(".market-item")];
+        const filterButtons = [...document.querySelectorAll(".filter-pill")];
+        const searchInput = document.getElementById("marketSearch");
+        const sortSelect = document.getElementById("marketSort");
+        const grid = document.getElementById("marketGrid");
+        const emptyState = document.getElementById("marketEmpty");
+        const countLabel = document.getElementById("marketCount");
+        const previewModal = window.bootstrap
+          ? new bootstrap.Modal(document.getElementById("previewModal"))
+          : null;
+        let activeCategory = "all";
+
+        function updateMarkets() {
+          const query = searchInput.value.trim().toLowerCase();
+          const sortKey = sortSelect.value;
+          const sorted = [...cards].sort((a, b) => {
+            if (sortKey === "default") {
+              return cards.indexOf(a) - cards.indexOf(b);
+            }
+            return (
+              Number(b.dataset[sortKey] || 0) - Number(a.dataset[sortKey] || 0)
+            );
+          });
+
+          sorted.forEach((card) => grid.append(card));
+
+          let visibleCount = 0;
+          cards.forEach((card) => {
+            const matchesCategory =
+              activeCategory === "all" ||
+              card.dataset.category === activeCategory;
+            const matchesSearch = card.dataset.search.includes(query);
+            const isVisible = matchesCategory && matchesSearch;
+            card.hidden = !isVisible;
+            if (isVisible) visibleCount += 1;
+          });
+
+          countLabel.textContent = `${visibleCount} sample market${visibleCount === 1 ? "" : "s"}`;
+          emptyState.classList.toggle("show", visibleCount === 0);
+        }
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            activeCategory = button.dataset.filter;
+            filterButtons.forEach((item) => {
+              item.setAttribute("aria-pressed", String(item === button));
+            });
+            updateMarkets();
+          });
+        });
+
+        searchInput.addEventListener("input", updateMarkets);
+        sortSelect.addEventListener("change", updateMarkets);
+
+        document.querySelectorAll("[data-footer-filter]").forEach((link) => {
+          link.addEventListener("click", () => {
+            const filter = link.dataset.footerFilter;
+            const matchingButton = filterButtons.find(
+              (button) => button.dataset.filter === filter,
+            );
+            matchingButton?.click();
+          });
+        });
+
+        document.querySelectorAll(".market-action").forEach((button) => {
+          button.addEventListener("click", () => {
+            document.getElementById("previewAssetName").textContent =
+              button.dataset.marketName;
+            if (previewModal) {
+              previewModal.show();
+            } else {
+              document.getElementById("market-notice").scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+          });
+        });
+
+        document
+          .getElementById("newsletterForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const email = document.getElementById("newsletterEmail");
+            const status = document.getElementById("newsletterStatus");
+            if (!email.validity.valid) {
+              status.textContent = "Enter a valid email address.";
+              email.focus();
+              return;
+            }
+            status.textContent =
+              "Demo form only. No email was stored or sent because a mailing service is not connected.";
+            event.currentTarget.reset();
+          });
+
+        document.getElementById("currentYear").textContent = String(
+          new Date().getFullYear(),
+        );
+
+        updateMarkets();
+      })();
+    </script>
+  </body>
+</html>

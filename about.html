@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d2d20" />
+    <meta
+      name="description"
+      content="Learn about AgricInvest's purpose, principles, and thoughtful approach to agricultural and commodity investing."
+    />
+    <title>About Us | AgricInvest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+    <script src="about.js" defer></script>
+  </head>
+
+  <body class="about-page">
+    <a class="about-skip-link" href="#main-content">Skip to content</a>
+
+    <!-- <header class="main-header" id="header">
+      <div class="container nav-container">
+        <a href="index.html#home" class="brand" aria-label="AgricInvest home">
+          <span class="brand-icon">
+            <i data-lucide="sprout"></i>
+          </span>
+          <span>Agri<span>Invest</span></span>
+        </a>
+
+        <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation">
+          <a href="about.html" aria-current="page">About Us</a>
+          <a href="investment-plans.html">Investment Plan</a>
+          <a href="markets.html">Markets</a>
+          <a href="index.html#faq">FAQs</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="login-btn" href="index.html#home">Login</a>
+          <a class="btn btn-primary nav-cta" href="investment-plans.html">
+            Start Investing
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html#home">Home</a>
+        <a href="about.html" aria-current="page">About Us</a>
+        <a href="investment-plans.html">Investment Plan</a>
+        <a href="markets.html">Markets</a>
+        <a href="index.html#faq">FAQs</a>
+        <a class="btn btn-primary mobile-login" href="index.html#home">Login</a>
+        <a class="btn btn-primary" href="investment-plans.html">
+          Start Investing
+        </a>
+      </nav>
+    </header> -->
+
+    <header class="main-header" id="header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">
+            <i data-lucide="sprout"></i>
+          </span>
+          <span>Agri<span>Invest</span></span>
+        </a>
+
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="about.html">About Us</a>
+          <a href="markets.html">Markets</a>
+          <a href="plans.html">Investment Plan</a>
+          <!-- <a href="index.html#calculator">Investment Calculator</a> -->
+          <a href="index.html#faq">FAQs</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="login-btn" data-open-modal="loginModal">Login</button>
+
+          <button
+            class="btn btn-primary nav-cta"
+            data-open-modal="connectModal"
+          >
+            Start Investing
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div class="mobile-nav" id="mobileNav">
+        <!-- <a href="index.html">Home</a> -->
+        <a href="about.html">About Us</a>
+        <a href="markets.html">Markets</a>
+        <a href="plans.html">Investment Plan</a>
+        <a href="index.html#faq">FAQs</a>
+
+        <button
+          class="btn btn-primary mobile-login"
+          data-open-modal="loginModal"
+        >
+          Login
+        </button>
+
+        <button class="btn btn-primary" data-open-modal="connectModal">
+          Start Investing
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="about-hero" id="top" aria-labelledby="about-title">
+        <div class="about-hero-glow" aria-hidden="true"></div>
+        <div class="container about-hero-grid">
+          <div class="about-hero-copy about-reveal">
+            <p class="about-eyebrow">
+              <span class="about-eyebrow-mark" aria-hidden="true"></span>
+              Rooted in agriculture. Built for a changing world.
+            </p>
+            <h1 id="about-title">
+              A more considered way to
+              <span>connect with agriculture.</span>
+            </h1>
+            <p class="about-hero-intro">
+              AgricInvest is shaped by a simple idea: agricultural markets
+              deserve thoughtful participation, clear information, and a
+              long-term point of view.
+            </p>
+            <div class="about-hero-actions">
+              <a class="btn btn-primary" href="index.html#portfolios">
+                Explore opportunities
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+              <a class="about-text-link" href="#our-story">
+                Get to know us
+                <i data-lucide="arrow-down"></i>
+              </a>
+            </div>
+            <div class="about-hero-note">
+              <i data-lucide="leaf" aria-hidden="true"></i>
+              <span>Grounded in real-world agricultural context</span>
+            </div>
+          </div>
+
+          <div class="about-hero-visual about-reveal">
+            <div class="about-hero-image-wrap">
+              <img
+                class="about-hero-image"
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                alt="Rows of crops following the natural contours of a green farm landscape"
+                fetchpriority="high"
+              />
+              <div class="about-image-caption">
+                <span class="about-caption-icon">
+                  <i data-lucide="sprout" aria-hidden="true"></i>
+                </span>
+                <span>
+                  <strong>Rooted in the real economy</strong>
+                  <small>Agriculture, people, and possibility</small>
+                </span>
+              </div>
+            </div>
+            <div class="about-image-stamp" aria-hidden="true">
+              <i data-lucide="sun"></i>
+              <span>GROW WITH<br />PURPOSE</span>
+            </div>
+          </div>
+        </div>
+        <a
+          class="about-scroll-cue"
+          href="#our-story"
+          aria-label="Scroll to our story"
+        >
+          <span></span>
+        </a>
+      </section>
+
+      <section class="about-section about-story" id="our-story">
+        <div class="container about-story-grid">
+          <div class="about-story-visual about-reveal">
+            <img
+              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+              alt="A colorful harvest of fresh vegetables and leafy produce"
+              loading="lazy"
+            />
+            <div class="about-photo-label">
+              <i data-lucide="map" aria-hidden="true"></i>
+              <span>Connected to the land</span>
+            </div>
+          </div>
+          <div class="about-story-copy about-reveal">
+            <span class="section-eyebrow">WHO WE ARE</span>
+            <h2>Bringing a fresh perspective to an essential industry.</h2>
+            <p>
+              Agriculture is more than a market. It is the work, knowledge, and
+              natural resources behind the things communities rely on every day.
+              Yet the path from an agricultural opportunity to an informed
+              investment decision can feel difficult to navigate.
+            </p>
+            <p>
+              AgricInvest exists to make that journey more understandable. We
+              are building a decentralized digital platform for agricultural and
+              commodity opportunities, with care for the people and systems that
+              make them possible.
+            </p>
+            <p>
+              Our purpose is not to promise outcomes. It is to encourage
+              informed exploration, make room for clearer conversations, and
+              keep real-world context at the center.
+            </p>
+            <a class="about-inline-link" href="#our-approach">
+              How we think about investing
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="about-section about-purpose"
+        aria-labelledby="purpose-title"
+      >
+        <div class="container">
+          <div class="section-heading about-section-heading about-reveal">
+            <span class="section-eyebrow">OUR PURPOSE</span>
+            <h2 id="purpose-title">Principles that keep us grounded.</h2>
+            <p>
+              Our mission, vision, and philosophy guide how we approach
+              agricultural investing and the people it touches.
+            </p>
+          </div>
+
+          <div class="about-purpose-grid">
+            <article class="about-purpose-card about-reveal">
+              <span class="about-card-icon"><i data-lucide="compass"></i></span>
+              <span class="about-card-kicker">OUR MISSION</span>
+              <h3>Make agricultural opportunities easier to understand.</h3>
+              <p>
+                Create a considered digital experience that helps people explore
+                agricultural and commodity markets with context, clarity, and
+                respect for risk.
+              </p>
+            </article>
+            <article
+              class="about-purpose-card about-purpose-card-featured about-reveal"
+            >
+              <span class="about-card-icon"><i data-lucide="eye"></i></span>
+              <span class="about-card-kicker">OUR VISION</span>
+              <h3>A more connected future for agriculture and investment.</h3>
+              <p>
+                We envision a world where technology can support more informed
+                participation in agriculture while keeping real-world
+                livelihoods and long-term resilience in view.
+              </p>
+            </article>
+            <article class="about-purpose-card about-reveal">
+              <span class="about-card-icon"><i data-lucide="scale"></i></span>
+              <span class="about-card-kicker">OUR PHILOSOPHY</span>
+              <h3>
+                Progress should be transparent and responsibly considered.
+              </h3>
+              <p>
+                We value open information, thoughtful decisions, and honest
+                conversations about both the potential and the uncertainty
+                inherent in agricultural markets.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section about-values" id="our-values">
+        <div class="container">
+          <div class="about-values-heading about-reveal">
+            <div>
+              <span class="section-eyebrow">OUR CORE VALUES</span>
+              <h2>The standards behind every step.</h2>
+            </div>
+            <p>
+              Values are most useful when they shape everyday decisions. These
+              are the principles we aim to bring to our work.
+            </p>
+          </div>
+          <div class="about-values-grid">
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">01</span>
+              <i data-lucide="scan-eye" aria-hidden="true"></i>
+              <h3>Transparency</h3>
+              <p>
+                Make information clear and distinguish facts from assumptions.
+              </p>
+            </article>
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">02</span>
+              <i data-lucide="leaf" aria-hidden="true"></i>
+              <h3>Sustainability</h3>
+              <p>
+                Consider the long-term health of land, livelihoods, and
+                communities.
+              </p>
+            </article>
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">03</span>
+              <i data-lucide="lightbulb" aria-hidden="true"></i>
+              <h3>Innovation</h3>
+              <p>
+                Use technology thoughtfully to make complex experiences more
+                accessible.
+              </p>
+            </article>
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">04</span>
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <h3>Integrity</h3>
+              <p>
+                Communicate honestly, including when a question has no simple
+                answer.
+              </p>
+            </article>
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">05</span>
+              <i data-lucide="handshake" aria-hidden="true"></i>
+              <h3>Partnership</h3>
+              <p>
+                Listen to the growers, operators, and communities at the heart
+                of agriculture.
+              </p>
+            </article>
+            <article class="about-value-card about-reveal">
+              <span class="about-value-number">06</span>
+              <i data-lucide="trending-up" aria-hidden="true"></i>
+              <h3>Long-term growth</h3>
+              <p>
+                Favor considered progress over short-term thinking or easy
+                promises.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section about-why">
+        <div class="container about-why-grid">
+          <div class="about-why-copy about-reveal">
+            <span class="section-eyebrow">WHY AGRICINVEST</span>
+            <h2>Technology with its feet on the ground.</h2>
+            <p>
+              Digital tools can help people explore information in new ways.
+              Their value comes from how responsibly they are used and how
+              clearly they serve real needs.
+            </p>
+            <a class="btn btn-primary" href="index.html#portfolios">
+              Discover the platform
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="about-why-list">
+            <article class="about-why-item about-reveal">
+              <span><i data-lucide="blocks" aria-hidden="true"></i></span>
+              <div>
+                <h3>A digital-first perspective</h3>
+                <p>
+                  Explore how modern platform design and ledger-based tools can
+                  support more organized access to agricultural information.
+                </p>
+              </div>
+            </article>
+            <article class="about-why-item about-reveal">
+              <span><i data-lucide="wheat" aria-hidden="true"></i></span>
+              <div>
+                <h3>Real agricultural context</h3>
+                <p>
+                  Keep the underlying crops, commodities, operations, and market
+                  conditions in view—not just the technology.
+                </p>
+              </div>
+            </article>
+            <article class="about-why-item about-reveal">
+              <span><i data-lucide="file-search" aria-hidden="true"></i></span>
+              <div>
+                <h3>Clarity before decisions</h3>
+                <p>
+                  Encourage careful review of available details, risks, and
+                  terms before anyone makes an investment decision.
+                </p>
+              </div>
+            </article>
+            <article class="about-why-item about-reveal">
+              <span
+                ><i data-lucide="heart-handshake" aria-hidden="true"></i
+              ></span>
+              <div>
+                <h3>Responsible by intention</h3>
+                <p>
+                  Consider the wider effects agricultural activity can have on
+                  farmers, workers, and local communities.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-impact" aria-labelledby="impact-title">
+        <div
+          class="about-impact-image"
+          role="img"
+          aria-label="Sunlight over a cultivated agricultural field"
+        ></div>
+        <div class="about-impact-shade"></div>
+        <div class="container about-impact-content about-reveal">
+          <span class="about-eyebrow about-eyebrow-light">OUR IMPACT</span>
+          <h2 id="impact-title">
+            Agriculture is built by people, not just products.
+          </h2>
+          <p>
+            A more thoughtful agricultural future means paying attention to
+            growers, workers, local communities, natural resources, and the
+            realities of producing the food and materials people depend on.
+          </p>
+          <p>
+            We aim to keep those connections visible as we shape our platform
+            and the conversations around it. Meaningful progress takes
+            collaboration, care, and time.
+          </p>
+          <a class="btn btn-outline-light" href="#our-values">
+            The values we work by
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-section about-approach" id="our-approach">
+        <div class="container">
+          <div class="section-heading about-section-heading about-reveal">
+            <span class="section-eyebrow">OUR APPROACH</span>
+            <h2 id="approach-title">
+              Take the time to make an informed choice.
+            </h2>
+            <p>
+              A simple framework for exploring an opportunity—without skipping
+              the questions that matter.
+            </p>
+          </div>
+          <ol class="about-steps">
+            <li class="about-step about-reveal">
+              <span class="about-step-index">01</span>
+              <span class="about-step-icon"><i data-lucide="search"></i></span>
+              <h3>Explore</h3>
+              <p>
+                Learn about the market, asset, and context behind an
+                agricultural opportunity.
+              </p>
+            </li>
+            <li class="about-step about-reveal">
+              <span class="about-step-index">02</span>
+              <span class="about-step-icon"
+                ><i data-lucide="book-open-check"></i
+              ></span>
+              <h3>Understand</h3>
+              <p>
+                Review available information, terms, risks, and what remains
+                uncertain.
+              </p>
+            </li>
+            <li class="about-step about-reveal">
+              <span class="about-step-index">03</span>
+              <span class="about-step-icon"
+                ><i data-lucide="sliders-horizontal"></i
+              ></span>
+              <h3>Consider</h3>
+              <p>
+                Decide whether an opportunity aligns with your own goals,
+                circumstances, and risk tolerance.
+              </p>
+            </li>
+            <li class="about-step about-reveal">
+              <span class="about-step-index">04</span>
+              <span class="about-step-icon"
+                ><i data-lucide="activity"></i
+              ></span>
+              <h3>Stay engaged</h3>
+              <p>
+                Keep informed, revisit your assumptions, and seek qualified
+                advice when you need it.
+              </p>
+            </li>
+          </ol>
+          <!-- <p class="about-steps-note">
+            Agricultural and commodity investments involve risk. This overview
+            is educational and is not investment advice.
+          </p> -->
+        </div>
+      </section>
+
+      <!-- <section class="about-final-cta">
+        <div class="container about-final-cta-inner about-reveal">
+          <div>
+            <span class="about-eyebrow about-eyebrow-light"
+              >LET'S GROW WITH PURPOSE</span
+            >
+            <h2>Curious about what comes next?</h2>
+            <p>
+              Explore the platform or get in touch to continue the conversation.
+            </p>
+          </div>
+          <div class="about-final-cta-actions">
+            <a class="btn btn-light" href="index.html#portfolios">
+              Explore opportunities
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-outline-light" href="index.html#faq">
+              Contact the team
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section> -->
+    </main>
+
+    <!-- <section class="newsletter-section">
+      <div class="container newsletter-container">
+        <div>
+          <span class="section-eyebrow">STAY INFORMED</span>
+          <h2>Grow Your Knowledge With AgricInvest</h2>
+          <p>
+            Get updates about agricultural markets, technology and platform
+            developments.
+          </p>
+        </div>
+
+        <form id="newsletterForm" class="newsletter-form">
+          <label class="about-visually-hidden" for="newsletterEmail">
+            Email address
+          </label>
+          <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required
+          />
+
+          <button type="submit" class="btn btn-primary">
+            Subscribe
+            <i data-lucide="arrow-right"></i>
+          </button>
+
+          <small
+            id="newsletterMessage"
+            role="status"
+            aria-live="polite"
+          ></small>
+        </form>
+
+      </div>
+    </section> -->
+
+
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="#home" class="brand footer-brand">
+              <span class="brand-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <span>Agric<span>Invest</span></span>
+            </a>
+
+            <p>
+              Connecting agricultural opportunities with modern digital finance.
+              Discover a smarter perspective on agricultural asset markets.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Platform</h4>
+
+            <a href="markets.html">Markets</a>
+            <a href="plans.html">Asset Portfolios</a>
+            <a href="#calculator">ROI Calculator</a>
+            <!-- <a href="markets.html">Markets</a> -->
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+
+            <a href="about.html">How It Works</a>
+            <a href="plans.html">Investment Plan</a>
+            <a href="#faq">Help Center</a>
+            <!-- <a href="#faq">Risk Information</a> -->
+            <a href="#faq">Contact Support</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+
+            <a href="#" class="legal-link" data-legal="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="legal-link" data-legal="Terms of Service"
+              >Terms of Service</a
+            >
+            <a href="#" class="legal-link" data-legal="Risk Disclosure"
+              >Risk Disclosure</a
+            >
+            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              >Cookie Policy</a
+            > -->
+          </div>
+        </div>
+
+        <!-- <div class="footer-disclaimer">
+          <strong>Important Risk Disclosure</strong>
+
+          <p>
+            Agricultural investments involve substantial risks, including loss
+            of capital, commodity price volatility, weather-related events,
+            operational risks, regulatory changes and liquidity limitations.
+            Past performance does not guarantee future results. Any percentages,
+            projections, asset valuations, testimonials, market prices and
+            activity shown on this demonstration website are illustrative and do
+            not represent actual investment products, guaranteed returns or
+            verified transactions. Do not invest without independently reviewing
+            the relevant offering documents and risks.
+          </p>
+        </div> -->
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgricInvest. All rights reserved.
+          </p>
+
+          <span>Built for a sustainable agricultural future.</span>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

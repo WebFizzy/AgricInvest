@@ -1,0 +1,2128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d2d20" />
+
+    <title>AgricInvest | Invest in Agriculture. Grow Your Future.</title>
+
+    <meta
+      name="description"
+      content="Explore agricultural asset portfolios, farmland investments, livestock opportunities and sustainable commodity markets with AgricInvest."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ================= PRELOADER ================= -->
+
+    <div id="preloader">
+      <div class="loader-logo">
+        <span class="brand-icon"><i data-lucide="sprout"></i></span>
+        <span>Agri<span>Invest</span></span>
+      </div>
+      <div class="loader-line"></div>
+    </div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header" id="header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">
+            <i data-lucide="sprout"></i>
+          </span>
+          <span>Agri<span>Invest</span></span>
+        </a>
+
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="about.html">About Us</a>
+          <a href="markets.html">Markets</a>
+          <a href="plan.html">Investment Plan</a>
+          <!-- <a href="#calculator">Investment Calculator</a> -->
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="login-btn" data-open-modal="loginModal">Login</button>
+
+          <button
+            class="btn btn-primary nav-cta"
+            data-open-modal="connectModal"
+          >
+            Start Investing
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="markets.html">Markets</a>
+        <a href="plan.html">Investment Plan</a>
+        <a href="faq.html">FAQs</a>
+
+        <button
+          class="btn btn-primary mobile-login"
+          data-open-modal="loginModal"
+        >
+          Login
+        </button>
+
+        <button class="btn btn-primary" data-open-modal="connectModal">
+          Start Investing
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= MARKET TICKER ================= -->
+
+    <section class="ticker-section">
+      <div class="ticker-label">
+        <span class="live-dot"></span>
+        MARKET WATCH
+      </div>
+
+      <div class="ticker-window">
+        <div class="ticker-track" id="tickerTrack">
+          <div class="ticker-item">
+            <span class="ticker-name">CORN</span>
+            <strong>$452.80</strong>
+            <span class="market-up">+1.24%</span>
+          </div>
+
+          <div class="ticker-item">
+            <span class="ticker-name">WHEAT</span>
+            <strong>$618.45</strong>
+            <span class="market-up">+0.86%</span>
+          </div>
+
+          <div class="ticker-item">
+            <span class="ticker-name">SOYBEANS</span>
+            <strong>$1,024.60</strong>
+            <span class="market-down">-0.32%</span>
+          </div>
+
+          <div class="ticker-item">
+            <span class="ticker-name">COFFEE</span>
+            <strong>$3.84</strong>
+            <span class="market-up">+2.18%</span>
+          </div>
+
+          <div class="ticker-item">
+            <span class="ticker-name">CATTLE</span>
+            <strong>$184.25</strong>
+            <span class="market-up">+0.73%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <span class="ticker-demo">DEMO DATA</span> -->
+    </section>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero-section" id="home">
+      <div class="hero-background"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="live-dot"></span>
+            THE FUTURE OF AGRICULTURAL INVESTING
+          </div>
+
+          <h1>
+            Invest in
+            <span>Agriculture.</span>
+            Grow Your Future.
+          </h1>
+
+          <p class="hero-description">
+            Access institutional-grade agricultural opportunities through a
+            smarter, more transparent investment platform. Own a share of
+            tomorrow's food economy.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="portfolios.html" class="btn btn-primary">
+              Explore Opportunities
+              <i data-lucide="arrow-up-right"></i>
+            </a>
+
+            <button class="btn btn-outline-light" data-open-modal="demoModal">
+              <i data-lucide="play-circle"></i>
+              Watch Platform Demo
+            </button>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-item">
+              <i data-lucide="shield-check"></i>
+              <span>Asset-backed opportunities</span>
+            </div>
+
+            <div class="trust-item">
+              <i data-lucide="globe"></i>
+              <span>Global agricultural markets</span>
+            </div>
+
+            <div class="trust-item">
+              <i data-lucide="lock-keyhole"></i>
+              <span>Transparent reporting</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero investment card -->
+
+        <div class="hero-visual">
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
+              alt="Expansive green agricultural farmland"
+            />
+
+            <div class="image-overlay"></div>
+
+            <div class="floating-tag tag-top">
+              <span class="tag-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <div>
+                <strong>Real-world assets</strong>
+                <small>Agricultural opportunities</small>
+              </div>
+            </div>
+
+            <div class="floating-tag tag-bottom">
+              <div class="tag-icon">
+                <i data-lucide="chart-no-axes-combined"></i>
+              </div>
+              <div>
+                <strong>Portfolio insights</strong>
+                <small>Illustrative projections</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-calculator-card">
+            <div class="card-heading">
+              <div>
+                <span class="small-label">INVESTMENT SIMULATOR</span>
+                <h3>Explore Your Potential</h3>
+              </div>
+
+              <span class="calculator-icon">
+                <i data-lucide="calculator"></i>
+              </span>
+            </div>
+
+            <div class="simulator-input">
+              <label for="heroAmount">Investment amount</label>
+
+              <div class="amount-input">
+                <span>$</span>
+                <input type="number" id="heroAmount" value="5000" min="0" />
+                <span class="currency">USD</span>
+              </div>
+            </div>
+
+            <div class="simulator-info">
+              <span>Illustrative annual rate</span>
+              <strong>8%</strong>
+            </div>
+
+            <div class="simulator-result">
+              <span>Illustrative annual projection</span>
+              <h2 id="heroReturn">$5,400.00</h2>
+              <small>Before fees, taxes and market changes</small>
+            </div>
+
+            <a href="#calculator" class="simulator-link">
+              Calculate your returns
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero metrics -->
+
+      <div class="container hero-metrics">
+        <div class="metric-item">
+          <i data-lucide="shield-check"></i>
+          <div>
+            <strong>Asset Focused</strong>
+            <span>Real-world opportunities</span>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <i data-lucide="chart-no-axes-combined"></i>
+          <div>
+            <strong>Transparent</strong>
+            <span>Portfolio reporting</span>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <i data-lucide="globe"></i>
+          <div>
+            <strong>Global Access</strong>
+            <span>Multiple market sectors</span>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <i data-lucide="leaf"></i>
+          <div>
+            <strong>Sustainable Focus</strong>
+            <span>Supporting food systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTRODUCTION ================= -->
+
+    <section class="section intro-section" id="about">
+      <div class="container intro-grid">
+        <div class="intro-image-wrapper">
+          <div class="intro-main-image">
+            <img
+              src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=85"
+              alt="Farmer working in an agricultural field"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="intro-small-image">
+            <img
+              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
+              alt="Agricultural crops"
+              loading="lazy"
+            />
+            <span><i data-lucide="sprout"></i></span>
+          </div>
+
+          <div class="intro-stat-card">
+            <i data-lucide="tractor"></i>
+            <strong>Real-world</strong>
+            <span>Agricultural assets</span>
+          </div>
+        </div>
+
+        <div class="intro-content">
+          <span class="section-eyebrow">A SMARTER WAY TO INVEST</span>
+
+          <h2>
+            Why You Should Invest With
+            <span>AgricInvest</span>
+          </h2>
+
+          <p>
+            Agriculture is more than an essential industry. It is a foundation
+            of global economic growth. AgricInvest brings agricultural
+            opportunities and modern financial technology together in one
+            accessible platform.
+          </p>
+
+          <div class="check-list">
+            <div>
+              <i data-lucide="check-circle"></i>
+              <span>Access diversified agricultural asset opportunities.</span>
+            </div>
+
+            <div>
+              <i data-lucide="check-circle"></i>
+              <span>Explore transparent portfolio information.</span>
+            </div>
+
+            <div>
+              <i data-lucide="check-circle"></i>
+              <span>Monitor investment allocations and progress.</span>
+            </div>
+
+            <div>
+              <i data-lucide="check-circle"></i>
+              <span>Discover agriculture-focused investment strategies.</span>
+            </div>
+          </div>
+
+          <a href="markets.html" class="btn btn-primary">
+            Discover Opportunities
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section class="section how-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">SIMPLE. TRANSPARENT. ACCESSIBLE.</span>
+
+          <h2>How To Invest With AgricInvest</h2>
+
+          <p>
+            Explore agricultural opportunities through a straightforward
+            investment experience.
+          </p>
+        </div>
+
+        <div class="how-grid">
+          <div class="how-image">
+            <img
+              src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=85"
+              alt="Fresh agricultural produce"
+              loading="lazy"
+            />
+            <span class="how-number">01</span>
+          </div>
+
+          <div class="how-content">
+            <div class="how-step">
+              <span>STEP 01</span>
+              <i data-lucide="user-round-plus"></i>
+            </div>
+
+            <h3>Create Your Account</h3>
+
+            <p>
+              Register for an AgricInvest account and complete any required
+              identity verification before accessing eligible investment
+              opportunities.
+            </p>
+
+            <ul>
+              <li>- Simple registration process</li>
+              <li>- Account security controls</li>
+              <li>- Investor profile management</li>
+            </ul>
+          </div>
+
+          <div class="how-image">
+            <img
+              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
+              alt="Fresh produce market"
+              loading="lazy"
+            />
+            <span class="how-number">02</span>
+          </div>
+
+          <div class="how-content">
+            <div class="how-step">
+              <span>STEP 02</span>
+              <i data-lucide="chart-pie"></i>
+            </div>
+
+            <h3>Choose Your Portfolio</h3>
+
+            <p>
+              Review available agricultural asset categories, understand their
+              associated risks and select an opportunity that matches your
+              investment objectives.
+            </p>
+
+            <ul>
+              <li>- Explore asset categories</li>
+              <li>- Review investment terms</li>
+              <li>- Compare portfolio details</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKETS ================= -->
+
+    <section class="section markets-section" id="markets">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">EXPLORE GLOBAL OPPORTUNITIES</span>
+
+          <h2>International Agricultural Markets</h2>
+
+          <p>
+            Discover agricultural sectors that play an important role in feeding
+            and powering the global economy.
+          </p>
+        </div>
+
+        <div class="markets-grid">
+          <article class="market-card">
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
+              alt="Farmland"
+              loading="lazy"
+            />
+            <div class="market-card-content">
+              <span>01 / LAND</span>
+              <h3>Farmland</h3>
+              <p>
+                Explore productive agricultural land and farmland-related
+                opportunities.
+              </p>
+              <a href="markets.html"
+                >Explore Market <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="market-card">
+            <img
+              src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&w=700&q=80"
+              alt="Livestock"
+              loading="lazy"
+            />
+            <div class="market-card-content">
+              <span>02 / LIVESTOCK</span>
+              <h3>Livestock</h3>
+              <p>
+                Discover opportunities connected to animal agriculture and
+                production.
+              </p>
+              <a href="markets.html"
+                >Explore Market <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="market-card">
+            <img
+              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
+              alt="Greenhouse farming"
+              loading="lazy"
+            />
+            <div class="market-card-content">
+              <span>03 / AGRI-TECH</span>
+              <h3>Greenhouses</h3>
+              <p>
+                Explore controlled-environment agriculture and modern farming
+                technology.
+              </p>
+              <a href="markets.html"
+                >Explore Market <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="market-card">
+            <img
+              src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80"
+              alt="Agricultural crops"
+              loading="lazy"
+            />
+            <div class="market-card-content">
+              <span>04 / COMMODITIES</span>
+              <h3>Crop Production</h3>
+              <p>
+                Discover opportunities across essential global crop production
+                sectors.
+              </p>
+              <a href="markets.html"
+                >Explore Market <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VALUE PROPOSITION ================= -->
+
+    <section class="section features-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">THE AgricInvest ADVANTAGE</span>
+
+          <h2>A Better Perspective On Agricultural Investing</h2>
+
+          <p>
+            Technology, transparency and agricultural expertise working
+            together.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-lucide="chart-no-axes-combined"></i>
+            </div>
+            <h3>Diversified Opportunities</h3>
+            <p>
+              Explore multiple agricultural sectors and asset categories through
+              one platform.
+            </p>
+            <a href="markets.html"
+              >Learn more <i data-lucide="arrow-up-right"></i
+            ></a>
+          </div>
+
+          <!-- <div class="feature-card">
+            <div class="feature-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3>Risk Awareness</h3>
+            <p>
+              Access relevant asset information, risk disclosures and portfolio
+              documentation.
+            </p>
+            <a href="#faq">Learn more <i data-lucide="arrow-up-right"></i></a>
+          </div> -->
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-lucide="satellite"></i>
+            </div>
+            <h3>Smart Monitoring</h3>
+            <p>
+              Discover how satellite imagery and agricultural data can support
+              asset monitoring.
+            </p>
+            <a href="about.html">Learn more <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-lucide="blocks"></i>
+            </div>
+            <h3>Digital Infrastructure</h3>
+            <p>
+              Explore a modern platform concept designed around transparent
+              digital asset records.
+            </p>
+            <a href="about.html">Learn more <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PORTFOLIOS ================= -->
+
+    <!-- <section class="section portfolio-section" id="portfolios">
+      <div class="container">
+        <div class="section-heading portfolio-heading">
+          <span class="section-eyebrow">DISCOVER YOUR NEXT OPPORTUNITY</span>
+
+          <h2>Physical Agricultural Assets</h2>
+
+          <p>
+            Browse illustrative agricultural portfolio opportunities across
+            different production categories.
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">
+            All Assets
+          </button>
+          <button class="filter-btn" data-filter="farmland">Farmland</button>
+          <button class="filter-btn" data-filter="livestock">Livestock</button>
+          <button class="filter-btn" data-filter="crops">
+            Crop Production
+          </button>
+          <button class="filter-btn" data-filter="technology">Agri-Tech</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+
+          <article class="portfolio-card" data-category="farmland">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
+                alt="Iowa farmland"
+                loading="lazy"
+              />
+              <span class="location-badge">
+                <i data-lucide="map-pin"></i> Iowa, USA
+              </span>
+              <span class="asset-badge">Farmland</span>
+            </div>
+
+            <div class="portfolio-body">
+              <div class="portfolio-top">
+                <span>AGRICULTURAL LAND</span>
+                <span class="verified"
+                  ><i data-lucide="badge-check"></i> Demo</span
+                >
+              </div>
+
+              <h3>Premium Corn Farmland</h3>
+
+              <p>
+                Illustrative farmland portfolio focused on commercial crop
+                production.
+              </p>
+
+              <div class="portfolio-stats">
+                <div>
+                  <span>Target rate</span>
+                  <strong>8% p.a.</strong>
+                </div>
+                <div>
+                  <span>Term</span>
+                  <strong>12 Months</strong>
+                </div>
+              </div>
+
+              <div class="progress-info">
+                <span>Funding progress</span>
+                <strong>72%</strong>
+              </div>
+
+              <div class="progress-bar">
+                <span style="width: 72%"></span>
+              </div>
+
+              <div class="portfolio-bottom">
+                <div>
+                  <span>Illustrative minimum</span>
+                  <strong>$500</strong>
+                </div>
+
+                <button
+                  class="btn btn-primary invest-btn"
+                  data-invest="Premium Corn Farmland"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="livestock">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=700&q=80"
+                alt="Cattle livestock"
+                loading="lazy"
+              />
+              <span class="location-badge">
+                <i data-lucide="map-pin"></i> Texas, USA
+              </span>
+              <span class="asset-badge">Livestock</span>
+            </div>
+
+            <div class="portfolio-body">
+              <div class="portfolio-top">
+                <span>ANIMAL AGRICULTURE</span>
+                <span class="verified"
+                  ><i data-lucide="badge-check"></i> Demo</span
+                >
+              </div>
+
+              <h3>Premium Cattle Portfolio</h3>
+
+              <p>
+                Illustrative livestock opportunity focused on cattle production.
+              </p>
+
+              <div class="portfolio-stats">
+                <div>
+                  <span>Target rate</span>
+                  <strong>10% p.a.</strong>
+                </div>
+                <div>
+                  <span>Term</span>
+                  <strong>18 Months</strong>
+                </div>
+              </div>
+
+              <div class="progress-info">
+                <span>Funding progress</span>
+                <strong>58%</strong>
+              </div>
+
+              <div class="progress-bar">
+                <span style="width: 58%"></span>
+              </div>
+
+              <div class="portfolio-bottom">
+                <div>
+                  <span>Illustrative minimum</span>
+                  <strong>$1,000</strong>
+                </div>
+
+                <button
+                  class="btn btn-primary invest-btn"
+                  data-invest="Premium Cattle Portfolio"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="portfolio-card" data-category="technology">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
+                alt="Modern greenhouse"
+                loading="lazy"
+              />
+              <span class="location-badge">
+                <i data-lucide="map-pin"></i> Netherlands
+              </span>
+              <span class="asset-badge">Agri-Tech</span>
+            </div>
+
+            <div class="portfolio-body">
+              <div class="portfolio-top">
+                <span>CONTROLLED FARMING</span>
+                <span class="verified"
+                  ><i data-lucide="badge-check"></i> Demo</span
+                >
+              </div>
+
+              <h3>Smart Hydroponic Farm</h3>
+
+              <p>
+                Illustrative investment concept based on advanced greenhouse
+                production.
+              </p>
+
+              <div class="portfolio-stats">
+                <div>
+                  <span>Target rate</span>
+                  <strong>12% p.a.</strong>
+                </div>
+                <div>
+                  <span>Term</span>
+                  <strong>24 Months</strong>
+                </div>
+              </div>
+
+              <div class="progress-info">
+                <span>Funding progress</span>
+                <strong>83%</strong>
+              </div>
+
+              <div class="progress-bar">
+                <span style="width: 83%"></span>
+              </div>
+
+              <div class="portfolio-bottom">
+                <div>
+                  <span>Illustrative minimum</span>
+                  <strong>$750</strong>
+                </div>
+
+                <button
+                  class="btn btn-primary invest-btn"
+                  data-invest="Smart Hydroponic Farm"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="crops">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80"
+                alt="Wheat field"
+                loading="lazy"
+              />
+              <span class="location-badge">
+                <i data-lucide="map-pin"></i> Canada
+              </span>
+              <span class="asset-badge">Crop Production</span>
+            </div>
+
+            <div class="portfolio-body">
+              <div class="portfolio-top">
+                <span>GRAIN PRODUCTION</span>
+                <span class="verified"
+                  ><i data-lucide="badge-check"></i> Demo</span
+                >
+              </div>
+
+              <h3>Wheat Harvest Portfolio</h3>
+
+              <p>
+                Illustrative opportunity associated with large-scale grain
+                production.
+              </p>
+
+              <div class="portfolio-stats">
+                <div>
+                  <span>Target rate</span>
+                  <strong>9% p.a.</strong>
+                </div>
+                <div>
+                  <span>Term</span>
+                  <strong>12 Months</strong>
+                </div>
+              </div>
+
+              <div class="progress-info">
+                <span>Funding progress</span>
+                <strong>65%</strong>
+              </div>
+
+              <div class="progress-bar">
+                <span style="width: 65%"></span>
+              </div>
+
+              <div class="portfolio-bottom">
+                <div>
+                  <span>Illustrative minimum</span>
+                  <strong>$500</strong>
+                </div>
+
+                <button
+                  class="btn btn-primary invest-btn"
+                  data-invest="Wheat Harvest Portfolio"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="portfolio-disclaimer">
+          <i data-lucide="info"></i>
+          All portfolio names, target rates, funding percentages and terms shown
+          above are illustrative examples, not live investment offers.
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ================= DARK CTA BANNER ================= -->
+
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-banner-overlay"></div>
+
+          <div class="cta-banner-content">
+            <span class="section-eyebrow">GROW WITH PURPOSE</span>
+
+            <h2>
+              Together We
+              <span>Make It Happen.</span>
+            </h2>
+
+            <p>
+              Discover a smarter approach to agricultural asset opportunities
+              and become part of the evolving global food economy.
+            </p>
+
+            <a href="#portfolios" class="btn btn-primary">
+              Explore Opportunities
+              <i data-lucide="arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INVESTMENT PLANS ================= -->
+
+    <section class="section plans-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">FLEXIBLE INVESTMENT STRATEGIES</span>
+
+          <h2>Choose A Plan That Fits Your Goals</h2>
+
+          <p>
+            Compare illustrative investment levels and explore different
+            agricultural portfolio strategies.
+          </p>
+        </div>
+
+        <div class="plans-grid">
+          <article class="plan-card">
+            <div class="plan-icon">
+              <i data-lucide="sprout"></i>
+            </div>
+
+            <span class="plan-label">STARTER</span>
+
+            <h3>Seed Plan</h3>
+
+            <p class="plan-description">
+              For exploring agricultural investment opportunities.
+            </p>
+
+            <div class="plan-amount">
+              <strong>$300</strong>
+              <span>Illustrative minimum</span>
+            </div>
+
+            <div class="plan-rate">
+              <strong>1.5%</strong>
+              <span>Illustrative annual target</span>
+            </div>
+
+            <ul>
+              <li><i data-lucide="check"></i> Entry-level portfolio access</li>
+              <li><i data-lucide="check"></i> Portfolio overview</li>
+              <li><i data-lucide="check"></i> Investment dashboard concept</li>
+              <li><i data-lucide="check"></i> Standard reporting</li>
+            </ul>
+
+            <button
+              class="btn btn-outline-dark plan-select"
+              data-plan="Seed Plan"
+            >
+              Explore Plan
+            </button>
+          </article>
+
+          <article class="plan-card featured-plan">
+            <span class="popular-badge">POPULAR CHOICE</span>
+
+            <div class="plan-icon">
+              <i data-lucide="wheat"></i>
+            </div>
+
+            <span class="plan-label">GROWTH</span>
+
+            <h3>Harvest Plan</h3>
+
+            <p class="plan-description">
+              For investors exploring broader agricultural exposure.
+            </p>
+
+            <div class="plan-amount">
+              <strong>$3,000</strong>
+              <span>Illustrative minimum</span>
+            </div>
+
+            <div class="plan-rate">
+              <strong>2.5%</strong>
+              <span>Illustrative annual target</span>
+            </div>
+
+            <ul>
+              <li><i data-lucide="check"></i> Expanded portfolio access</li>
+              <li><i data-lucide="check"></i> Detailed portfolio insights</li>
+              <li><i data-lucide="check"></i> Performance reporting</li>
+              <li><i data-lucide="check"></i> Priority support concept</li>
+            </ul>
+
+            <button
+              class="btn btn-primary plan-select"
+              data-plan="Harvest Plan"
+            >
+              Explore Plan
+            </button>
+          </article>
+
+          <article class="plan-card">
+            <div class="plan-icon">
+              <i data-lucide="trees"></i>
+            </div>
+
+            <span class="plan-label">ADVANCED</span>
+
+            <h3>Sovereign Plan</h3>
+
+            <p class="plan-description">
+              For exploring larger agricultural portfolio allocations.
+            </p>
+
+            <div class="plan-amount">
+              <strong>$10,000</strong>
+              <span>Illustrative minimum</span>
+            </div>
+
+            <div class="plan-rate">
+              <strong>3.8%</strong>
+              <span>Illustrative annual target</span>
+            </div>
+
+            <ul>
+              <li><i data-lucide="check"></i> Advanced portfolio insights</li>
+              <li><i data-lucide="check"></i> Expanded asset categories</li>
+              <li><i data-lucide="check"></i> Detailed reporting concept</li>
+              <li><i data-lucide="check"></i> Dedicated support concept</li>
+            </ul>
+
+            <button
+              class="btn btn-outline-dark plan-select"
+              data-plan="Sovereign Plan"
+            >
+              Explore Plan
+            </button>
+          </article>
+        </div>
+
+        <!-- <p class="plan-disclaimer">
+          These plan examples and percentages are demonstration content only.
+          They do not represent actual available products or promised returns.
+        </p> -->
+      </div>
+    </section>
+
+    <!-- ================= ROI CALCULATOR ================= -->
+
+    <section class="section calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">PLAN YOUR INVESTMENT</span>
+
+          <h2>Investment Growth Calculator</h2>
+
+          <p>
+            Explore hypothetical investment growth using your preferred amount,
+            annual rate and investment period.
+          </p>
+        </div>
+
+        <div class="calculator-wrapper">
+          <div class="calculator-controls">
+            <div class="calculator-field">
+              <label for="investmentAmount">Investment amount</label>
+
+              <div class="calculator-amount-input">
+                <span>$</span>
+                <input
+                  type="number"
+                  id="investmentAmount"
+                  value="5000"
+                  min="100"
+                  max="10000000"
+                />
+              </div>
+
+              <input
+                type="range"
+                id="investmentSlider"
+                min="100"
+                max="50000"
+                step="100"
+                value="5000"
+              />
+
+              <div class="range-labels">
+                <span>$100</span>
+                <span>$50,000</span>
+              </div>
+            </div>
+
+            <div class="calculator-field">
+              <label for="annualRate">Illustrative annual rate</label>
+
+              <div class="rate-input">
+                <input
+                  type="number"
+                  id="annualRate"
+                  value="8"
+                  min="0"
+                  max="100"
+                  step="0.5"
+                />
+                <span>%</span>
+              </div>
+
+              <div class="rate-options">
+                <button class="rate-btn active" data-rate="6">6%</button>
+                <button class="rate-btn" data-rate="8">8%</button>
+                <button class="rate-btn" data-rate="10">10%</button>
+                <button class="rate-btn" data-rate="12">12%</button>
+              </div>
+            </div>
+
+            <div class="calculator-field">
+              <label for="investmentDuration">Investment duration</label>
+
+              <select id="investmentDuration">
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+                <option value="12" selected>12 Months</option>
+                <option value="18">18 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+              </select>
+            </div>
+
+            <div class="calculator-note">
+              <i data-lucide="info"></i>
+              This calculator uses hypothetical simple interest. Actual
+              investment performance can be lower or negative.
+            </div>
+          </div>
+
+          <div class="calculator-results">
+            <span class="small-label">YOUR ILLUSTRATIVE PROJECTION</span>
+
+            <h3>Potential Portfolio Value</h3>
+
+            <div class="projected-value" id="projectedValue">$5,400.00</div>
+
+            <div class="results-divider"></div>
+
+            <div class="result-row">
+              <span>Initial investment</span>
+              <strong id="initialInvestment">$5,000.00</strong>
+            </div>
+
+            <div class="result-row">
+              <span>Estimated growth</span>
+              <strong class="positive-value" id="estimatedProfit"
+                >+$400.00</strong
+              >
+            </div>
+
+            <div class="result-row">
+              <span>Investment period</span>
+              <strong id="periodResult">12 Months</strong>
+            </div>
+
+            <div class="result-row">
+              <span>Annual rate</span>
+              <strong id="rateResult">8%</strong>
+            </div>
+
+            <div class="result-visual">
+              <div class="result-visual-bar">
+                <span id="principalBar"></span>
+                <span id="growthBar"></span>
+              </div>
+              <div class="visual-legend">
+                <span><i></i> Initial capital</span>
+                <span><i></i> Illustrative growth</span>
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary calculator-cta"
+              data-open-modal="connectModal"
+            >
+              Get Started
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+
+    <section class="section projects-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">AGRICULTURE IN ACTION</span>
+
+          <h2>Featured Agricultural Projects</h2>
+
+          <p>
+            Explore examples of agricultural production and sustainable farming
+            activities.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=700&q=85"
+              alt="Sunset over farmland"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>FIELD PRODUCTION</span>
+              <h3>Sustainable Grain Farming</h3>
+              <p>
+                Modern farming methods supporting agricultural productivity.
+              </p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85"
+              alt="Agricultural spices and produce"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>COMMODITY PRODUCTION</span>
+              <h3>Specialty Crop Production</h3>
+              <p>Exploring the role of high-value agricultural commodities.</p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=700&q=85"
+              alt="Vegetable farm"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>FOOD PRODUCTION</span>
+              <h3>Modern Vegetable Farming</h3>
+              <p>Innovative growing methods for essential food production.</p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=85"
+              alt="Green agricultural landscape"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>LAND DEVELOPMENT</span>
+              <h3>Regenerative Agriculture</h3>
+              <p>Exploring agricultural practices that support soil health.</p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1523742817438-0b4f8f0e7a15?auto=format&fit=crop&w=700&q=85"
+              alt="Agricultural plantation"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>PLANTATION</span>
+              <h3>Commercial Crop Plantation</h3>
+              <p>Discover the importance of structured crop production.</p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85"
+              alt="Expansive agricultural landscape"
+              loading="lazy"
+            />
+            <div class="project-body">
+              <span>FARMLAND</span>
+              <h3>Productive Agricultural Land</h3>
+              <p>Explore farmland as part of a diversified asset strategy.</p>
+              <a href="#portfolios"
+                >Explore Project <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEO SECTION ================= -->
+
+    <section class="section video-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">SEE AGRICULTURE DIFFERENTLY</span>
+          <h2>See AgricInvest In Action</h2>
+          <p>
+            Discover our platform concept and agricultural investment approach.
+          </p>
+        </div>
+
+        <div class="video-container">
+          <div class="video-placeholder" id="videoPlaceholder">
+            <img
+              src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1400&q=85"
+              alt="Agricultural landscape"
+              loading="lazy"
+            />
+
+            <div class="video-overlay"></div>
+
+            <button
+              class="video-play-btn"
+              id="videoPlayBtn"
+              aria-label="Play demo"
+            >
+              <i data-lucide="play"></i>
+            </button>
+
+            <span class="video-label">PLATFORM OVERVIEW</span>
+          </div>
+
+          <div class="video-controls">
+            <span><i data-lucide="video"></i> AgricInvest Introduction</span>
+            <button data-open-modal="demoModal">Watch Overview</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REAL FARMERS ================= -->
+
+    <section class="section impact-section">
+      <div class="container impact-grid">
+        <div class="impact-content">
+          <span class="section-eyebrow">OUR VISION</span>
+
+          <h2>
+            Real Farmers.
+            <span>Real Projects.</span>
+            Real Impact.
+          </h2>
+
+          <p>
+            We believe agricultural development and financial innovation can
+            work together to support a more resilient global food system.
+          </p>
+
+          <div class="impact-points">
+            <div>
+              <i data-lucide="leaf"></i>
+              <span>Supporting sustainable farming initiatives</span>
+            </div>
+
+            <div>
+              <i data-lucide="users"></i>
+              <span>Connecting investors with agricultural opportunities</span>
+            </div>
+
+            <div>
+              <i data-lucide="globe"></i>
+              <span>Promoting transparent agricultural information</span>
+            </div>
+          </div>
+
+          <a href="#about" class="btn btn-primary">
+            Learn About Us
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="impact-image">
+          <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
+            alt="Beautiful agricultural farmland"
+            loading="lazy"
+          />
+
+          <div class="impact-image-tag">
+            <i data-lucide="sprout"></i>
+            <div>
+              <strong>Growing Together</strong>
+              <span>Building agricultural opportunities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PWA BANNER ================= -->
+
+    <section class="section app-banner-section">
+      <div class="container">
+        <div class="app-banner">
+          <div class="app-banner-content">
+            <span class="section-eyebrow">INVESTMENT ACCESS, SIMPLIFIED</span>
+
+            <h2>Manage Your Investment On The Go</h2>
+
+            <p>
+              Access your AgricInvest account, review your portfolio and stay
+              informed wherever you are.
+            </p>
+
+            <div class="app-buttons">
+              <button class="app-store-btn" data-open-modal="appModal">
+                <i data-lucide="smartphone"></i>
+                <span>
+                  <small>EXPLORE OUR</small>
+                  <strong>Mobile Experience</strong>
+                </span>
+              </button>
+
+              <button class="app-store-btn" data-open-modal="appModal">
+                <i data-lucide="monitor-smartphone"></i>
+                <span>
+                  <small>ACCESS YOUR</small>
+                  <strong>Web Dashboard</strong>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="app-banner-image">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85"
+              alt="Digital technology"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow">COMMUNITY PERSPECTIVES</span>
+
+          <h2>What Our Community Says</h2>
+
+          <p>
+            Example feedback cards illustrating how community testimonials could
+            appear on the platform.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p>
+              "The platform concept makes agricultural opportunities easier to
+              understand. I particularly like the organized portfolio
+              presentation."
+            </p>
+
+            <div class="testimonial-author">
+              <div class="avatar">JM</div>
+              <div>
+                <strong>Jordan M.</strong>
+                <span>Sample testimonial</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p>
+              "I appreciate the emphasis on transparency and the presentation of
+              agricultural assets alongside investment information."
+            </p>
+
+            <div class="testimonial-author">
+              <div class="avatar">AK</div>
+              <div>
+                <strong>Alex K.</strong>
+                <span>Sample testimonial</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p>
+              "Bringing modern technology and agricultural opportunities
+              together is an interesting concept with plenty of potential."
+            </p>
+
+            <div class="testimonial-author">
+              <div class="avatar">SL</div>
+              <div>
+                <strong>Sarah L.</strong>
+                <span>Sample testimonial</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="testimonial-disclaimer">
+          Testimonials above are fictional demonstration content and are not
+          verified investor reviews.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ACTIVITY FEED ================= -->
+
+    <section class="activity-section">
+      <div class="container activity-container">
+        <div class="activity-heading">
+          <span class="live-dot"></span>
+          <div>
+            <strong>Platform Activity Preview</strong>
+            <small>Illustrative simulated activity</small>
+          </div>
+        </div>
+
+        <div id="activityFeed" class="activity-feed">
+          <div class="activity-item">
+            <i data-lucide="wallet"></i>
+            <span>Sample transaction activity will appear here.</span>
+            <!-- <small>DEMO</small> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+
+    <section class="section faq-section" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <span class="section-eyebrow">NEED MORE INFORMATION?</span>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <p>
+            Find answers to common questions about AgricInvest, agricultural
+            assets and our platform concept.
+          </p>
+
+          <div class="faq-help">
+            <i data-lucide="message-circle"></i>
+            <div>
+              <strong>Still have questions?</strong>
+              <span>Our team is here to help.</span>
+            </div>
+            <a href="mailto:support@AgricInvest.example">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" aria-expanded="true">
+              What is AgricInvest?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                AgricInvest is a digital agricultural investment platform
+                concept designed to connect users with agricultural asset
+                opportunities, portfolio information and digital financial
+                tools.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I create an account?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Use the registration interface to begin creating an account. A
+                production platform should include secure authentication,
+                identity verification where required and account protection
+                measures.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What agricultural assets are available?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Example asset categories include farmland, livestock, crop
+                production and greenhouse agriculture. Actual offerings must be
+                documented, verified and made available only where legally
+                permitted.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Are investment returns guaranteed?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                No. Agricultural investments carry risks including weather
+                events, crop failure, commodity price fluctuations, operational
+                challenges and liquidity constraints. Returns are not
+                guaranteed.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I use USDT or USDC?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Stablecoin deposits are not currently connected in this frontend
+                demonstration. A live implementation would need supported
+                network integrations, transaction verification and appropriate
+                compliance controls.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How can I withdraw my funds?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Withdrawal availability would depend on the actual investment
+                terms, applicable restrictions, liquidity and verified payment
+                infrastructure. This demonstration does not process withdrawals.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How does asset monitoring work?
+              <i data-lucide="plus"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                A production agricultural monitoring system could combine farm
+                reports, satellite imagery, environmental information and
+                operational records to provide portfolio updates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter-section">
+      <div class="container newsletter-container">
+        <div>
+          <span class="section-eyebrow">STAY INFORMED</span>
+          <h2>Grow Your Knowledge With AgricInvest</h2>
+          <p>
+            Get updates about agricultural markets, technology and platform
+            developments.
+          </p>
+        </div>
+
+        <form id="newsletterForm" class="newsletter-form">
+          <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email address"
+            required
+          />
+
+          <button type="submit" class="btn btn-primary">
+            Subscribe
+            <i data-lucide="arrow-right"></i>
+          </button>
+
+          <small id="newsletterMessage"></small>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="#home" class="brand footer-brand">
+              <span class="brand-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <span>Agric<span>Invest</span></span>
+            </a>
+
+            <p>
+              Connecting agricultural opportunities with modern digital finance.
+              Discover a smarter perspective on agricultural asset markets.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Platform</h4>
+
+            <a href="markets.html">Markets</a>
+            <a href="plans.html">Asset Portfolios</a>
+            <a href="#calculator">ROI Calculator</a>
+            <!-- <a href="markets.html">Markets</a> -->
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+
+            <a href="about.html">How It Works</a>
+            <a href="plans.html">Investment Plan</a>
+            <a href="#faq">Help Center</a>
+            <!-- <a href="#faq">Risk Information</a> -->
+            <a href="#faq">Contact Support</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+
+            <a href="#" class="legal-link" data-legal="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="legal-link" data-legal="Terms of Service"
+              >Terms of Service</a
+            >
+            <a href="#" class="legal-link" data-legal="Risk Disclosure"
+              >Risk Disclosure</a
+            >
+            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              >Cookie Policy</a
+            > -->
+          </div>
+        </div>
+
+        <!-- <div class="footer-disclaimer">
+          <strong>Important Risk Disclosure</strong>
+
+          <p>
+            Agricultural investments involve substantial risks, including loss
+            of capital, commodity price volatility, weather-related events,
+            operational risks, regulatory changes and liquidity limitations.
+            Past performance does not guarantee future results. Any percentages,
+            projections, asset valuations, testimonials, market prices and
+            activity shown on this demonstration website are illustrative and do
+            not represent actual investment products, guaranteed returns or
+            verified transactions. Do not invest without independently reviewing
+            the relevant offering documents and risks.
+          </p>
+        </div> -->
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgricInvest. All rights reserved.
+          </p>
+
+          <span>Built for a sustainable agricultural future.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= LOGIN MODAL ================= -->
+
+    <div
+      class="modal"
+      id="loginModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="loginTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-brand">
+          <span class="brand-icon"><i data-lucide="sprout"></i></span>
+          AgricInvest
+        </div>
+
+        <h2 id="loginTitle">Welcome Back</h2>
+        <p>Sign in to access your account interface.</p>
+
+        <form id="loginForm">
+          <label for="loginEmail">Email Address</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="you@example.com"
+            required
+          />
+
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            required
+          />
+
+          <button type="submit" class="btn btn-primary modal-submit">
+            Sign In
+          </button>
+
+          <div id="loginMessage" class="form-message"></div>
+        </form>
+
+        <!-- <div class="modal-footnote">
+          Demonstration only. No real account authentication is connected.
+        </div> -->
+      </div>
+    </div>
+
+    <!-- ================= WALLET MODAL ================= -->
+
+    <div
+      class="modal"
+      id="connectModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="connectTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-brand">
+          <span class="brand-icon"><i data-lucide="sprout"></i></span>
+          AgricInvest
+        </div>
+
+        <h2 id="connectTitle">Connect Your Wallet</h2>
+
+        <p>Choose a wallet provider to preview the connection interface.</p>
+
+        <div class="wallet-options">
+          <button class="wallet-option" data-wallet="MetaMask">
+            <span class="wallet-symbol">🦊</span>
+            <span>
+              <strong>MetaMask</strong>
+              <small>Browser wallet</small>
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+
+          <button class="wallet-option" data-wallet="WalletConnect">
+            <span class="wallet-symbol">🔗</span>
+            <span>
+              <strong>WalletConnect</strong>
+              <small>Connect a compatible wallet</small>
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+
+          <button class="wallet-option" data-wallet="Coinbase Wallet">
+            <span class="wallet-symbol">🔵</span>
+            <span>
+              <strong>Coinbase Wallet</strong>
+              <small>Digital asset wallet</small>
+            </span>
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
+
+        <div id="walletMessage" class="form-message"></div>
+
+        <div class="modal-footnote">
+          This is a frontend simulation. No wallet is connected and no
+          transactions are signed.
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= INVESTMENT MODAL ================= -->
+
+    <div
+      class="modal"
+      id="investmentModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="investmentTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-brand">
+          <span class="brand-icon"><i data-lucide="sprout"></i></span>
+          AgricInvest
+        </div>
+
+        <span class="section-eyebrow">PORTFOLIO INFORMATION</span>
+
+        <h2 id="investmentTitle">Investment Opportunity</h2>
+
+        <p id="investmentDescription">
+          Review this illustrative portfolio opportunity.
+        </p>
+<!-- 
+        <div class="investment-modal-note">
+          <i data-lucide="info"></i>
+          This is a demonstration interface, not a real investment offer.
+        </div> -->
+
+        <button class="btn btn-primary modal-submit" data-close-modal>
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= DEMO MODAL ================= -->
+
+    <div
+      class="modal"
+      id="demoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="demoTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-brand">
+          <span class="brand-icon"><i data-lucide="sprout"></i></span>
+          AgricInvest
+        </div>
+
+        <h2 id="demoTitle">Platform Overview</h2>
+
+        <div class="demo-preview">
+          <i data-lucide="play-circle"></i>
+          <p>AgricInvest Platform Demonstration</p>
+          <span>Demo video placeholder</span>
+        </div>
+
+        <p>Add your actual platform introduction video here when available.</p>
+      </div>
+    </div>
+
+    <!-- ================= APP MODAL ================= -->
+
+    <div
+      class="modal"
+      id="appModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="appTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-brand">
+          <span class="brand-icon"><i data-lucide="sprout"></i></span>
+          AgricInvest
+        </div>
+
+        <h2 id="appTitle">Mobile Experience</h2>
+
+        <p>
+          The mobile application and PWA experience can be connected when the
+          production application is ready.
+        </p>
+
+        <div class="investment-modal-note">
+          <i data-lucide="smartphone"></i>
+          Mobile app links have not yet been configured.
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= LEGAL MODAL ================= -->
+
+    <div
+      class="modal"
+      id="legalModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legalTitle"
+    >
+      <div class="modal-overlay" data-close-modal></div>
+
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+
+        <h2 id="legalTitle">Legal Information</h2>
+
+        <p id="legalDescription">Legal documentation will be published here.</p>
+
+        <button class="btn btn-primary modal-submit" data-close-modal>
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- ================= BACK TO TOP ================= -->
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

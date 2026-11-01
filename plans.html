@@ -1,0 +1,2167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#072a1a" />
+    <meta
+      name="description"
+      content="Review AgriLedger investment plan terms and explore a clearly labeled, hypothetical yield calculator."
+    />
+    <title>Investment Plans | AgriLedger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      :root {
+        --agri-forest: #072a1a;
+        --agri-forest-2: #0d3b25;
+        --agri-emerald: #15803d;
+        --agri-bright: #22a653;
+        --agri-lime: #a3e635;
+        --agri-white: #fff;
+        --agri-off-white: #f8fafc;
+        --agri-mint: #eaf5ed;
+        --agri-ink: #17251c;
+        --agri-muted: #68786e;
+        --agri-border: #e4ebe6;
+        --agri-shadow: 0 16px 45px rgba(7, 42, 26, 0.08);
+        --agri-shadow-hover: 0 22px 52px rgba(7, 42, 26, 0.14);
+        --agri-radius: 20px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--agri-ink);
+        background: var(--agri-white);
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.65;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .navbar-brand {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .container {
+        max-width: 1180px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 2000;
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        transform: translateY(-150%);
+        border-radius: 8px;
+        color: #fff;
+        background: var(--agri-forest);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-nav {
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        border-bottom: 1px solid rgba(7, 42, 26, 0.07);
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+      }
+
+      .site-nav .navbar {
+        min-height: 78px;
+      }
+
+      .navbar-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--agri-forest);
+        font-size: 21px;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border-radius: 12px;
+        color: var(--agri-emerald);
+        background: var(--agri-mint);
+        font-size: 19px;
+      }
+
+      .navbar-brand:hover {
+        color: var(--agri-forest);
+      }
+
+      .site-nav .nav-link {
+        padding: 10px 12px !important;
+        color: #526258;
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 180ms ease;
+      }
+
+      .site-nav .nav-link:hover,
+      .site-nav .nav-link[aria-current="page"] {
+        color: var(--agri-emerald);
+      }
+
+      .navbar-toggler {
+        border-color: var(--agri-border);
+        box-shadow: none !important;
+      }
+
+      .btn-agri,
+      .btn-agri-outline {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 11px 20px;
+        border: 1px solid transparent;
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 800;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .btn-agri {
+        color: #fff;
+        background: linear-gradient(135deg, #1ba34d, #117337);
+        box-shadow: 0 7px 18px rgba(21, 128, 61, 0.18);
+      }
+
+      .btn-agri:hover {
+        color: #fff;
+        background: linear-gradient(135deg, #22b65a, #0d632f);
+        box-shadow: 0 12px 25px rgba(21, 128, 61, 0.24);
+        transform: translateY(-2px);
+      }
+
+      .btn-agri-outline {
+        border-color: rgba(7, 42, 26, 0.18);
+        color: var(--agri-forest);
+        background: #fff;
+      }
+
+      .btn-agri-outline:hover {
+        border-color: var(--agri-emerald);
+        color: var(--agri-emerald);
+        transform: translateY(-2px);
+      }
+
+      .btn-agri-light {
+        color: var(--agri-forest);
+        background: #fff;
+      }
+
+      .btn-agri-light:hover {
+        color: var(--agri-forest);
+        background: #eaf5ed;
+        transform: translateY(-2px);
+      }
+
+      .plans-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 92px 0 104px;
+        color: #fff;
+        background:
+          radial-gradient(
+            ellipse at 82% 10%,
+            rgba(34, 166, 83, 0.25),
+            transparent 34%
+          ),
+          linear-gradient(118deg, #072a1a, #0d3b25 72%, #10492c);
+      }
+
+      .plans-hero::before,
+      .plans-hero::after {
+        position: absolute;
+        width: 390px;
+        height: 390px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .plans-hero::before {
+        top: -245px;
+        right: 3%;
+      }
+
+      .plans-hero::after {
+        top: -195px;
+        right: calc(3% + 50px);
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .hero-badge,
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--agri-emerald);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .hero-badge {
+        padding: 8px 13px;
+        border: 1px solid rgba(163, 230, 53, 0.27);
+        border-radius: 30px;
+        color: #cbf59a;
+        background: rgba(255, 255, 255, 0.065);
+      }
+
+      .hero-badge i {
+        color: var(--agri-lime);
+      }
+
+      .plans-hero h1 {
+        margin: 21px 0 15px;
+        color: #fff;
+        font-size: clamp(40px, 6vw, 66px);
+        line-height: 1.08;
+      }
+
+      .plans-hero p {
+        max-width: 650px;
+        margin: 0 auto;
+        color: #d3e2d7;
+        font-size: 16px;
+      }
+
+      .hero-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 23px;
+        color: #b8d2c0;
+        font-size: 11px;
+      }
+
+      .hero-note i {
+        color: #a3e635;
+      }
+
+      .plans-section {
+        padding: 85px 0 78px;
+        background:
+          radial-gradient(ellipse at 50% 0, #f1f8f3 0, transparent 38%),
+          var(--agri-off-white);
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        margin: 10px 0;
+        color: var(--agri-forest);
+        font-size: clamp(29px, 4vw, 43px);
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--agri-muted);
+        font-size: 14px;
+      }
+
+      .term-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        max-width: 950px;
+        margin: 0 auto 27px;
+        padding: 14px 17px;
+        border: 1px solid #dcebe0;
+        border-radius: 12px;
+        color: #53665a;
+        background: #f0f8f2;
+        font-size: 12px;
+      }
+
+      .term-notice i {
+        margin-top: 2px;
+        color: var(--agri-emerald);
+      }
+
+      .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      .plan-card {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--agri-border);
+        border-radius: var(--agri-radius);
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(7, 42, 26, 0.045);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .plan-card:hover {
+        border-color: rgba(21, 128, 61, 0.3);
+        box-shadow: var(--agri-shadow-hover);
+        transform: translateY(-5px);
+      }
+
+      .plan-card.is-featured {
+        border: 2px solid rgba(21, 128, 61, 0.48);
+      }
+
+      .plan-image {
+        position: relative;
+        height: 178px;
+        overflow: hidden;
+        background: #dce9de;
+      }
+
+      .plan-image::after {
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(transparent, rgba(7, 42, 26, 0.25));
+        content: "";
+      }
+
+      .plan-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 450ms ease;
+      }
+
+      .plan-card:hover .plan-image img {
+        transform: scale(1.045);
+      }
+
+      .plan-badge {
+        position: absolute;
+        z-index: 1;
+        top: 14px;
+        left: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.54);
+        border-radius: 30px;
+        color: var(--agri-forest);
+        background: rgba(255, 255, 255, 0.93);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+      }
+
+      .plan-badge.badge-popular {
+        color: #fff;
+        border-color: transparent;
+        background: var(--agri-emerald);
+      }
+
+      .plan-badge.badge-exclusive {
+        color: var(--agri-forest);
+        background: #e6f4bd;
+      }
+
+      .plan-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 22px;
+      }
+
+      .plan-category {
+        color: var(--agri-emerald);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+      }
+
+      .plan-title-row {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .plan-title-row h3 {
+        margin: 0;
+        color: var(--agri-forest);
+        font-size: 20px;
+      }
+
+      .plan-title-row > i {
+        margin-top: 4px;
+        color: #8ca497;
+        font-size: 18px;
+      }
+
+      .plan-description {
+        min-height: 44px;
+        margin: 8px 0 17px;
+        color: var(--agri-muted);
+        font-size: 12px;
+      }
+
+      .plan-roi {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 63px;
+        margin-bottom: 14px;
+        padding: 12px 13px;
+        border-radius: 11px;
+        background: #f2f8f3;
+      }
+
+      .plan-roi span,
+      .plan-roi strong {
+        display: block;
+      }
+
+      .plan-roi span {
+        color: var(--agri-muted);
+        font-size: 10px;
+      }
+
+      .plan-roi strong {
+        margin-top: 2px;
+        color: var(--agri-forest);
+        font-size: 14px;
+      }
+
+      .plan-roi .roi-value {
+        color: var(--agri-emerald);
+        font-size: 14px;
+        text-align: right;
+      }
+
+      .plan-details {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .plan-details li {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 0;
+        border-bottom: 1px solid #edf1ee;
+        font-size: 11px;
+      }
+
+      .plan-details li span {
+        color: var(--agri-muted);
+      }
+
+      .plan-details li strong {
+        color: var(--agri-ink);
+        font-size: 11px;
+        text-align: right;
+      }
+
+      .plan-details .not-provided {
+        color: #7a837d;
+        font-weight: 600;
+      }
+
+      .plan-footnote {
+        min-height: 34px;
+        margin: 12px 0 15px;
+        color: #728078;
+        font-size: 10px;
+        line-height: 1.6;
+      }
+
+      .plan-card .btn-agri,
+      .plan-card .btn-agri-outline {
+        width: 100%;
+        margin-top: auto;
+      }
+
+      .plans-disclaimer {
+        max-width: 900px;
+        margin: 25px auto 0;
+        color: #77847c;
+        font-size: 10px;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .calculator-section {
+        padding: 86px 0;
+        background: #fff;
+      }
+
+      .calculator-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+        overflow: hidden;
+        border: 1px solid var(--agri-border);
+        border-radius: 22px;
+        background: #fff;
+        box-shadow: var(--agri-shadow);
+      }
+
+      .calculator-form {
+        padding: clamp(24px, 4vw, 42px);
+      }
+
+      .calculator-form h3,
+      .calculator-results h3 {
+        margin: 8px 0 8px;
+        color: var(--agri-forest);
+        font-size: 24px;
+      }
+
+      .calculator-lead {
+        margin: 0 0 24px;
+        color: var(--agri-muted);
+        font-size: 12px;
+      }
+
+      .field-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 7px;
+        color: #314238;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .field-label small {
+        color: var(--agri-muted);
+        font-size: 10px;
+        font-weight: 500;
+      }
+
+      .form-control,
+      .form-select {
+        min-height: 46px;
+        border-color: #dce5de;
+        border-radius: 9px;
+        color: var(--agri-ink);
+        font-size: 13px;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--agri-emerald);
+        box-shadow: 0 0 0 0.2rem rgba(21, 128, 61, 0.12);
+      }
+
+      .amount-input-wrap {
+        position: relative;
+      }
+
+      .amount-input-wrap > span {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        color: #68786e;
+        transform: translateY(-50%);
+      }
+
+      #investmentAmount {
+        padding-left: 31px;
+      }
+
+      .form-range {
+        accent-color: var(--agri-emerald);
+      }
+
+      .range-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: -6px;
+        color: var(--agri-muted);
+        font-size: 10px;
+      }
+
+      .calculator-results {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(26px, 4vw, 45px);
+        color: #fff;
+        background:
+          radial-gradient(
+            ellipse at 90% 5%,
+            rgba(34, 166, 83, 0.24),
+            transparent 38%
+          ),
+          linear-gradient(145deg, var(--agri-forest), var(--agri-forest-2));
+      }
+
+      .calculator-results .section-kicker {
+        color: #a5e8b8;
+      }
+
+      .calculator-results h3 {
+        color: #fff;
+      }
+
+      .calculator-results > p {
+        margin: 0 0 23px;
+        color: #bdd1c4;
+        font-size: 11px;
+      }
+
+      .result-payout {
+        margin: 0 0 18px;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(32px, 4vw, 45px);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        overflow-wrap: anywhere;
+      }
+
+      .result-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+        color: #c8d8ce;
+        font-size: 11px;
+      }
+
+      .result-line strong {
+        color: #fff;
+        text-align: right;
+      }
+
+      .result-empty {
+        margin: 0 0 18px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 9px;
+        color: #d6e5db;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 11px;
+      }
+
+      .calculator-disclaimer {
+        margin-top: 15px;
+        color: #b5c9bc;
+        font-size: 10px;
+        line-height: 1.7;
+      }
+
+      .cta-banner {
+        position: relative;
+        overflow: hidden;
+        padding: 66px 0;
+        color: #fff;
+        background:
+          radial-gradient(
+            ellipse at 90% -10%,
+            rgba(163, 230, 53, 0.17),
+            transparent 35%
+          ),
+          linear-gradient(115deg, #072a1a, #0d3b25);
+      }
+
+      .cta-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .cta-content h2 {
+        margin: 9px 0;
+        color: #fff;
+        font-size: clamp(27px, 3.6vw, 39px);
+      }
+
+      .cta-content p {
+        margin: 0;
+        color: #c1d5c8;
+        font-size: 13px;
+      }
+
+      .newsletter-section {
+        padding: 52px 0;
+        color: #fff;
+        background: #0a2116;
+      }
+
+      .newsletter-grid {
+        display: grid;
+        grid-template-columns: 1fr minmax(280px, 0.8fr);
+        align-items: center;
+        gap: 40px;
+      }
+
+      .newsletter-section h2 {
+        margin: 7px 0;
+        color: #fff;
+        font-size: 24px;
+      }
+
+      .newsletter-section p {
+        margin: 0;
+        color: #bdcfc3;
+        font-size: 12px;
+      }
+
+      .newsletter-kicker {
+        color: #9ce4ae;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 8px;
+      }
+
+      .newsletter-form .form-control {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .newsletter-form .form-control::placeholder {
+        color: #c1d0c7;
+      }
+
+      .newsletter-status {
+        min-height: 17px;
+        margin-top: 7px;
+        color: #a7e6b6;
+        font-size: 10px;
+      }
+
+      .site-footer {
+        padding: 62px 0 20px;
+        color: #fff;
+        background: #071a11;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 38px;
+        padding-bottom: 38px;
+      }
+
+      .footer-brand {
+        margin-bottom: 14px;
+      }
+
+      .footer-brand .brand-mark {
+        color: #c5f4d0;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-description {
+        max-width: 300px;
+        color: #afc2b5;
+        font-size: 11px;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .footer-socials a {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        color: #d5e4d9;
+        transition:
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .footer-socials a:hover {
+        color: #fff;
+        background: var(--agri-emerald);
+      }
+
+      .footer-column h3 {
+        margin: 4px 0 14px;
+        color: #fff;
+        font-size: 13px;
+        letter-spacing: 0;
+      }
+
+      .footer-column a {
+        display: block;
+        width: fit-content;
+        margin: 9px 0;
+        color: #afc2b5;
+        font-size: 11px;
+        transition: color 180ms ease;
+      }
+
+      .footer-column a:hover {
+        color: #9ce4ae;
+      }
+
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: #9bb0a1;
+        font-size: 10px;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      .footer-legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-legal a {
+        color: inherit;
+      }
+
+      .footer-legal-notice {
+        margin: 14px 0 0;
+        color: #819788;
+        font-size: 10px;
+      }
+
+      .demo-activity {
+        position: fixed;
+        z-index: 1050;
+        right: 20px;
+        bottom: 20px;
+        width: min(340px, calc(100vw - 32px));
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        color: #fff;
+        background: rgba(7, 42, 26, 0.96);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(12px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .demo-activity[hidden] {
+        display: none;
+      }
+
+      .demo-activity-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .demo-activity-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: #c6f3a5;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .demo-activity-label i {
+        font-size: 13px;
+      }
+
+      .demo-activity-close {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border: 0;
+        border-radius: 7px;
+        color: #d8e6dc;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .demo-activity-message {
+        margin: 0;
+        color: #e2eee6;
+        font-size: 11px;
+      }
+
+      .demo-activity-note {
+        display: block;
+        margin-top: 5px;
+        color: #a9c2b1;
+        font-size: 9px;
+      }
+
+      :focus-visible {
+        outline: 3px solid #8ad69c;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 991.98px) {
+        .site-nav .navbar {
+          min-height: 70px;
+        }
+
+        .plans-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .calculator-card {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .plans-hero {
+          padding: 72px 0 78px;
+        }
+
+        .plans-section,
+        .calculator-section {
+          padding: 65px 0;
+        }
+
+        .plans-grid {
+          grid-template-columns: 1fr;
+          max-width: 520px;
+          margin: auto;
+        }
+
+        .plan-image {
+          height: 205px;
+        }
+
+        .plan-description,
+        .plan-footnote {
+          min-height: 0;
+        }
+
+        .cta-content {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .newsletter-grid {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+
+        .footer-grid {
+          gap: 28px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .plans-hero h1 {
+          font-size: 39px;
+        }
+
+        .hero-copy > p {
+          font-size: 14px;
+        }
+
+        .section-heading {
+          margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .newsletter-form .btn-agri {
+          width: 100%;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-brand-column {
+          grid-column: 1 / -1;
+        }
+
+        .footer-bottom {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .demo-activity {
+          right: 12px;
+          bottom: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-nav">
+      <nav
+        class="navbar navbar-expand-lg container"
+        aria-label="Main navigation"
+      >
+        <a class="navbar-brand" href="index.html" aria-label="AgriLedger home">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="bi bi-flower1"></i>
+          </span>
+          <span>AgriLedger</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#primaryNav"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="primaryNav">
+          <ul class="navbar-nav mx-auto my-3 my-lg-0">
+            <!-- <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="markets.html">Markets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plans.html" aria-current="page"
+                >Investment Plans</a
+              >
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" href="index.html#markets">Our Farms</a></li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#faq">FAQs</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" href="index.html#faq">Contact</a></li> -->
+          </ul>
+          <div class="d-flex flex-column flex-lg-row gap-2 pb-3 pb-lg-0">
+            <a class="btn-agri-outline" href="index.html#home">Login</a>
+            <a class="btn-agri" href="signup.html">
+              Get Started
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="plans-hero" aria-labelledby="plans-title">
+        <div class="container">
+          <div class="hero-copy">
+            <span class="hero-badge">
+              <i class="bi bi-stars" aria-hidden="true"></i>
+              Grow your wealth
+            </span>
+            <h1 id="plans-title">Choose an Investment Plan</h1>
+            <p>
+              Explore agricultural plan tiers with clear terms where provided.
+              Review the details, understand the risks, and make decisions at
+              your own pace.
+            </p>
+            <span class="hero-note">
+              <i class="bi bi-info-circle" aria-hidden="true"></i>
+              Plan information is illustrative and subject to verified offering
+              terms.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="plans-section"
+        id="plans"
+        aria-labelledby="plans-grid-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-kicker">Agricultural investment tiers</span>
+            <h2 id="plans-grid-title">Find a plan to explore</h2>
+            <p>
+              Compare the available amount ranges and term information. Missing
+              details are shown as not provided rather than estimated.
+            </p>
+          </div>
+
+          <div class="term-notice" role="note">
+            <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
+            <span>
+              <strong>Important:</strong> Daily ROI rates and some tier limits
+              have not been supplied. No return is promised or displayed.
+              Referral bonuses are not included in calculator estimates.
+            </span>
+          </div>
+
+          <div class="plans-grid">
+            <article
+              class="plan-card"
+              data-plan="seed"
+              data-min="300"
+              data-max="999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Sunlit green crop rows across farmland"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Starter</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Seed tier</span>
+                <div class="plan-title-row">
+                  <h3>Seed Plan</h3>
+                  <i class="bi bi-flower1" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An entry tier for exploring agricultural opportunities.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div>
+                <ul class="plan-details">
+                  <li><span>Minimum investment</span><strong>$300</strong></li>
+                  <li><span>Maximum investment</span><strong>$999</strong></li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="seed"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article class="plan-card" data-plan="growth">
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Fresh produce harvested from a farm"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Growth</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Growth tier</span>
+                <div class="plan-title-row">
+                  <h3>Growth Plan</h3>
+                  <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  A broader plan tier; investment limits and terms are not yet
+                  provided.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">Terms pending</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Plan duration</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Timer mode</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Referral bonus</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                </ul>
+                <p class="plan-footnote">
+                  Confirm full plan terms before relying on any illustration.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="growth"
+                >
+                  Explore Plan
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="plan-card is-featured"
+              data-plan="harvest"
+              data-min="3000"
+              data-max="9999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Rows of crops growing in an open field"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Harvest</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Harvest tier</span>
+                <div class="plan-title-row">
+                  <h3>Harvest Plan</h3>
+                  <i class="bi bi-wheat" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An expanded tier for exploring agricultural market exposure.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span><strong>$3,000</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span><strong>$9,999</strong>
+                  </li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p>
+                <button
+                  class="btn-agri plan-action"
+                  type="button"
+                  data-select-plan="harvest"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article class="plan-card" data-plan="zenith">
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Wide cultivated field beneath a bright sky"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Advanced</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Premium tier</span>
+                <div class="plan-title-row">
+                  <h3>Zenith Apex</h3>
+                  <i class="bi bi-tree" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An advanced tier concept; financial terms have not been
+                  provided.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">Terms pending</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Plan duration</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Timer mode</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Referral bonus</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                </ul>
+                <p class="plan-footnote">
+                  No live timer is shown because no active plan cycle is
+                  connected.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="zenith"
+                >
+                  Explore Plan
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="plan-card"
+              data-plan="sovereign"
+              data-min="10000"
+              data-max="49999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Green farmland and natural landscape"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Sovereign</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Sovereign tier</span>
+                <div class="plan-title-row">
+                  <h3>Sovereign Plan</h3>
+                  <i class="bi bi-tree-fill" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  A higher allocation tier for exploring agricultural
+                  opportunities.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span><strong>$10,000</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span><strong>$49,999</strong>
+                  </li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="sovereign"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <p class="plans-disclaimer" id="risk-disclosure">
+            Plan terms displayed here reflect the information provided for this
+            page and are not an offer, guarantee, or recommendation.
+            Agricultural and commodity investments involve risk, including loss
+            of principal. Review complete offering documents and seek
+            independent professional advice before making a decision.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="calculator-section"
+        id="calculator"
+        aria-labelledby="calculator-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-kicker">Illustration only</span>
+            <h2 id="calculator-title">Yield &amp; profit calculator</h2>
+            <p>
+              Enter an approved daily rate from the relevant plan terms to
+              explore a simple-interest illustration.
+            </p>
+          </div>
+
+          <div class="calculator-card">
+            <form class="calculator-form" id="yieldCalculator" novalidate>
+              <span class="section-kicker">Your assumptions</span>
+              <h3>Adjust the inputs</h3>
+              <p class="calculator-lead">
+                Rates are intentionally blank until verified plan terms are
+                available. The calculator does not predict actual performance.
+              </p>
+
+              <div class="mb-3">
+                <label class="field-label" for="planSelect"
+                  >Investment plan</label
+                >
+                <select class="form-select" id="planSelect" required>
+                  <option value="seed">Seed Plan</option>
+                  <option value="growth">Growth Plan</option>
+                  <option value="harvest">Harvest Plan</option>
+                  <option value="zenith">Zenith Apex</option>
+                  <option value="sovereign">Sovereign Plan</option>
+                </select>
+                <div
+                  class="form-text"
+                  id="planLimitHint"
+                  aria-live="polite"
+                ></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="field-label" for="investmentAmount">
+                  Investment amount <small>USD</small>
+                </label>
+                <div class="amount-input-wrap">
+                  <span aria-hidden="true">$</span>
+                  <input
+                    class="form-control"
+                    id="investmentAmount"
+                    type="number"
+                    min="1"
+                    step="1"
+                    inputmode="decimal"
+                    placeholder="Enter an amount"
+                    required
+                  />
+                </div>
+                <input
+                  class="form-range mt-2"
+                  id="investmentSlider"
+                  type="range"
+                  min="1"
+                  max="49999"
+                  step="1"
+                  value="1"
+                  aria-label="Adjust investment amount"
+                />
+                <div class="range-labels">
+                  <span id="rangeMinimum">$1</span>
+                  <span id="rangeMaximum">$49,999</span>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="field-label" for="dailyRate"
+                    >Daily ROI rate (%)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="dailyRate"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="Enter approved rate"
+                    aria-describedby="rateHelp"
+                  />
+                  <div class="form-text" id="rateHelp">
+                    Not preset; use only a verified offering rate.
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="field-label" for="planDays"
+                    >Duration (days)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="planDays"
+                    type="number"
+                    min="1"
+                    max="3650"
+                    step="1"
+                    placeholder="Enter duration"
+                    required
+                  />
+                </div>
+              </div>
+              <p class="calculator-disclaimer text-secondary mb-0">
+                Calculation uses simple interest: principal × daily rate × days.
+                The referral bonus is excluded. No live investment or payment is
+                made by this demonstration.
+              </p>
+            </form>
+
+            <div
+              class="calculator-results"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              <span class="section-kicker">Hypothetical projection</span>
+              <h3>Estimated maturity value</h3>
+              <p>Illustration only—not a quote, promise, or guarantee.</p>
+              <div class="result-empty" id="calculatorMessage">
+                Enter a valid amount, duration, and verified daily rate to see
+                an illustrative calculation.
+              </div>
+              <div class="result-payout" id="estimatedPayout">—</div>
+              <div class="result-line">
+                <span>Selected plan</span
+                ><strong id="resultPlan">Seed Plan</strong>
+              </div>
+              <div class="result-line">
+                <span>Principal</span><strong id="resultPrincipal">—</strong>
+              </div>
+              <div class="result-line">
+                <span>Daily rate entered</span
+                ><strong id="resultRate">—</strong>
+              </div>
+              <div class="result-line">
+                <span>Illustrative profit</span
+                ><strong id="estimatedProfit">—</strong>
+              </div>
+              <div class="result-line">
+                <span>Term</span><strong id="resultDuration">—</strong>
+              </div>
+              <p class="calculator-disclaimer">
+                Actual returns may be lower or negative. Investment principal
+                may be at risk. Verify all product details independently.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="cta-banner" aria-labelledby="cta-title">
+        <div class="container cta-content">
+          <div>
+            <span class="hero-badge">Rooted in real agriculture</span>
+            <h2 id="cta-title">Explore with care. Grow with purpose.</h2>
+            <p>
+              Learn about the agricultural context and review verified terms
+              before considering any investment.
+            </p>
+          </div>
+          <a class="btn-agri btn-agri-light" href="about.html">
+            About AgriLedger <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section> -->
+    </main>
+
+    <section class="newsletter-section" aria-labelledby="newsletter-title">
+      <div class="container newsletter-grid">
+        <div>
+          <span class="newsletter-kicker">STAY INFORMED</span>
+          <h2 id="newsletter-title">
+            A thoughtful perspective on agriculture.
+          </h2>
+          <p>
+            Newsletter preview form only; no subscription service is connected.
+          </p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <label class="visually-hidden" for="newsletterEmail"
+            >Email address</label
+          >
+          <input
+            class="form-control"
+            type="email"
+            id="newsletterEmail"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+          />
+          <button class="btn-agri" type="submit">
+            Subscribe <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+        <div
+          class="newsletter-status"
+          id="newsletterStatus"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
+    <!-- <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a class="navbar-brand footer-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true">
+                <i class="bi bi-flower1"></i>
+              </span>
+              <span>AgriLedger</span>
+            </a>
+            <p class="footer-description">
+              Connecting agricultural opportunities with thoughtful digital
+              experiences. Explore the platform with care and clear information.
+            </p>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+          <nav class="footer-column" aria-label="Platform links">
+            <h3>Platform</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="#plans">Investment Plans</a>
+            <a href="markets.html">Markets</a>
+            <a href="index.html#markets">Our Farms</a>
+            <a href="index.html#faq">FAQs</a>
+          </nav>
+          <nav class="footer-column" aria-label="Agricultural assets">
+            <h3>Asset categories</h3>
+            <a href="index.html#markets">Farmland</a>
+            <a href="index.html#markets">Crop production</a>
+            <a href="index.html#markets">Livestock</a>
+            <a href="index.html#markets">Agricultural technology</a>
+          </nav>
+          <nav class="footer-column" aria-label="Support and legal">
+            <h3>Support</h3>
+            <a href="index.html#faq">Contact</a>
+            <a href="index.html#faq">Risk information</a>
+            <a href="#legal-note">Privacy notice (not provided)</a>
+            <a href="#legal-note">Terms (not provided)</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span id="currentYear"></span> AgriLedger. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#legal-note">Privacy notice</a>
+            <a href="#legal-note">Terms of use</a>
+            <a href="#risk-disclosure">Risk disclosure</a>
+          </div>
+        </div>
+        <p class="footer-legal-notice" id="legal-note">
+          Privacy and terms documents were not supplied for this demonstration.
+          Review official platform documents before providing personal or
+          financial information.
+        </p>
+      </div>
+    </footer> -->
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="index.html" class="brand footer-brand">
+              <span class="brand-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <span>Agric<span>Invest</span></span>
+            </a>
+
+            <p>
+              Connecting agricultural opportunities with modern digital finance.
+              Discover a smarter perspective on agricultural asset markets.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Platform</h4>
+
+            <a href="markets.html">Markets</a>
+            <a href="plans.html">Asset Portfolios</a>
+            <a href="#calculator">ROI Calculator</a>
+            <!-- <a href="markets.html">Markets</a> -->
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+
+            <a href="about.html">How It Works</a>
+            <a href="plans.html">Investment Plan</a>
+            <a href="#faq">Help Center</a>
+            <!-- <a href="#faq">Risk Information</a> -->
+            <a href="#faq">Contact Support</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+
+            <a href="#" class="legal-link" data-legal="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="legal-link" data-legal="Terms of Service"
+              >Terms of Service</a
+            >
+            <a href="#" class="legal-link" data-legal="Risk Disclosure"
+              >Risk Disclosure</a
+            >
+            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              >Cookie Policy</a
+            > -->
+          </div>
+        </div>
+
+        <!-- <div class="footer-disclaimer">
+          <strong>Important Risk Disclosure</strong>
+
+          <p>
+            Agricultural investments involve substantial risks, including loss
+            of capital, commodity price volatility, weather-related events,
+            operational risks, regulatory changes and liquidity limitations.
+            Past performance does not guarantee future results. Any percentages,
+            projections, asset valuations, testimonials, market prices and
+            activity shown on this demonstration website are illustrative and do
+            not represent actual investment products, guaranteed returns or
+            verified transactions. Do not invest without independently reviewing
+            the relevant offering documents and risks.
+          </p>
+        </div> -->
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgricInvest. All rights reserved.
+          </p>
+
+          <span>Built for a sustainable agricultural future.</span>
+        </div>
+      </div>
+    </footer>
+
+    <aside
+      class="demo-activity"
+      id="demoActivity"
+      aria-label="Simulated activity preview"
+    >
+      <div class="demo-activity-header">
+        <span class="demo-activity-label">
+          <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+          DEMO PREVIEW · SIMULATED
+        </span>
+        <button
+          class="demo-activity-close"
+          id="closeDemoActivity"
+          type="button"
+          aria-label="Dismiss demo activity"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="demo-activity-message">
+        Sample plan activity preview
+        <span class="demo-activity-note">
+          Interface demonstration only. This is not a real user transaction.
+        </span>
+      </p>
+    </aside>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (() => {
+        "use strict";
+
+        const plans = {
+          seed: { name: "Seed Plan", min: 300, max: 999, days: 7 },
+          growth: { name: "Growth Plan", min: null, max: null, days: null },
+          harvest: { name: "Harvest Plan", min: 3000, max: 9999, days: 7 },
+          zenith: { name: "Zenith Apex", min: null, max: null, days: null },
+          sovereign: {
+            name: "Sovereign Plan",
+            min: 10000,
+            max: 49999,
+            days: 7,
+          },
+        };
+
+        const planSelect = document.getElementById("planSelect");
+        const amountInput = document.getElementById("investmentAmount");
+        const amountSlider = document.getElementById("investmentSlider");
+        const dailyRateInput = document.getElementById("dailyRate");
+        const daysInput = document.getElementById("planDays");
+        const limitHint = document.getElementById("planLimitHint");
+        const rangeMinimum = document.getElementById("rangeMinimum");
+        const rangeMaximum = document.getElementById("rangeMaximum");
+        const resultPlan = document.getElementById("resultPlan");
+        const resultPrincipal = document.getElementById("resultPrincipal");
+        const resultRate = document.getElementById("resultRate");
+        const resultDuration = document.getElementById("resultDuration");
+        const estimatedProfit = document.getElementById("estimatedProfit");
+        const estimatedPayout = document.getElementById("estimatedPayout");
+        const calculatorMessage = document.getElementById("calculatorMessage");
+
+        const currency = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+
+        function selectedPlan() {
+          return plans[planSelect.value];
+        }
+
+        function updatePlanInputs() {
+          const plan = selectedPlan();
+          const hasRange =
+            Number.isFinite(plan.min) && Number.isFinite(plan.max);
+
+          dailyRateInput.value = "";
+
+          if (hasRange) {
+            amountInput.min = String(plan.min);
+            amountInput.max = String(plan.max);
+            amountSlider.min = String(plan.min);
+            amountSlider.max = String(plan.max);
+            rangeMinimum.textContent = currency.format(plan.min);
+            rangeMaximum.textContent = currency.format(plan.max);
+            limitHint.textContent = `Provided range: ${currency.format(plan.min)}–${currency.format(plan.max)}.`;
+
+            const currentAmount = Number(amountInput.value);
+            amountSlider.value = String(
+              Math.min(
+                plan.max,
+                Math.max(
+                  plan.min,
+                  Number.isFinite(currentAmount) && currentAmount > 0
+                    ? currentAmount
+                    : plan.min,
+                ),
+              ),
+            );
+          } else {
+            amountInput.min = "1";
+            amountInput.removeAttribute("max");
+            amountSlider.min = "1";
+            amountSlider.max = "49999";
+            rangeMinimum.textContent = "$1";
+            rangeMaximum.textContent = "$49,999 slider limit";
+            limitHint.textContent =
+              "Investment limits have not been provided for this plan; enter an amount to explore an illustration.";
+            const value = Number(amountInput.value);
+            amountSlider.value = String(
+              Math.min(
+                49999,
+                Math.max(1, Number.isFinite(value) && value > 0 ? value : 1),
+              ),
+            );
+          }
+
+          daysInput.value = plan.days === null ? "" : String(plan.days);
+          daysInput.placeholder = plan.days === null ? "Enter duration" : "";
+          daysInput.readOnly = plan.days !== null;
+          resultPlan.textContent = plan.name;
+          calculate();
+        }
+
+        function calculate() {
+          const plan = selectedPlan();
+          const principal = Number(amountInput.value);
+          const dailyRate = Number(dailyRateInput.value);
+          const days = Number(daysInput.value);
+          const hasRate = dailyRateInput.value.trim() !== "";
+          const hasValidAmount =
+            Number.isFinite(principal) &&
+            principal > 0 &&
+            amountInput.validity.valid;
+          const hasValidRate =
+            hasRate &&
+            Number.isFinite(dailyRate) &&
+            dailyRate >= 0 &&
+            dailyRate <= 100;
+          const hasValidDays =
+            Number.isInteger(days) &&
+            days > 0 &&
+            days <= 3650 &&
+            daysInput.validity.valid;
+
+          resultPlan.textContent = plan.name;
+          resultPrincipal.textContent = hasValidAmount
+            ? currency.format(principal)
+            : "—";
+          resultRate.textContent = hasValidRate
+            ? `${dailyRate}% per day (entered)`
+            : "Not provided";
+          resultDuration.textContent = hasValidDays
+            ? `${days} days`
+            : "Not provided";
+
+          const inPlanRange =
+            !Number.isFinite(plan.min) ||
+            (principal >= plan.min && principal <= plan.max);
+
+          if (
+            !hasValidAmount ||
+            !hasValidRate ||
+            !hasValidDays ||
+            !inPlanRange
+          ) {
+            estimatedProfit.textContent = "—";
+            estimatedPayout.textContent = "—";
+            if (!inPlanRange) {
+              calculatorMessage.textContent = `Enter an amount within the provided ${currency.format(plan.min)}–${currency.format(plan.max)} range.`;
+            } else if (!hasValidRate) {
+              calculatorMessage.textContent =
+                "Enter a verified daily rate from the relevant plan terms. No rate has been assumed.";
+            } else if (!hasValidDays) {
+              calculatorMessage.textContent =
+                "Enter a valid plan duration. No duration has been assumed for this tier.";
+            } else {
+              calculatorMessage.textContent =
+                "Enter a valid amount to see a hypothetical simple-interest illustration.";
+            }
+            calculatorMessage.hidden = false;
+            return;
+          }
+
+          const profit = principal * (dailyRate / 100) * days;
+          const total = principal + profit;
+          estimatedProfit.textContent = currency.format(profit);
+          estimatedPayout.textContent = currency.format(total);
+          calculatorMessage.textContent =
+            "Illustrative simple-interest math only; actual plan terms and performance may differ.";
+          calculatorMessage.hidden = false;
+        }
+
+        planSelect.addEventListener("change", updatePlanInputs);
+
+        amountInput.addEventListener("input", () => {
+          const value = Number(amountInput.value);
+          if (Number.isFinite(value) && value > 0) {
+            amountSlider.value = String(
+              Math.min(
+                Number(amountSlider.max),
+                Math.max(Number(amountSlider.min), value),
+              ),
+            );
+          }
+          calculate();
+        });
+
+        amountSlider.addEventListener("input", () => {
+          amountInput.value = amountSlider.value;
+          calculate();
+        });
+
+        dailyRateInput.addEventListener("input", calculate);
+        daysInput.addEventListener("input", calculate);
+
+        document.querySelectorAll("[data-select-plan]").forEach((button) => {
+          button.addEventListener("click", () => {
+            planSelect.value = button.dataset.selectPlan;
+            updatePlanInputs();
+            document.getElementById("calculator").scrollIntoView({
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "auto"
+                : "smooth",
+            });
+            planSelect.focus({ preventScroll: true });
+          });
+        });
+
+        document
+          .getElementById("yieldCalculator")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            calculate();
+          });
+
+        document
+          .getElementById("newsletterForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const email = document.getElementById("newsletterEmail");
+            const status = document.getElementById("newsletterStatus");
+            if (!email.validity.valid) {
+              status.textContent = "Enter a valid email address.";
+              email.focus();
+              return;
+            }
+            status.textContent =
+              "Demo form only. No email was stored or sent because a mailing service is not connected.";
+            event.currentTarget.reset();
+          });
+
+        document
+          .getElementById("closeDemoActivity")
+          .addEventListener("click", () => {
+            document.getElementById("demoActivity").hidden = true;
+          });
+
+        document.getElementById("currentYear").textContent = String(
+          new Date().getFullYear(),
+        );
+
+        updatePlanInputs();
+      })();
+    </script>
+  </body>
+</html>
