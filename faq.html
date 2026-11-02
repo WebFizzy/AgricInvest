@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d2d20" />
+    <meta
+      name="description"
+      content="Get in touch with AgricInvest and find answers to common questions about the platform and agricultural investments."
+    />
+    <title>FAQs &amp; Contact | AgricInvest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+
+    <style>
+      .contact-section {
+        padding: 72px 0;
+        background: var(--white);
+      }
+
+      .contact-card {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--off-white);
+        box-shadow: var(--shadow);
+      }
+
+      .contact-icon {
+        width: 52px;
+        height: 52px;
+        flex: 0 0 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        color: var(--green);
+        background: var(--mint);
+      }
+
+      .contact-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 5px;
+        color: var(--forest);
+        font-size: 17px;
+      }
+
+      .contact-card p {
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .contact-card a {
+        color: var(--green-dark);
+        font-weight: 800;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 600px) {
+        .contact-section {
+          padding: 50px 0;
+        }
+
+        .contact-card {
+          padding: 22px;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="main-header" id="header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">
+            <i data-lucide="sprout"></i>
+          </span>
+          <span>Agric<span>Invest</span></span>
+        </a>
+
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="about.html">About Us</a>
+          <a href="markets.html">Markets</a>
+          <a href="plans.html">Investment Plan</a>
+          <!-- <a href="#calculator">Investment Calculator</a> -->
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="login-btn" data-open-modal="loginModal">
+            Login
+          </button>
+
+          <button
+            class="btn btn-primary nav-cta"
+            data-open-modal="connectModal"
+          >
+            Start Investing
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="markets.html">Markets</a>
+        <a href="plan.html">Investment Plan</a>
+        <a href="faq.html">FAQs</a>
+
+        <button
+          class="btn btn-primary mobile-login"
+          data-open-modal="loginModal"
+        >
+          Login
+        </button>
+
+        <button class="btn btn-primary" data-open-modal="connectModal">
+          Start Investing
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="contact-section" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">WE'RE HERE TO HELP</span>
+            <h1 id="contact-title">Contact Us</h1>
+            <p>
+              Have a question about AgricInvest? Reach our support team by
+              email.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <h3>Email Support</h3>
+              <p>For questions and support, contact us at:</p>
+              <a href="mailto:support@AgricInvest.example"
+                >support@AgricInvest.example</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="container faq-grid">
+          <div class="faq-intro">
+            <span class="section-eyebrow">NEED MORE INFORMATION?</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>
+              Find answers to common questions about AgricInvest, agricultural
+              assets and our platform concept.
+            </p>
+
+            <div class="faq-help">
+              <i data-lucide="message-circle"></i>
+              <div>
+                <strong>Still have questions?</strong>
+                <span>Our team is here to help.</span>
+              </div>
+              <a href="mailto:support@AgricInvest.example">Contact Us</a>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" aria-expanded="true">
+                What is AgricInvest?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  AgricInvest is a digital agricultural investment platform
+                  concept designed to connect users with agricultural asset
+                  Markets, portfolio information and digital financial tools.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How do I create an account?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Use the registration interface to begin creating an account.
+                  A production platform should include secure authentication,
+                  identity verification where required and account protection
+                  measures.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What agricultural assets are available?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Example asset categories include farmland, livestock, crop
+                  production and greenhouse agriculture. Actual offerings must
+                  be documented, verified and made available only where legally
+                  permitted.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Are investment returns guaranteed?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  No. Agricultural investments carry risks including weather
+                  events, crop failure, commodity price fluctuations,
+                  operational challenges and liquidity constraints. Returns are
+                  not guaranteed.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I use USDT or USDC?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Stablecoin deposits are not currently connected in this
+                  frontend demonstration. A live implementation would need
+                  supported network integrations, transaction verification and
+                  appropriate compliance controls.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How can I withdraw my funds?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Withdrawal availability would depend on the actual investment
+                  terms, applicable restrictions, liquidity and verified
+                  payment infrastructure. This demonstration does not process
+                  withdrawals.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How does asset monitoring work?
+                <i data-lucide="plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  A production agricultural monitoring system could combine
+                  farm reports, satellite imagery, environmental information
+                  and operational records to provide portfolio updates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="#home" class="brand footer-brand">
+              <span class="brand-icon">
+                <i data-lucide="sprout"></i>
+              </span>
+              <span>Agric<span>Invest</span></span>
+            </a>
+
+            <p>
+              Connecting agricultural Markets with modern digital finance.
+              Discover a smarter perspective on agricultural asset markets.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Platform</h4>
+
+            <a href="markets.html">Markets</a>
+            <a href="plans.html">Asset Portfolios</a>
+            <a href="#calculator">ROI Calculator</a>
+            <!-- <a href="markets.html">Markets</a> -->
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+
+            <a href="about.html">How It Works</a>
+            <a href="plans.html">Investment Plan</a>
+            <a href="#faq">Help Center</a>
+            <!-- <a href="#faq">Risk Information</a> -->
+            <a href="#faq">Contact Support</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+
+            <a href="#" class="legal-link" data-legal="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="legal-link" data-legal="Terms of Service"
+              >Terms of Service</a
+            >
+            <a href="#" class="legal-link" data-legal="Risk Disclosure"
+              >Risk Disclosure</a
+            >
+            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              >Cookie Policy</a
+            > -->
+          </div>
+        </div>
+
+        <!-- <div class="footer-disclaimer">
+          <strong>Important Risk Disclosure</strong>
+
+          <p>
+            Agricultural investments involve substantial risks, including loss
+            of capital, commodity price volatility, weather-related events,
+            operational risks, regulatory changes and liquidity limitations.
+            Past performance does not guarantee future results. Any percentages,
+            projections, asset valuations, testimonials, market prices and
+            activity shown on this demonstration website are illustrative and do
+            not represent actual investment products, guaranteed returns or
+            verified transactions. Do not invest without independently reviewing
+            the relevant offering documents and risks.
+          </p>
+        </div> -->
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear"></span> AgricInvest. All rights reserved.
+          </p>
+
+          <span>Built for a sustainable agricultural future.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
