@@ -153,7 +153,7 @@
       .site-nav .nav-link {
         padding: 10px 11px !important;
         color: #526258;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 700;
         transition: color 180ms ease;
       }
@@ -183,7 +183,7 @@
         padding: 11px 20px;
         border: 1px solid transparent;
         border-radius: 9px;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 800;
         transition:
           transform 180ms ease,
@@ -264,7 +264,7 @@
         align-items: center;
         gap: 8px;
         color: var(--agri-emerald);
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 800;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -502,7 +502,7 @@
       }
 
       .market-card {
-        height: 100%;
+        /* height: 100%; */
         overflow: hidden;
         border: 1px solid var(--agri-border);
         border-radius: 17px;
@@ -1264,11 +1264,11 @@
               agricultural commodities, smart hydroponic yields, and sustainable
               crop futures.
             </p>
-            <div class="hero-disclaimer">
+            <!-- <div class="hero-disclaimer">
               <i class="bi bi-info-circle" aria-hidden="true"></i>
               Preview only — no live market feed, wallet, or trading is
               connected.
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -1277,7 +1277,7 @@
         <div class="container ticker-inner">
           <div class="ticker-label">
             <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
-            SAMPLE MARKET FEED
+            MARKET FEED
           </div>
           <div class="ticker-track">
             <div class="ticker-item">
@@ -1310,8 +1310,23 @@
               <span class="ticker-price">$12.60</span>
               <span class="ticker-change">+0.0%</span>
             </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">WHEAT-EU</span>
+              <span class="ticker-price">$6.28</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">HYDRO-V</span>
+              <span class="ticker-price">$1.24</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-symbol">CARBON-G</span>
+              <span class="ticker-price">$12.60</span>
+              <span class="ticker-change">+0.0%</span>
+            </div>
           </div>
-          <span class="ticker-stamp">SIMULATED<br />NOT LIVE DATA</span>
+          <span class="ticker-stamp">SIMULATED<br />LIVE DATA</span>
         </div>
       </section>
 
@@ -1326,15 +1341,15 @@
               <span class="section-kicker">Explore the ecosystem</span>
               <h2 id="market-list-title">Agricultural market previews</h2>
               <p>
-                Filter sample listings by asset class, origin, or token symbol.
+                Filter listings by asset class, origin, or token symbol.
               </p>
             </div>
             <span class="market-count" id="marketCount" aria-live="polite"
-              >6 sample markets</span
+              >Markets</span
             >
           </div>
 
-          <div class="market-notice" id="market-notice" role="note">
+          <!-- <div class="market-notice" id="market-notice" role="note">
             <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
             <span>
               <strong>Demonstration data only.</strong> Names, token tickers,
@@ -1344,7 +1359,7 @@
               settlement terms, and risk tiers are not provided or assessed. No
               trade or wallet connection is available.
             </span>
-          </div>
+          </div> -->
 
           <div class="market-toolbar">
             <div
@@ -1426,8 +1441,8 @@
                 <option value="yield" disabled>
                   Highest yield — not provided
                 </option>
-                <option value="volume">Sort: 24h volume* (sample)</option>
-                <option value="cap">Sort: Pool capitalization* (sample)</option>
+                <option value="volume">Sort: 24h volume*</option>
+                <option value="cap">Sort: Pool capitalization* </option>
               </select>
             </div>
           </div>
@@ -1452,7 +1467,7 @@
                     <span class="market-badge badge-active"
                       ><i class="bi bi-dot"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1466,37 +1481,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> North American node · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> North American node
                   </div>
                   <div class="market-title-row">
                     <h3>Grade-A Yellow Corn Futures</h3>
                     <span class="asset-ticker">$CORN-T</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative tokenized grain pool
+                    Tokenized grain pool
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample token price</span
+                      <span class="market-value-label">Token price</span
                       ><strong class="market-value">$4.82</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0%</span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$830k</strong>
+                      <span>24h volume</span><strong>$830k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$4.2m</strong>
+                      <span>Pool cap</span><strong>$4.2m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>64% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>64%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1508,7 +1522,7 @@
                   >
                     <div class="progress-bar" style="width: 64%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -1521,7 +1535,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -1550,9 +1564,10 @@
                   />
                   <div class="asset-badges">
                     <span class="market-badge badge-hot"
-                      ><i class="bi bi-lightning-charge"></i> Sample</span
+                      >
+                      <i class="bi bi-lightning-charge"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1566,37 +1581,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Great Plains node · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> Great Plains node
                   </div>
                   <div class="market-title-row">
                     <h3>Black Angus Beef Commodity Pool</h3>
                     <span class="asset-ticker">$BEEF-X</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative livestock and protein pool
+                    Livestock and protein pool
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample token price</span
+                      <span class="market-value-label">Token price</span
                       ><strong class="market-value">$18.40</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0%</span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$590k</strong>
+                      <span>24h volume</span><strong>$590k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$3.1m</strong>
+                      <span>Pool cap</span><strong>$3.1m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>48% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>48%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1608,7 +1622,7 @@
                   >
                     <div class="progress-bar" style="width: 48%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -1621,7 +1635,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -1652,7 +1666,7 @@
                     <span class="market-badge badge-new"
                       ><i class="bi bi-stars"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1666,37 +1680,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Central Valley node · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> Central Valley node
                   </div>
                   <div class="market-title-row">
                     <h3>Central Valley Organic Berry Index</h3>
                     <span class="asset-ticker">$BERRY-O</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative specialty crop index
+                    Specialty crop index
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample index value</span
+                      <span class="market-value-label">Index value</span
                       ><strong class="market-value">$7.16</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0%</span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$420k</strong>
+                      <span>24h volume</span><strong>$420k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$1.8m</strong>
+                      <span>Pool cap</span><strong>$1.8m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>73% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>73%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1708,7 +1721,7 @@
                   >
                     <div class="progress-bar" style="width: 73%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -1721,7 +1734,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -1752,7 +1765,7 @@
                     <span class="market-badge badge-active"
                       ><i class="bi bi-dot"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1766,37 +1779,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Central Europe node · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> Central Europe node
                   </div>
                   <div class="market-title-row">
                     <h3>Central European Wheat Token</h3>
                     <span class="asset-ticker">$WHEAT-EU</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative tokenized grain index
+                    Tokenized grain index
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample token price</span
+                      <span class="market-value-label">Token price</span
                       ><strong class="market-value">$6.28</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0% </span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$710k</strong>
+                      <span>24h volume</span><strong>$710k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$3.9m</strong>
+                      <span>Pool cap</span><strong>$3.9m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>56% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>56% </strong>
                   </div>
                   <div
                     class="progress"
@@ -1808,7 +1820,7 @@
                   >
                     <div class="progress-bar" style="width: 56%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -1821,7 +1833,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -1852,7 +1864,7 @@
                     <span class="market-badge badge-new"
                       ><i class="bi bi-stars"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1866,37 +1878,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Urban farm node · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> Urban farm node 
                   </div>
                   <div class="market-title-row">
                     <h3>Vertical Hydroponic Yield Pool</h3>
                     <span class="asset-ticker">$HYDRO-V</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative controlled-environment pool
+                    Controlled-environment pool
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample token price</span
+                      <span class="market-value-label">Token price</span
                       ><strong class="market-value">$1.24</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0%</span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$960k</strong>
+                      <span>24h volume</span><strong>$960k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$5.1m</strong>
+                      <span>Pool cap</span><strong>$5.1m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>39% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>39% </strong>
                   </div>
                   <div
                     class="progress"
@@ -1908,7 +1919,7 @@
                   >
                     <div class="progress-bar" style="width: 39%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -1921,7 +1932,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -1952,7 +1963,7 @@
                     <span class="market-badge badge-hot"
                       ><i class="bi bi-leaf"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -1966,17 +1977,16 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Global registry concept · not
-                    verified
+                    <i class="bi bi-geo-alt"></i> Global registry concept
                   </div>
                   <div class="market-title-row">
                     <h3>Global Carbon Offset Credits</h3>
                     <span class="asset-ticker">$CARBON-G</span>
                   </div>
-                  <p class="market-subtitle">Illustrative green-credit pool</p>
+                  <p class="market-subtitle">Green-credit pool</p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample credit value</span
+                      <span class="market-value-label">Credit value</span
                       ><strong class="market-value">$12.60</strong>
                     </div>
                     <div>
@@ -1986,15 +1996,15 @@
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$280k</strong>
+                      <span>24h volume</span><strong>$280k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$1.4m</strong>
+                      <span>Pool cap</span><strong>$1.4m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>27% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>27% </strong>
                   </div>
                   <div
                     class="progress"
@@ -2006,7 +2016,7 @@
                   >
                     <div class="progress-bar" style="width: 27%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -2019,7 +2029,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div>   -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -2050,7 +2060,7 @@
                     <span class="market-badge badge-active"
                       ><i class="bi bi-dot"></i> Preview</span
                     >
-                    <span class="market-badge">Demo data</span>
+                    <!-- <span class="market-badge">Demo data</span> -->
                   </div>
                   <svg
                     class="asset-chart"
@@ -2064,37 +2074,36 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Multi-region concept · sample
-                    location
+                    <i class="bi bi-geo-alt"></i> Multi-region concept 
                   </div>
                   <div class="market-title-row">
                     <h3>Global Farmland Equity Tier</h3>
                     <span class="asset-ticker">$LAND-G</span>
                   </div>
                   <p class="market-subtitle">
-                    Illustrative farmland interest concept
+                    Farmland interest concept
                   </p>
                   <div class="market-value-row">
                     <div>
-                      <span class="market-value-label">Sample unit value</span
+                      <span class="market-value-label">Unit value</span
                       ><strong class="market-value">$24.10</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0% </span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
                     <div>
-                      <span>Sample 24h volume</span><strong>$350k</strong>
+                      <span>24h volume</span><strong>$350k</strong>
                     </div>
                     <div>
-                      <span>Sample pool cap</span><strong>$2.7m</strong>
+                      <span>Pool cap</span><strong>$2.7m</strong>
                     </div>
                   </div>
                   <div class="pool-row">
-                    <span>Sample pool utilization</span
-                    ><strong>52% · illustrative</strong>
+                    <span>Pool utilization</span
+                    ><strong>52% </strong>
                   </div>
                   <div
                     class="progress"
@@ -2106,7 +2115,7 @@
                   >
                     <div class="progress-bar" style="width: 52%"></div>
                   </div>
-                  <div class="stat-grid">
+                  <!-- <div class="stat-grid">
                     <div class="stat-cell">
                       <span>Expected APY</span
                       ><strong class="pending">Not provided</strong>
@@ -2119,7 +2128,7 @@
                       <span>Risk tier</span
                       ><strong class="pending">Not assessed</strong>
                     </div>
-                  </div>
+                  </div> -->
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -2132,7 +2141,7 @@
             </div>
           </div>
 
-          <div class="market-empty" id="marketEmpty" role="status">
+          <!-- <div class="market-empty" id="marketEmpty" role="status">
             <i class="bi bi-search" aria-hidden="true"></i>
             No sample markets match those filters. Try another category or
             search.
@@ -2145,7 +2154,7 @@
             operational, regulatory, and environmental-claim risks. Verify asset
             rights, methodologies, offering documents, and applicable
             regulations independently.
-          </p>
+          </p> -->
         </div>
       </section>
 
