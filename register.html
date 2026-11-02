@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e163b" />
+    <title>Create Account | AgricInvest</title>
+
+    <style>
+      :root {
+        /* --background: #1e163b; */
+
+        --background: rgba(17, 29, 48, 0.5);
+
+        /* --background-light: #2b2050; */
+        --background-light: rgb(59 130 246 / 0.5);
+
+        /* --primary: #635bff; */
+
+        /* --primary: rgb(41, 106, 211);   */
+
+        --primary: linear-gradient(135deg, #10b981, #059669);
+
+        --primary-hover: #5148e5;
+
+        --text: #1e2132;
+        --muted: #444c6f;
+        --border: #d2d4da;
+        --danger: #d92d45;
+        --success: #16865c;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 42px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+        /* background:
+          radial-gradient(ellipse at 10% 10%, #49336f 0%, transparent 38%),
+          radial-gradient(ellipse at 95% 90%, #30265d 0%, transparent 36%),
+          var(--background); */
+
+        background:
+          radial-gradient(
+            ellipse at 10% 10%,
+            rgba(23, 37, 60, 0.9) 0%,
+            transparent 78%
+          ),
+          radial-gradient(
+            ellipse at 95% 90%,
+            rgba(23, 37, 60, 0.9) 75%,
+            transparent 75%
+          ),
+          var(--background);
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 560px;
+      }
+
+      .brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+        color: var(--white);
+        font-size: 23px;
+        font-weight: 750;
+        letter-spacing: -0.7px;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0f057c, #4f46e5);
+
+        box-shadow: 0 8px 24px #635bff40;
+        font-size: 22px;
+      }
+
+      .card {
+        padding: 36px;
+        background: var(--white);
+        border: 1px solid #ffffff80;
+        border-radius: 22px;
+        box-shadow: 0 28px 80px #08051e50;
+      }
+
+      .card-header {
+        margin-bottom: 27px;
+        text-align: center;
+      }
+
+      .card-header h1 {
+        margin-bottom: 9px;
+        font-size: clamp(25px, 5vw, 31px);
+        letter-spacing: -1px;
+      }
+
+      .card-header p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 19px 16px;
+      }
+
+      .field {
+        min-width: 0;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #505158;
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .required {
+        color: var(--danger);
+      }
+
+      .input-wrap {
+        position: relative;
+      }
+
+      input,
+      select {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 13px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        outline: none;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      input::placeholder {
+        color: #a1a3ad;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px #635bff1c;
+      }
+
+      input[aria-invalid="true"],
+      select[aria-invalid="true"] {
+        border-color: var(--danger);
+      }
+
+      .password-input {
+        padding-right: 70px;
+      }
+
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        border: 0;
+        padding: 5px;
+        background: transparent;
+        color: #037752;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .error {
+        min-height: 0;
+        margin-top: 6px;
+        color: var(--danger);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .error:empty {
+        display: none;
+      }
+
+      .password-hint {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .terms {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .terms input {
+        width: 16px;
+        min-height: 16px;
+        flex: 0 0 16px;
+        margin-top: 3px;
+        /* accent-color: var(--primary); */
+        accent-color: #037752;
+        cursor: pointer;
+      }
+
+      .terms label {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.65;
+      }
+
+      a {
+        /* color: var(--primary); */
+        color: #037752;
+
+        text-decoration: none;
+        font-weight: 650;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .terms a {
+        font-weight: 600;
+      }
+
+      .register-button {
+        width: 100%;
+        min-height: 50px;
+        margin-top: 23px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--primary);
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .register-button:hover {
+        background: var(--primary-hover);
+        box-shadow: 0 8px 22px #635bff35;
+        transform: translateY(-1px);
+      }
+
+      .register-button:focus-visible,
+      .toggle-password:focus-visible {
+        outline: 3px solid #635bff60;
+        outline-offset: 3px;
+      }
+
+      .register-button:disabled {
+        cursor: wait;
+        opacity: 0.7;
+      }
+
+      .form-message {
+        margin-top: 14px;
+        font-size: 13px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      .form-message:empty {
+        display: none;
+      }
+
+      .form-message.error-message {
+        color: var(--danger);
+      }
+
+      .form-message.success-message {
+        color: var(--success);
+      }
+
+      .login {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .security-note {
+        margin: 23px auto 0;
+        max-width: 420px;
+        color: #c3bdd9;
+        font-size: 11px;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 26px 14px;
+          align-items: flex-start;
+        }
+
+        .brand {
+          margin-bottom: 20px;
+          font-size: 21px;
+        }
+
+        .card {
+          padding: 25px 19px;
+          border-radius: 18px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .full-width {
+          grid-column: auto;
+        }
+
+        .card-header {
+          margin-bottom: 24px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <div class="brand" aria-label="AgricInvest">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>AgricInvest</span>
+      </div>
+
+      <section class="card" aria-labelledby="register-heading">
+        <header class="card-header">
+          <h1 id="register-heading">Create your account</h1>
+          <p>Get started with your financial journey today.</p>
+        </header>
+
+        <form id="registerForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="firstName"
+                >First Name <span class="required">*</span></label
+              >
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                placeholder="Enter first name"
+                required
+              />
+              <p class="error" id="firstNameError"></p>
+            </div>
+
+            <div class="field">
+              <label for="lastName"
+                >Last Name <span class="required">*</span></label
+              >
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                placeholder="Enter last name"
+                required
+              />
+              <p class="error" id="lastNameError"></p>
+            </div>
+
+            <div class="field full-width">
+              <label for="email"
+                >Email Address <span class="required">*</span></label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+              <p class="error" id="emailError"></p>
+            </div>
+
+            <div class="field full-width">
+              <label for="phone"
+                >Phone Number <span class="required">*</span></label
+              >
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+234 800 000 0000"
+                required
+              />
+              <p class="error" id="phoneError"></p>
+            </div>
+
+            <div class="field">
+              <label for="password"
+                >Password <span class="required">*</span></label
+              >
+              <div class="input-wrap">
+                <input
+                  class="password-input"
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                  placeholder="Create password"
+                  minlength="12"
+                  required
+                />
+                <button
+                  class="toggle-password"
+                  type="button"
+                  data-target="password"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                >
+                  Show
+                </button>
+              </div>
+              <p class="password-hint">Use at least 12 characters.</p>
+              <p class="error" id="passwordError"></p>
+            </div>
+
+            <div class="field">
+              <label for="confirmPassword"
+                >Confirm Password <span class="required">*</span></label
+              >
+              <div class="input-wrap">
+                <input
+                  class="password-input"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  autocomplete="new-password"
+                  placeholder="Repeat password"
+                  required
+                />
+                <button
+                  class="toggle-password"
+                  type="button"
+                  data-target="confirmPassword"
+                  aria-label="Show confirm password"
+                  aria-pressed="false"
+                >
+                  Show
+                </button>
+              </div>
+              <p class="error" id="confirmPasswordError"></p>
+            </div>
+
+            <div class="field full-width">
+              <label for="country"
+                >Country <span class="required">*</span></label
+              >
+              <select
+                id="country"
+                name="country"
+                autocomplete="country-name"
+                required
+              >
+                <option value="">Select your country</option>
+              </select>
+              <p class="error" id="countryError"></p>
+            </div>
+          </div>
+
+          <div class="terms">
+            <input id="terms" name="terms" type="checkbox" required />
+            <label for="terms">
+              I agree to the <a href="/terms">Terms of Service</a> and
+              <a href="/privacy">Privacy Policy</a>.
+            </label>
+          </div>
+          <p class="error" id="termsError"></p>
+
+          <button class="register-button" id="registerButton" type="submit">
+            Register
+          </button>
+
+          <p
+            class="form-message"
+            id="formMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <p class="login">
+            Already Have An Account?
+            <a href="/login">Login.</a>
+          </p>
+        </form>
+      </section>
+
+      <p class="security-note">
+        Protect your account by choosing a unique password. Never share your
+        password or private cryptocurrency wallet keys with anyone.
+      </p>
+    </main>
+
+    <script>
+      // Populate the selector with countries and territories.
+      // Uses ISO country codes to preserve consistent country values.
+      const countries = [
+        ["AF", "Afghanistan"],
+        ["AX", "Åland Islands"],
+        ["AL", "Albania"],
+        ["DZ", "Algeria"],
+        ["AS", "American Samoa"],
+        ["AD", "Andorra"],
+        ["AO", "Angola"],
+        ["AI", "Anguilla"],
+        ["AQ", "Antarctica"],
+        ["AG", "Antigua and Barbuda"],
+        ["AR", "Argentina"],
+        ["AM", "Armenia"],
+        ["AW", "Aruba"],
+        ["AU", "Australia"],
+        ["AT", "Austria"],
+        ["AZ", "Azerbaijan"],
+        ["BS", "Bahamas"],
+        ["BH", "Bahrain"],
+        ["BD", "Bangladesh"],
+        ["BB", "Barbados"],
+        ["BY", "Belarus"],
+        ["BE", "Belgium"],
+        ["BZ", "Belize"],
+        ["BJ", "Benin"],
+        ["BM", "Bermuda"],
+        ["BT", "Bhutan"],
+        ["BO", "Bolivia"],
+        ["BQ", "Bonaire, Sint Eustatius and Saba"],
+        ["BA", "Bosnia and Herzegovina"],
+        ["BW", "Botswana"],
+        ["BV", "Bouvet Island"],
+        ["BR", "Brazil"],
+        ["IO", "British Indian Ocean Territory"],
+        ["BN", "Brunei"],
+        ["BG", "Bulgaria"],
+        ["BF", "Burkina Faso"],
+        ["BI", "Burundi"],
+        ["CV", "Cabo Verde"],
+        ["KH", "Cambodia"],
+        ["CM", "Cameroon"],
+        ["CA", "Canada"],
+        ["KY", "Cayman Islands"],
+        ["CF", "Central African Republic"],
+        ["TD", "Chad"],
+        ["CL", "Chile"],
+        ["CN", "China"],
+        ["CX", "Christmas Island"],
+        ["CC", "Cocos (Keeling) Islands"],
+        ["CO", "Colombia"],
+        ["KM", "Comoros"],
+        ["CG", "Congo"],
+        ["CD", "Congo (Democratic Republic)"],
+        ["CK", "Cook Islands"],
+        ["CR", "Costa Rica"],
+        ["CI", "Côte d’Ivoire"],
+        ["HR", "Croatia"],
+        ["CU", "Cuba"],
+        ["CW", "Curaçao"],
+        ["CY", "Cyprus"],
+        ["CZ", "Czechia"],
+        ["DK", "Denmark"],
+        ["DJ", "Djibouti"],
+        ["DM", "Dominica"],
+        ["DO", "Dominican Republic"],
+        ["EC", "Ecuador"],
+        ["EG", "Egypt"],
+        ["SV", "El Salvador"],
+        ["GQ", "Equatorial Guinea"],
+        ["ER", "Eritrea"],
+        ["EE", "Estonia"],
+        ["SZ", "Eswatini"],
+        ["ET", "Ethiopia"],
+        ["FK", "Falkland Islands"],
+        ["FO", "Faroe Islands"],
+        ["FJ", "Fiji"],
+        ["FI", "Finland"],
+        ["FR", "France"],
+        ["GF", "French Guiana"],
+        ["PF", "French Polynesia"],
+        ["TF", "French Southern Territories"],
+        ["GA", "Gabon"],
+        ["GM", "Gambia"],
+        ["GE", "Georgia"],
+        ["DE", "Germany"],
+        ["GH", "Ghana"],
+        ["GI", "Gibraltar"],
+        ["GR", "Greece"],
+        ["GL", "Greenland"],
+        ["GD", "Grenada"],
+        ["GP", "Guadeloupe"],
+        ["GU", "Guam"],
+        ["GT", "Guatemala"],
+        ["GG", "Guernsey"],
+        ["GN", "Guinea"],
+        ["GW", "Guinea-Bissau"],
+        ["GY", "Guyana"],
+        ["HT", "Haiti"],
+        ["HM", "Heard Island and McDonald Islands"],
+        ["HN", "Honduras"],
+        ["HK", "Hong Kong"],
+        ["HU", "Hungary"],
+        ["IS", "Iceland"],
+        ["IN", "India"],
+        ["ID", "Indonesia"],
+        ["IR", "Iran"],
+        ["IQ", "Iraq"],
+        ["IE", "Ireland"],
+        ["IM", "Isle of Man"],
+        ["IL", "Israel"],
+        ["IT", "Italy"],
+        ["JM", "Jamaica"],
+        ["JP", "Japan"],
+        ["JE", "Jersey"],
+        ["JO", "Jordan"],
+        ["KZ", "Kazakhstan"],
+        ["KE", "Kenya"],
+        ["KI", "Kiribati"],
+        ["KP", "North Korea"],
+        ["KR", "South Korea"],
+        ["KW", "Kuwait"],
+        ["KG", "Kyrgyzstan"],
+        ["LA", "Laos"],
+        ["LV", "Latvia"],
+        ["LB", "Lebanon"],
+        ["LS", "Lesotho"],
+        ["LR", "Liberia"],
+        ["LY", "Libya"],
+        ["LI", "Liechtenstein"],
+        ["LT", "Lithuania"],
+        ["LU", "Luxembourg"],
+        ["MO", "Macao"],
+        ["MG", "Madagascar"],
+        ["MW", "Malawi"],
+        ["MY", "Malaysia"],
+        ["MV", "Maldives"],
+        ["ML", "Mali"],
+        ["MT", "Malta"],
+        ["MH", "Marshall Islands"],
+        ["MQ", "Martinique"],
+        ["MR", "Mauritania"],
+        ["MU", "Mauritius"],
+        ["YT", "Mayotte"],
+        ["MX", "Mexico"],
+        ["FM", "Micronesia"],
+        ["MD", "Moldova"],
+        ["MC", "Monaco"],
+        ["MN", "Mongolia"],
+        ["ME", "Montenegro"],
+        ["MS", "Montserrat"],
+        ["MA", "Morocco"],
+        ["MZ", "Mozambique"],
+        ["MM", "Myanmar"],
+        ["NA", "Namibia"],
+        ["NR", "Nauru"],
+        ["NP", "Nepal"],
+        ["NL", "Netherlands"],
+        ["NC", "New Caledonia"],
+        ["NZ", "New Zealand"],
+        ["NI", "Nicaragua"],
+        ["NE", "Niger"],
+        ["NG", "Nigeria"],
+        ["NU", "Niue"],
+        ["NF", "Norfolk Island"],
+        ["MK", "North Macedonia"],
+        ["MP", "Northern Mariana Islands"],
+        ["NO", "Norway"],
+        ["OM", "Oman"],
+        ["PK", "Pakistan"],
+        ["PW", "Palau"],
+        ["PS", "Palestine"],
+        ["PA", "Panama"],
+        ["PG", "Papua New Guinea"],
+        ["PY", "Paraguay"],
+        ["PE", "Peru"],
+        ["PH", "Philippines"],
+        ["PN", "Pitcairn Islands"],
+        ["PL", "Poland"],
+        ["PT", "Portugal"],
+        ["PR", "Puerto Rico"],
+        ["QA", "Qatar"],
+        ["RE", "Réunion"],
+        ["RO", "Romania"],
+        ["RU", "Russia"],
+        ["RW", "Rwanda"],
+        ["BL", "Saint Barthélemy"],
+        ["SH", "Saint Helena"],
+        ["KN", "Saint Kitts and Nevis"],
+        ["LC", "Saint Lucia"],
+        ["MF", "Saint Martin"],
+        ["PM", "Saint Pierre and Miquelon"],
+        ["VC", "Saint Vincent and the Grenadines"],
+        ["WS", "Samoa"],
+        ["SM", "San Marino"],
+        ["ST", "São Tomé and Príncipe"],
+        ["SA", "Saudi Arabia"],
+        ["SN", "Senegal"],
+        ["RS", "Serbia"],
+        ["SC", "Seychelles"],
+        ["SL", "Sierra Leone"],
+        ["SG", "Singapore"],
+        ["SX", "Sint Maarten"],
+        ["SK", "Slovakia"],
+        ["SI", "Slovenia"],
+        ["SB", "Solomon Islands"],
+        ["SO", "Somalia"],
+        ["ZA", "South Africa"],
+        ["GS", "South Georgia and the South Sandwich Islands"],
+        ["SS", "South Sudan"],
+        ["ES", "Spain"],
+        ["LK", "Sri Lanka"],
+        ["SD", "Sudan"],
+        ["SR", "Suriname"],
+        ["SJ", "Svalbard and Jan Mayen"],
+        ["SE", "Sweden"],
+        ["CH", "Switzerland"],
+        ["SY", "Syria"],
+        ["TW", "Taiwan"],
+        ["TJ", "Tajikistan"],
+        ["TZ", "Tanzania"],
+        ["TH", "Thailand"],
+        ["TL", "Timor-Leste"],
+        ["TG", "Togo"],
+        ["TK", "Tokelau"],
+        ["TO", "Tonga"],
+        ["TT", "Trinidad and Tobago"],
+        ["TN", "Tunisia"],
+        ["TR", "Türkiye"],
+        ["TM", "Turkmenistan"],
+        ["TC", "Turks and Caicos Islands"],
+        ["TV", "Tuvalu"],
+        ["UG", "Uganda"],
+        ["UA", "Ukraine"],
+        ["AE", "United Arab Emirates"],
+        ["GB", "United Kingdom"],
+        ["US", "United States"],
+        ["UM", "United States Minor Outlying Islands"],
+        ["UY", "Uruguay"],
+        ["UZ", "Uzbekistan"],
+        ["VU", "Vanuatu"],
+        ["VA", "Vatican City"],
+        ["VE", "Venezuela"],
+        ["VN", "Vietnam"],
+        ["VG", "British Virgin Islands"],
+        ["VI", "U.S. Virgin Islands"],
+        ["WF", "Wallis and Futuna"],
+        ["EH", "Western Sahara"],
+        ["YE", "Yemen"],
+        ["ZM", "Zambia"],
+        ["ZW", "Zimbabwe"],
+      ];
+
+      const countrySelect = document.getElementById("country");
+
+      countries
+        .sort((a, b) => a[1].localeCompare(b[1]))
+        .forEach(([code, name]) => {
+          const option = document.createElement("option");
+          option.value = code;
+          option.textContent = name;
+          countrySelect.appendChild(option);
+        });
+
+      const form = document.getElementById("registerForm");
+      const message = document.getElementById("formMessage");
+
+      // Show/hide password controls.
+      document.querySelectorAll(".toggle-password").forEach((button) => {
+        button.addEventListener("click", () => {
+          const input = document.getElementById(button.dataset.target);
+          const reveal = input.type === "password";
+
+          input.type = reveal ? "text" : "password";
+          button.textContent = reveal ? "Hide" : "Show";
+          button.setAttribute("aria-pressed", String(reveal));
+          button.setAttribute(
+            "aria-label",
+            `${reveal ? "Hide" : "Show"} ${
+              button.dataset.target === "password"
+                ? "password"
+                : "confirm password"
+            }`,
+          );
+        });
+      });
+
+      function setError(fieldId, errorText) {
+        const field = document.getElementById(fieldId);
+        const error = document.getElementById(`${fieldId}Error`);
+
+        if (error) error.textContent = errorText;
+        if (field)
+          field.setAttribute("aria-invalid", String(Boolean(errorText)));
+
+        return !errorText;
+      }
+
+      function validateForm() {
+        let valid = true;
+
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const country = document.getElementById("country");
+        const terms = document.getElementById("terms");
+
+        const checks = [
+          [
+            "firstName",
+            firstName.value.trim() ? "" : "First name is required.",
+          ],
+          ["lastName", lastName.value.trim() ? "" : "Last name is required."],
+          [
+            "email",
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
+              ? ""
+              : "Enter a valid email address.",
+          ],
+          [
+            "phone",
+            phone.value.trim().replace(/\D/g, "").length >= 7
+              ? ""
+              : "Enter a valid phone number.",
+          ],
+          [
+            "password",
+            password.value.length >= 12
+              ? ""
+              : "Password must contain at least 12 characters.",
+          ],
+          [
+            "confirmPassword",
+            confirmPassword.value && confirmPassword.value === password.value
+              ? ""
+              : "Passwords do not match.",
+          ],
+          ["country", country.value ? "" : "Please select your country."],
+        ];
+
+        checks.forEach(([id, error]) => {
+          if (!setError(id, error)) valid = false;
+        });
+
+        document.getElementById("termsError").textContent = terms.checked
+          ? ""
+          : "You must agree to the terms to continue.";
+
+        if (!terms.checked) valid = false;
+
+        return valid;
+      }
+
+      // Clear an individual field error as the user edits it.
+      form.querySelectorAll("input, select").forEach((field) => {
+        field.addEventListener("input", () => {
+          if (field.id !== "terms") {
+            setError(field.id, "");
+          }
+          message.textContent = "";
+          message.className = "form-message";
+        });
+
+        field.addEventListener("change", () => {
+          if (field.id === "terms" && field.checked) {
+            document.getElementById("termsError").textContent = "";
+          }
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        message.textContent = "";
+        message.className = "form-message";
+
+        if (!validateForm()) {
+          message.textContent = "Please review the highlighted fields.";
+          message.classList.add("error-message");
+
+          const firstInvalid = form.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        // Front-end demo only: no account is created and no data is sent.
+        message.textContent =
+          "Form validated successfully. Connect a secure registration API to create an account.";
+        message.classList.add("success-message");
+      });
+    </script>
+  </body>
+</html>

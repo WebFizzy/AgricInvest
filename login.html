@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e163b" />
+    <title>Login | Haze Finance</title>
+
+    <style>
+      :root {
+        /* --background: #1e163b; */
+        --background: rgba(17, 29, 48, 0.5);
+
+        /* --primary: #2980b9; */
+        --primary: linear-gradient(135deg, #10b981, #059669);
+
+        /* --primary-hover: #216a9b; */
+        --primary-hover: #10b981;
+
+        /* --background-light: #2b2050; */
+        --background-light: rgb(59 130 246 / 0.5);
+
+        /* --text: #20243a;
+        --muted: #777d90;
+        --border: #e1e5ee;
+        --white: #ffffff;
+        --danger: #d92d45; */
+        --text: #1e2132;
+        --muted: #444c6f;
+        --border: #d2d4da;
+        --danger: #d92d45;
+        /* --success: #16865c; */
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 28px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+
+        /* background:
+          radial-gradient(ellipse at 12% 12%, #49336f 0%, transparent 38%),
+          radial-gradient(ellipse at 90% 90%, #30265d 0%, transparent 36%),
+          var(--background); */
+
+        background:
+          radial-gradient(
+            ellipse at 10% 10%,
+            rgba(23, 37, 60, 0.9) 0%,
+            transparent 78%
+          ),
+          radial-gradient(
+            ellipse at 95% 90%,
+            rgba(23, 37, 60, 0.9) 75%,
+            transparent 75%
+          ),
+          var(--background);
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .login-wrapper {
+        width: 100%;
+        max-width: 440px;
+      }
+
+      .brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 11px;
+        margin-bottom: 25px;
+        color: var(--white);
+        font-size: 23px;
+        font-weight: 800;
+        letter-spacing: 1.1px;
+      }
+
+      .brand-icon {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        /* background: linear-gradient(135deg, #5ca9e6, #2980b9); */
+        background: linear-gradient(135deg, #10b981, #059669);
+
+        box-shadow: 0 8px 24px #2980b940;
+        font-size: 24px;
+        font-weight: 800;
+      }
+
+      .login-card {
+        padding: 38px 34px 26px;
+        background: var(--white);
+        border: 1px solid #ffffff70;
+        border-radius: 22px;
+        box-shadow: 0 28px 80px #08051e50;
+      }
+
+      .card-header {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .card-header h1 {
+        margin-bottom: 10px;
+        font-size: 29px;
+        font-weight: 750;
+        letter-spacing: -0.8px;
+      }
+
+      .card-header p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .field {
+        margin-bottom: 21px;
+      }
+
+      .field label {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 13px;
+        font-weight: 650;
+        color: #30344a;
+      }
+
+      .input-wrap {
+        position: relative;
+      }
+
+      .field input {
+        width: 100%;
+        min-height: 49px;
+        padding: 13px 14px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        outline: none;
+        background: #fff;
+        color: var(--text);
+        font-size: 14px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .field input::placeholder {
+        color: #989ba8;
+      }
+
+      .field input:focus {
+        /* border-color: var(--primary); */
+        border-color: #1b7458;
+        box-shadow: 0 0 0 3px #2980b91c;
+      }
+
+      .field input[aria-invalid="true"] {
+        border-color: var(--danger);
+      }
+
+      .password-input {
+        padding-right: 68px !important;
+      }
+
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+        /* color: var(--primary); */
+        color: #047a55;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .error {
+        margin-top: 7px;
+        color: var(--danger);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .error:empty {
+        display: none;
+      }
+
+      .login-button {
+        width: 100%;
+        min-height: 50px;
+        margin-top: 4px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--primary);
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .login-button:hover {
+        background: var(--primary-hover);
+        box-shadow: 0 8px 22px #2980b935;
+        transform: translateY(-1px);
+      }
+
+      .login-button:focus-visible,
+      .toggle-password:focus-visible {
+        outline: 3px solid #2980b960;
+        outline-offset: 3px;
+      }
+
+      .form-message {
+        margin-top: 14px;
+        color: var(--danger);
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .form-message:empty {
+        display: none;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 14px;
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .footer-links p {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      a {
+        /* color: var(--primary); */
+        color: #059565;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .copyright {
+        margin-top: 27px;
+        padding-top: 20px;
+        border-top: 1px solid #edf0f5;
+        color: #85899a;
+        font-size: 11px;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 24px 14px;
+        }
+
+        .brand {
+          margin-bottom: 20px;
+          font-size: 21px;
+        }
+
+        .login-card {
+          padding: 29px 21px 23px;
+          border-radius: 18px;
+        }
+
+        .card-header h1 {
+          font-size: 26px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="login-wrapper">
+      <div class="brand" aria-label="AgricInvest">
+        <span class="brand-icon" aria-hidden="true">A</span>
+        <span>AgricInvest</span>
+      </div>
+
+      <section class="login-card" aria-labelledby="login-heading">
+        <header class="card-header">
+          <h1 id="login-heading">Welcome Back</h1>
+          <p>Log in to access your account and manage your finances.</p>
+        </header>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="username"
+              placeholder="name@example.com"
+              required
+              aria-describedby="emailError"
+            />
+            <p class="error" id="emailError" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <input
+                class="password-input"
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Enter Password"
+                required
+                aria-describedby="passwordError"
+              />
+              <button
+                class="toggle-password"
+                type="button"
+                id="togglePassword"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div>
+            <p class="error" id="passwordError" aria-live="polite"></p>
+          </div>
+
+          <button class="login-button" type="submit">Login</button>
+
+          <p
+            class="form-message"
+            id="formMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <div class="footer-links">
+            <p>
+              Forget Your Password?
+              <a href="/forgot-password">Reset.</a>
+            </p>
+
+            <p>
+              Dont Have An Account Yet?
+              <a href="/register">Sign Up.</a>
+            </p>
+          </div>
+
+          <!-- <footer class="copyright">
+            © Copyright 2026 Haze Financial All Rights Reserved.
+          </footer> -->
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const message = document.getElementById("formMessage");
+      const toggle = document.getElementById("togglePassword");
+
+      toggle.addEventListener("click", () => {
+        const show = password.type === "password";
+
+        password.type = show ? "text" : "password";
+        toggle.textContent = show ? "Hide" : "Show";
+        toggle.setAttribute("aria-pressed", String(show));
+        toggle.setAttribute(
+          "aria-label",
+          show ? "Hide password" : "Show password",
+        );
+      });
+
+      function setError(input, errorId, text) {
+        document.getElementById(errorId).textContent = text;
+        input.setAttribute("aria-invalid", String(Boolean(text)));
+      }
+
+      email.addEventListener("input", () => {
+        setError(email, "emailError", "");
+        message.textContent = "";
+      });
+
+      password.addEventListener("input", () => {
+        setError(password, "passwordError", "");
+        message.textContent = "";
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        message.textContent = "";
+
+        const emailValue = email.value.trim();
+        const passwordValue = password.value;
+
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+
+        setError(
+          email,
+          "emailError",
+          !emailValue
+            ? "Please enter your email address."
+            : !validEmail
+              ? "Please enter a valid email address."
+              : "",
+        );
+
+        setError(
+          password,
+          "passwordError",
+          passwordValue ? "" : "Please enter your password.",
+        );
+
+        if (!validEmail || !passwordValue) {
+          message.textContent = "Please correct the errors above.";
+          return;
+        }
+
+        // Demo only. Connect this form to your secure login API.
+        message.textContent =
+          "Your details passed basic validation. Connect your authentication service to log in.";
+      });
+    </script>
+  </body>
+</html>
