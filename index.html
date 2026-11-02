@@ -3270,11 +3270,11 @@
         }
 
         .market-card-content h3 {
-          font-size: 14px;
+          font-size: 15px;
         }
 
         .market-card-content p {
-          font-size: 10px;
+          font-size: 16px;
           min-height: 90px;
         }
 
@@ -3485,7 +3485,7 @@
         }
 
         .hero-badge {
-          font-size: 8px;
+          font-size: 12px;
         }
 
         .hero-visual {
@@ -3587,6 +3587,322 @@
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+
+    <style>
+      :root {
+        --agri-forest: #072a1a;
+        --agri-forest-2: #0d3b25;
+        --agri-emerald: #15803d;
+        --agri-bright: #22a653;
+        --agri-lime: #a3e635;
+        --agri-white: #fff;
+        --agri-off-white: #f8fafc;
+        --agri-mint: #eaf5ed;
+        --agri-ink: #17251c;
+        --agri-muted: #68786e;
+        --agri-border: #e4ebe6;
+        --agri-shadow: 0 16px 45px rgba(7, 42, 26, 0.08);
+        --agri-shadow-hover: 0 22px 52px rgba(7, 42, 26, 0.14);
+        --agri-radius: 20px;
+      }
+
+      .plans-section {
+        padding: 85px 0 78px;
+        background:
+          radial-gradient(ellipse at 50% 0, #f1f8f3 0, transparent 38%),
+          var(--agri-off-white);
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        margin: 10px 0;
+        color: var(--agri-forest);
+        font-size: clamp(29px, 4vw, 43px);
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--agri-muted);
+        font-size: 14px;
+      }
+
+      .term-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        max-width: 950px;
+        margin: 0 auto 27px;
+        padding: 14px 17px;
+        border: 1px solid #dcebe0;
+        border-radius: 12px;
+        color: #53665a;
+        background: #f0f8f2;
+        font-size: 12px;
+      }
+
+      .term-notice i {
+        margin-top: 2px;
+        color: var(--agri-emerald);
+      }
+
+      .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      .plan-card {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--agri-border);
+        border-radius: var(--agri-radius);
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(7, 42, 26, 0.045);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .plan-card:hover {
+        border-color: rgba(21, 128, 61, 0.3);
+        box-shadow: var(--agri-shadow-hover);
+        transform: translateY(-5px);
+      }
+
+      .plan-card.is-featured {
+        border: 2px solid rgba(21, 128, 61, 0.48);
+      }
+
+      .plan-image {
+        position: relative;
+        height: 178px;
+        overflow: hidden;
+        background: #dce9de;
+      }
+
+      .plan-image::after {
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(transparent, rgba(7, 42, 26, 0.25));
+        content: "";
+      }
+
+      .plan-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 450ms ease;
+      }
+
+      .plan-card:hover .plan-image img {
+        transform: scale(1.045);
+      }
+
+      .plan-badge {
+        position: absolute;
+        z-index: 1;
+        top: 14px;
+        left: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.54);
+        border-radius: 30px;
+        color: var(--agri-forest);
+        background: rgba(255, 255, 255, 0.93);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+      }
+
+      .plan-badge.badge-popular {
+        color: #fff;
+        border-color: transparent;
+        background: var(--agri-emerald);
+      }
+
+      .plan-badge.badge-exclusive {
+        color: var(--agri-forest);
+        background: #e6f4bd;
+      }
+
+      .plan-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 22px;
+      }
+
+      .plan-category {
+        color: var(--agri-emerald);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+      }
+
+      .plan-title-row {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .plan-title-row h3 {
+        margin: 0;
+        color: var(--agri-forest);
+        font-size: 20px;
+      }
+
+      .plan-title-row > i {
+        margin-top: 4px;
+        color: #8ca497;
+        font-size: 18px;
+      }
+
+      .plan-description {
+        min-height: 44px;
+        margin: 8px 0 17px;
+        color: var(--agri-muted);
+        font-size: 12px;
+      }
+
+      .plan-roi {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 63px;
+        margin-bottom: 14px;
+        padding: 12px 13px;
+        border-radius: 11px;
+        background: #f2f8f3;
+      }
+
+      .plan-roi span,
+      .plan-roi strong {
+        display: block;
+      }
+
+      .plan-roi span {
+        color: var(--agri-muted);
+        font-size: 10px;
+      }
+
+      .plan-roi strong {
+        margin-top: 2px;
+        color: var(--agri-forest);
+        font-size: 14px;
+      }
+
+      .plan-roi .roi-value {
+        color: var(--agri-emerald);
+        font-size: 14px;
+        text-align: right;
+      }
+
+      .plan-details {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .plan-details li {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 0;
+        border-bottom: 1px solid #edf1ee;
+        font-size: 11px;
+      }
+
+      .plan-details li span {
+        color: var(--agri-muted);
+      }
+
+      .plan-details li strong {
+        color: var(--agri-ink);
+        font-size: 11px;
+        text-align: right;
+      }
+
+      .plan-details .not-provided {
+        color: #7a837d;
+        font-weight: 600;
+      }
+
+      .plan-footnote {
+        min-height: 34px;
+        margin: 12px 0 15px;
+        color: #728078;
+        font-size: 10px;
+        line-height: 1.6;
+      }
+
+      .plan-card .btn-agri,
+      .plan-card .btn-agri-outline {
+        width: 100%;
+        margin-top: auto;
+      }
+
+      .btn-agri-outline {
+        border-color: rgba(7, 42, 26, 0.18);
+        color: var(--agri-forest);
+        background: #fff;
+      }
+
+      .btn-agri-outline:hover {
+        border-color: #096b32;
+        color: #0f5734;
+      }
+
+      .btn-agri,
+      .btn-agri-outline {
+        /* min-height: 46px; */
+        /* display: inline-flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* gap: 9px; */
+        padding: 11px 20px;
+        /* border: 1px solid transparent; */
+        border-radius: 9px;
+        font-size: 15px;
+        /* font-weight: 800; */
+        /* transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease,
+          color 180ms ease; */
+      }
+
+      @media (max-width: 991.98px) {
+        .plans-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .plans-grid {
+          grid-template-columns: 1fr;
+          max-width: 520px;
+          margin: auto;
         }
       }
     </style>
@@ -3993,9 +4309,9 @@
               </p>
 
               <ul>
-                <li>- Simple registration process</li>
-                <li>- Account security controls</li>
-                <li>- Investor profile management</li>
+                <li> Simple registration process</li>
+                <li> Account security controls</li>
+                <li> Investor profile management</li>
               </ul>
             </div>
 
@@ -4023,9 +4339,9 @@
               </p>
 
               <ul>
-                <li>- Explore asset categories</li>
-                <li>- Review investment terms</li>
-                <li>- Compare portfolio details</li>
+                <li> Explore asset categories</li>
+                <li> Review investment terms</li>
+                <li> Compare portfolio details</li>
               </ul>
             </div>
           </div>
@@ -4200,299 +4516,6 @@
         </div>
       </section>
 
-      <!-- ================= PORTFOLIOS ================= -->
-
-      <!-- <section class="section portfolio-section" id="portfolios">
-      <div class="container">
-        <div class="section-heading portfolio-heading">
-          <span class="section-eyebrow">DISCOVER YOUR NEXT OPPORTUNITY</span>
-
-          <h2>Physical Agricultural Assets</h2>
-
-          <p>
-            Browse illustrative agricultural portfolio Markets across
-            different production categories.
-          </p>
-        </div>
-
-        <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">
-            All Assets
-          </button>
-          <button class="filter-btn" data-filter="farmland">Farmland</button>
-          <button class="filter-btn" data-filter="livestock">Livestock</button>
-          <button class="filter-btn" data-filter="crops">
-            Crop Production
-          </button>
-          <button class="filter-btn" data-filter="technology">Agri-Tech</button>
-        </div>
-
-        <div class="portfolio-grid" id="portfolioGrid">
-
-          <article class="portfolio-card" data-category="farmland">
-            <div class="portfolio-image">
-              <img
-                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
-                alt="Iowa farmland"
-                loading="lazy"
-              />
-              <span class="location-badge">
-                <i data-lucide="map-pin"></i> Iowa, USA
-              </span>
-              <span class="asset-badge">Farmland</span>
-            </div>
-
-            <div class="portfolio-body">
-              <div class="portfolio-top">
-                <span>AGRICULTURAL LAND</span>
-                <span class="verified"
-                  ><i data-lucide="badge-check"></i> Demo</span
-                >
-              </div>
-
-              <h3>Premium Corn Farmland</h3>
-
-              <p>
-                Illustrative farmland portfolio focused on commercial crop
-                production.
-              </p>
-
-              <div class="portfolio-stats">
-                <div>
-                  <span>Target rate</span>
-                  <strong>8% p.a.</strong>
-                </div>
-                <div>
-                  <span>Term</span>
-                  <strong>12 Months</strong>
-                </div>
-              </div>
-
-              <div class="progress-info">
-                <span>Funding progress</span>
-                <strong>72%</strong>
-              </div>
-
-              <div class="progress-bar">
-                <span style="width: 72%"></span>
-              </div>
-
-              <div class="portfolio-bottom">
-                <div>
-                  <span>Illustrative minimum</span>
-                  <strong>$500</strong>
-                </div>
-
-                <button
-                  class="btn btn-primary invest-btn"
-                  data-invest="Premium Corn Farmland"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="portfolio-card" data-category="livestock">
-            <div class="portfolio-image">
-              <img
-                src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=700&q=80"
-                alt="Cattle livestock"
-                loading="lazy"
-              />
-              <span class="location-badge">
-                <i data-lucide="map-pin"></i> Texas, USA
-              </span>
-              <span class="asset-badge">Livestock</span>
-            </div>
-
-            <div class="portfolio-body">
-              <div class="portfolio-top">
-                <span>ANIMAL AGRICULTURE</span>
-                <span class="verified"
-                  ><i data-lucide="badge-check"></i> Demo</span
-                >
-              </div>
-
-              <h3>Premium Cattle Portfolio</h3>
-
-              <p>
-                Illustrative livestock opportunity focused on cattle production.
-              </p>
-
-              <div class="portfolio-stats">
-                <div>
-                  <span>Target rate</span>
-                  <strong>10% p.a.</strong>
-                </div>
-                <div>
-                  <span>Term</span>
-                  <strong>18 Months</strong>
-                </div>
-              </div>
-
-              <div class="progress-info">
-                <span>Funding progress</span>
-                <strong>58%</strong>
-              </div>
-
-              <div class="progress-bar">
-                <span style="width: 58%"></span>
-              </div>
-
-              <div class="portfolio-bottom">
-                <div>
-                  <span>Illustrative minimum</span>
-                  <strong>$1,000</strong>
-                </div>
-
-                <button
-                  class="btn btn-primary invest-btn"
-                  data-invest="Premium Cattle Portfolio"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-
-          <article class="portfolio-card" data-category="technology">
-            <div class="portfolio-image">
-              <img
-                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
-                alt="Modern greenhouse"
-                loading="lazy"
-              />
-              <span class="location-badge">
-                <i data-lucide="map-pin"></i> Netherlands
-              </span>
-              <span class="asset-badge">Agri-Tech</span>
-            </div>
-
-            <div class="portfolio-body">
-              <div class="portfolio-top">
-                <span>CONTROLLED FARMING</span>
-                <span class="verified"
-                  ><i data-lucide="badge-check"></i> Demo</span
-                >
-              </div>
-
-              <h3>Smart Hydroponic Farm</h3>
-
-              <p>
-                Illustrative investment concept based on advanced greenhouse
-                production.
-              </p>
-
-              <div class="portfolio-stats">
-                <div>
-                  <span>Target rate</span>
-                  <strong>12% p.a.</strong>
-                </div>
-                <div>
-                  <span>Term</span>
-                  <strong>24 Months</strong>
-                </div>
-              </div>
-
-              <div class="progress-info">
-                <span>Funding progress</span>
-                <strong>83%</strong>
-              </div>
-
-              <div class="progress-bar">
-                <span style="width: 83%"></span>
-              </div>
-
-              <div class="portfolio-bottom">
-                <div>
-                  <span>Illustrative minimum</span>
-                  <strong>$750</strong>
-                </div>
-
-                <button
-                  class="btn btn-primary invest-btn"
-                  data-invest="Smart Hydroponic Farm"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="portfolio-card" data-category="crops">
-            <div class="portfolio-image">
-              <img
-                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80"
-                alt="Wheat field"
-                loading="lazy"
-              />
-              <span class="location-badge">
-                <i data-lucide="map-pin"></i> Canada
-              </span>
-              <span class="asset-badge">Crop Production</span>
-            </div>
-
-            <div class="portfolio-body">
-              <div class="portfolio-top">
-                <span>GRAIN PRODUCTION</span>
-                <span class="verified"
-                  ><i data-lucide="badge-check"></i> Demo</span
-                >
-              </div>
-
-              <h3>Wheat Harvest Portfolio</h3>
-
-              <p>
-                Illustrative opportunity associated with large-scale grain
-                production.
-              </p>
-
-              <div class="portfolio-stats">
-                <div>
-                  <span>Target rate</span>
-                  <strong>9% p.a.</strong>
-                </div>
-                <div>
-                  <span>Term</span>
-                  <strong>12 Months</strong>
-                </div>
-              </div>
-
-              <div class="progress-info">
-                <span>Funding progress</span>
-                <strong>65%</strong>
-              </div>
-
-              <div class="progress-bar">
-                <span style="width: 65%"></span>
-              </div>
-
-              <div class="portfolio-bottom">
-                <div>
-                  <span>Illustrative minimum</span>
-                  <strong>$500</strong>
-                </div>
-
-                <button
-                  class="btn btn-primary invest-btn"
-                  data-invest="Wheat Harvest Portfolio"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="portfolio-disclaimer">
-          <i data-lucide="info"></i>
-          All portfolio names, target rates, funding percentages and terms shown
-          above are illustrative examples, not live investment offers.
-        </div>
-      </div>
-    </section> -->
 
       <!-- ================= DARK CTA BANNER ================= -->
 
@@ -4523,9 +4546,7 @@
         </div>
       </section>
 
-      <!-- ================= INVESTMENT PLANS ================= -->
-
-      <section class="section plans-section">
+      <!-- <section class="section plans-section">
         <div class="container">
           <div class="section-heading">
             <span class="section-eyebrow">FLEXIBLE INVESTMENT STRATEGIES</span>
@@ -4533,8 +4554,8 @@
             <h2>Choose A Plan That Fits Your Goals</h2>
 
             <p>
-              Compare illustrative investment levels and explore different
-              agricultural portfolio strategies.
+              Compare investment levels and explore different agricultural
+              portfolio strategies.
             </p>
           </div>
 
@@ -4658,14 +4679,384 @@
                 Explore Plan
               </button>
             </article>
+
+            <article
+              class="plan-card"
+              data-plan="seed"
+              data-min="300"
+              data-max="999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Sunlit green crop rows across farmland"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Starter</span>
+              </div>
+
+              <div class="plan-body">
+                <span class="plan-category">Seed tier</span>
+                <div class="plan-title-row">
+                  <h3>Seed Plan</h3>
+                  <i class="bi bi-flower1" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An entry tier for exploring agricultural opportunities.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div>
+                <ul class="plan-details">
+                  <li><span>Minimum investment</span><strong>$300</strong></li>
+                  <li><span>Maximum investment</span><strong>$999</strong></li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="seed"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
           </div>
 
-          <!-- <p class="plan-disclaimer">
-          These plan examples and percentages are demonstration content only.
-          They do not represent actual available products or promised returns.
-        </p> -->
+        </div>
+      </section> -->
+
+
+            <!-- ================= INVESTMENT PLANS ================= -->
+
+      <section
+        class="plans-section"
+        id="plans"
+        aria-labelledby="plans-grid-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-kicker">Agricultural investment tiers</span>
+            <h2 id="plans-grid-title">Find a plan to explore</h2>
+            <p>
+              Compare the available amount ranges and term information. Missing
+              details are shown as not provided rather than estimated.
+            </p>
+          </div>
+
+          <!-- <div class="term-notice" role="note">
+            <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
+            <span>
+              <strong>Important:</strong> Daily ROI rates and some tier limits
+              have not been supplied. No return is promised or displayed.
+              Referral bonuses are not included in calculator estimates.
+            </span>
+          </div> -->
+
+          <div class="plans-grid">
+            <article
+              class="plan-card"
+              data-plan="seed"
+              data-min="300"
+              data-max="999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Sunlit green crop rows across farmland"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Starter</span>
+              </div>
+
+              <div class="plan-body">
+                <span class="plan-category">Seed tier</span>
+                <div class="plan-title-row">
+                  <h3>Seed Plan</h3>
+                  <i class="bi bi-flower1" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An entry tier for exploring agricultural opportunities.
+                </p>
+
+                <!-- <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div> -->
+
+                <ul class="plan-details">
+                  <li><span>Minimum investment</span><strong>$300</strong></li>
+                  <li><span>Maximum investment</span><strong>$999</strong></li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <!-- <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p> -->
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="seed"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <!-- <article class="plan-card" data-plan="growth">
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Fresh produce harvested from a farm"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Growth</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Growth tier</span>
+                <div class="plan-title-row">
+                  <h3>Growth Plan</h3>
+                  <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  A broader plan tier; investment limits and terms are not yet
+                  provided.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">Terms pending</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Plan duration</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Timer mode</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Referral bonus</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                </ul>
+                <p class="plan-footnote">
+                  Confirm full plan terms before relying on any illustration.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="growth"
+                >
+                  Explore Plan
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article> -->
+
+            <article
+              class="plan-card is-featured"
+              data-plan="harvest"
+              data-min="3000"
+              data-max="9999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Rows of crops growing in an open field"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Growth</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Growth tier</span>
+                <div class="plan-title-row">
+                  <h3>Growth Plan</h3>
+                  <i class="bi bi-wheat" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An expanded tier for exploring agricultural market exposure.
+                </p>
+                <!-- <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+
+                  <strong class="roi-value">7-day term</strong>
+                </div> -->
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span><strong>$3,000</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span><strong>$9,999</strong>
+                  </li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <!-- <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p> -->
+                <button
+                  class="btn-agri plan-action"
+                  type="button"
+                  data-select-plan="harvest"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+
+            <!-- <article class="plan-card" data-plan="zenith">
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Wide cultivated field beneath a bright sky"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Advanced</span>
+              </div>
+
+              <div class="plan-body">
+                <span class="plan-category">Premium tier</span>
+                <div class="plan-title-row">
+                  <h3>Zenith Apex</h3>
+                  <i class="bi bi-tree" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  An advanced tier concept; financial terms have not been
+                  provided.
+                </p>
+                <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">Terms pending</strong>
+                </div>
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Plan duration</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Timer mode</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                  <li>
+                    <span>Referral bonus</span
+                    ><strong class="not-provided">Not provided</strong>
+                  </li>
+                </ul>
+                <p class="plan-footnote">
+                  No live timer is shown because no active plan cycle is
+                  connected.
+                </p>
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="zenith"
+                >
+                  Explore Plan
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article> -->
+
+            <article
+              class="plan-card"
+              data-plan="sovereign"
+              data-min="10000"
+              data-max="49999"
+              data-days="7"
+            >
+              <div class="plan-image">
+                <img
+                  src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&amp;fit=crop&amp;w=900&amp;q=82"
+                  alt="Green farmland and natural landscape"
+                  loading="lazy"
+                />
+                <span class="plan-badge">Sovereign</span>
+              </div>
+              <div class="plan-body">
+                <span class="plan-category">Sovereign tier</span>
+                <div class="plan-title-row">
+                  <h3>Sovereign Plan</h3>
+                  <i class="bi bi-tree-fill" aria-hidden="true"></i>
+                </div>
+                <p class="plan-description">
+                  A higher allocation tier for exploring agricultural
+                  opportunities.
+                </p>
+                <!-- <div class="plan-roi">
+                  <div>
+                    <span>Daily ROI rate</span><strong>Not provided</strong>
+                  </div>
+                  <strong class="roi-value">7-day term</strong>
+                </div> -->
+                <ul class="plan-details">
+                  <li>
+                    <span>Minimum investment</span><strong>$10,000</strong>
+                  </li>
+                  <li>
+                    <span>Maximum investment</span><strong>$49,999</strong>
+                  </li>
+                  <li><span>Plan duration</span><strong>7 days</strong></li>
+                  <li><span>Timer mode</span><strong>Term-based</strong></li>
+                  <li><span>Referral bonus</span><strong>5%*</strong></li>
+                </ul>
+                <!-- <p class="plan-footnote">
+                  *Referral eligibility, calculation, and terms require
+                  confirmation.
+                </p> -->
+                <button
+                  class="btn-agri-outline plan-action"
+                  type="button"
+                  data-select-plan="sovereign"
+                >
+                  Invest Now
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
+
 
       <!-- ================= ROI CALCULATOR ================= -->
 
