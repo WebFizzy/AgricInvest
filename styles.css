@@ -2999,7 +2999,7 @@ input[type="range"] {
 
 @media (max-width: 768px) {
   body .container {
-    width: min(95%, 600px);
+    width: min(90%, 600px);
   }
 
   .section {
@@ -3056,7 +3056,7 @@ input[type="range"] {
   .mobile-nav.open {
     max-height: 500px;
     opacity: 1;
-    padding: 10px 60px 20px;
+    padding: 10px 30px 20px;
   }
 
   .mobile-nav > a {
