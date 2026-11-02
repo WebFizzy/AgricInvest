@@ -1188,64 +1188,64 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-nav">
-      <nav
-        class="navbar navbar-expand-lg container"
-        aria-label="Main navigation"
-      >
+    <header class="main-header" id="header">
+      <div class="container nav-container">
         <a href="index.html" class="brand">
           <span class="brand-icon">
             <i data-lucide="sprout"></i>
           </span>
-          <span>Agri<span>Invest</span></span>
+          <span>Agric<span>Invest</span></span>
         </a>
 
-        <!-- <a class="navbar-brand" href="index.html" aria-label="AgriLedger home">
-          <span class="brand-mark" aria-hidden="true">
-            <i class="bi bi-flower1"></i>
-          </span>
-          <span>AgriLedger</span>
-        </a> -->
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="about.html">About Us</a>
+          <a href="markets.html">Markets</a>
+          <a href="plans.html">Investment Plan</a>
+          <!-- <a href="#calculator">Investment Calculator</a> -->
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="login-btn" data-open-modal="loginModal">Login</button>
+
+          <button
+            class="btn btn-primary nav-cta"
+            data-open-modal="connectModal"
+          >
+            Start Investing
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
 
         <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#primaryNav"
-          aria-controls="primaryNav"
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Open navigation"
           aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i data-lucide="menu"></i>
         </button>
-        <div class="collapse navbar-collapse" id="primaryNav">
-          <ul class="navbar-nav mx-auto my-3 my-lg-0">
-            <!-- <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="markets.html" aria-current="page"
-                >Markets</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="plans.html">Investment Plans</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#faq">FAQs</a>
-            </li>
-            <!-- <li class="nav-item"><a class="nav-link" href="index.html#faq">Contact</a></li> -->
-          </ul>
-          <div class="d-flex flex-column flex-lg-row gap-2 pb-3 pb-lg-0">
-            <a class="btn-agri-outline btnn" href="index.html#home">Login</a>
-            <a class="btn-agri" href="index.html#home">
-              Get Started
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </nav>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="markets.html">Markets</a>
+        <a href="plan.html">Investment Plan</a>
+        <a href="faq.html">FAQs</a>
+
+        <button
+          class="btn btn-primary mobile-login"
+          data-open-modal="loginModal"
+        >
+          Login
+        </button>
+
+        <button class="btn btn-primary" data-open-modal="connectModal">
+          Start Investing
+        </button>
+      </div>
     </header>
 
     <main id="main-content">
@@ -1340,9 +1340,7 @@
             <div>
               <span class="section-kicker">Explore the ecosystem</span>
               <h2 id="market-list-title">Agricultural market previews</h2>
-              <p>
-                Filter listings by asset class, origin, or token symbol.
-              </p>
+              <p>Filter listings by asset class, origin, or token symbol.</p>
             </div>
             <span class="market-count" id="marketCount" aria-live="polite"
               >Markets</span
@@ -1442,7 +1440,7 @@
                   Highest yield — not provided
                 </option>
                 <option value="volume">Sort: 24h volume*</option>
-                <option value="cap">Sort: Pool capitalization* </option>
+                <option value="cap">Sort: Pool capitalization*</option>
               </select>
             </div>
           </div>
@@ -1487,9 +1485,7 @@
                     <h3>Grade-A Yellow Corn Futures</h3>
                     <span class="asset-ticker">$CORN-T</span>
                   </div>
-                  <p class="market-subtitle">
-                    Tokenized grain pool
-                  </p>
+                  <p class="market-subtitle">Tokenized grain pool</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Token price</span
@@ -1501,16 +1497,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$830k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$4.2m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$830k</strong></div>
+                    <div><span>Pool cap</span><strong>$4.2m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>64%</strong>
+                    <span>Pool utilization</span><strong>64%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1563,8 +1554,7 @@
                     loading="lazy"
                   />
                   <div class="asset-badges">
-                    <span class="market-badge badge-hot"
-                      >
+                    <span class="market-badge badge-hot">
                       <i class="bi bi-lightning-charge"></i> Preview</span
                     >
                     <!-- <span class="market-badge">Demo data</span> -->
@@ -1587,9 +1577,7 @@
                     <h3>Black Angus Beef Commodity Pool</h3>
                     <span class="asset-ticker">$BEEF-X</span>
                   </div>
-                  <p class="market-subtitle">
-                    Livestock and protein pool
-                  </p>
+                  <p class="market-subtitle">Livestock and protein pool</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Token price</span
@@ -1601,16 +1589,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$590k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$3.1m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$590k</strong></div>
+                    <div><span>Pool cap</span><strong>$3.1m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>48%</strong>
+                    <span>Pool utilization</span><strong>48%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1686,9 +1669,7 @@
                     <h3>Central Valley Organic Berry Index</h3>
                     <span class="asset-ticker">$BERRY-O</span>
                   </div>
-                  <p class="market-subtitle">
-                    Specialty crop index
-                  </p>
+                  <p class="market-subtitle">Specialty crop index</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Index value</span
@@ -1700,16 +1681,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$420k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$1.8m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$420k</strong></div>
+                    <div><span>Pool cap</span><strong>$1.8m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>73%</strong>
+                    <span>Pool utilization</span><strong>73%</strong>
                   </div>
                   <div
                     class="progress"
@@ -1785,9 +1761,7 @@
                     <h3>Central European Wheat Token</h3>
                     <span class="asset-ticker">$WHEAT-EU</span>
                   </div>
-                  <p class="market-subtitle">
-                    Tokenized grain index
-                  </p>
+                  <p class="market-subtitle">Tokenized grain index</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Token price</span
@@ -1799,16 +1773,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$710k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$3.9m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$710k</strong></div>
+                    <div><span>Pool cap</span><strong>$3.9m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>56% </strong>
+                    <span>Pool utilization</span><strong>56% </strong>
                   </div>
                   <div
                     class="progress"
@@ -1878,15 +1847,13 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Urban farm node 
+                    <i class="bi bi-geo-alt"></i> Urban farm node
                   </div>
                   <div class="market-title-row">
                     <h3>Vertical Hydroponic Yield Pool</h3>
                     <span class="asset-ticker">$HYDRO-V</span>
                   </div>
-                  <p class="market-subtitle">
-                    Controlled-environment pool
-                  </p>
+                  <p class="market-subtitle">Controlled-environment pool</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Token price</span
@@ -1898,16 +1865,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$960k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$5.1m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$960k</strong></div>
+                    <div><span>Pool cap</span><strong>$5.1m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>39% </strong>
+                    <span>Pool utilization</span><strong>39% </strong>
                   </div>
                   <div
                     class="progress"
@@ -1995,16 +1957,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$280k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$1.4m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$280k</strong></div>
+                    <div><span>Pool cap</span><strong>$1.4m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>27% </strong>
+                    <span>Pool utilization</span><strong>27% </strong>
                   </div>
                   <div
                     class="progress"
@@ -2074,15 +2031,13 @@
                 </div>
                 <div class="market-card-body">
                   <div class="market-origin">
-                    <i class="bi bi-geo-alt"></i> Multi-region concept 
+                    <i class="bi bi-geo-alt"></i> Multi-region concept
                   </div>
                   <div class="market-title-row">
                     <h3>Global Farmland Equity Tier</h3>
                     <span class="asset-ticker">$LAND-G</span>
                   </div>
-                  <p class="market-subtitle">
-                    Farmland interest concept
-                  </p>
+                  <p class="market-subtitle">Farmland interest concept</p>
                   <div class="market-value-row">
                     <div>
                       <span class="market-value-label">Unit value</span
@@ -2094,16 +2049,11 @@
                     </div>
                   </div>
                   <div class="sample-market-metrics">
-                    <div>
-                      <span>24h volume</span><strong>$350k</strong>
-                    </div>
-                    <div>
-                      <span>Pool cap</span><strong>$2.7m</strong>
-                    </div>
+                    <div><span>24h volume</span><strong>$350k</strong></div>
+                    <div><span>Pool cap</span><strong>$2.7m</strong></div>
                   </div>
                   <div class="pool-row">
-                    <span>Pool utilization</span
-                    ><strong>52% </strong>
+                    <span>Pool utilization</span><strong>52% </strong>
                   </div>
                   <div
                     class="progress"
@@ -2305,7 +2255,7 @@
             </a>
 
             <p>
-              Connecting agricultural opportunities with modern digital finance.
+              Connecting agricultural Markets with modern digital finance.
               Discover a smarter perspective on agricultural asset markets.
             </p>
 
