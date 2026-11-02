@@ -21,13 +21,3575 @@
     />
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script src="cdn.tailwindcss.css"></script> -->
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <style>
+      /* ==========================================
+   AGRILEDGER - GLOBAL DESIGN SYSTEM
+========================================== */
+
+      :root {
+        --forest: #0d2d20;
+        --forest-dark: #071d15;
+        --forest-light: #16442e;
+
+        --green: #159447;
+        --green-dark: #087d38;
+        --lime: #4ade80;
+        --mint: #e8f7ed;
+
+        --white: #ffffff;
+        --off-white: #f7faf8;
+        --light: #f1f6f2;
+
+        --text: #18251d;
+        --muted: #718078;
+        --border: #e5ece7;
+
+        --shadow: 0 12px 35px rgba(12, 45, 29, 0.08);
+        --shadow-hover: 0 20px 45px rgba(12, 45, 29, 0.13);
+
+        --radius: 14px;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 95px;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--white);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      /* section {
+
+} */
+
+      .main-body {
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        line-height: 1.25;
+        font-weight: 800;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .container {
+        /* width: min(1180px, calc(100% - 48px)); */
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 100px 30px;
+      }
+
+      .section-heading {
+        max-width: 690px;
+        margin: 0 auto 50px;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(28px, 3.5vw, 42px);
+        color: var(--forest);
+        margin: 12px 0;
+      }
+
+      .section-heading p {
+        max-width: 590px;
+        margin: auto;
+        font-size: 16px;
+      }
+
+      .section-eyebrow {
+        display: inline-block;
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+      }
+
+      .small-label {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+        color: var(--muted);
+      }
+
+      ::selection {
+        background: var(--green);
+        color: white;
+      }
+
+      /* ==========================================
+   BUTTONS
+========================================== */
+
+      .btn {
+        min-height: 46px;
+        padding: 12px 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 800;
+        transition: var(--transition);
+      }
+
+      .btn svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .btn-primary {
+        color: white;
+        background: linear-gradient(135deg, #19a453, #087b38);
+        box-shadow: 0 6px 18px rgba(21, 148, 71, 0.16);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #20b35f, #096b32);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(21, 148, 71, 0.25);
+      }
+
+      .btn-outline-light {
+        color: white;
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .btn-outline-light:hover {
+        background: white;
+        color: var(--forest);
+      }
+
+      .btn-outline-dark {
+        background: white;
+        border-color: var(--border);
+        color: var(--forest);
+      }
+
+      .btn-outline-dark:hover {
+        background: var(--forest);
+        color: white;
+      }
+
+      /* ==========================================
+   PRELOADER
+========================================== */
+
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: var(--forest-dark);
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+
+      #preloader.hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        font-family: "Plus Jakarta Sans";
+        font-weight: 800;
+        font-size: 25px;
+      }
+
+      .loader-logo > span:last-child > span {
+        color: var(--lime);
+      }
+
+      .loader-line {
+        width: 120px;
+        height: 3px;
+        margin-top: 25px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .loader-line::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 100%;
+        background: var(--lime);
+        animation: loading 1s infinite ease-in-out;
+      }
+
+      @keyframes loading {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(200%);
+        }
+      }
+
+      /* ==========================================
+   BRAND
+========================================== */
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-family: "Plus Jakarta Sans";
+        font-size: 23px;
+        font-weight: 800;
+        color: var(--forest);
+        white-space: nowrap;
+      }
+
+      .brand > span:last-child > span {
+        color: var(--green);
+      }
+
+      .brand-icon {
+        width: 37px;
+        height: 37px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--mint);
+        color: var(--green);
+        border-radius: 11px;
+      }
+
+      .brand-icon svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      /* ==========================================
+   HEADER
+========================================== */
+
+      .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .main-header.scrolled {
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+      }
+
+      .nav-container {
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+      }
+
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .desktop-nav a {
+        color: #536159;
+        font-size: 16px;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .desktop-nav a:hover {
+        color: var(--green);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .login-btn {
+        background: none;
+        border: 0;
+        color: var(--forest);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .nav-cta {
+        min-height: 42px;
+        padding: 10px 17px;
+        font-size: 14px;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        border: 0;
+        background: var(--mint);
+        color: var(--forest);
+        border-radius: 8px;
+        width: 43px;
+        height: 43px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      /* ==========================================
+   TICKER
+========================================== */
+
+      .ticker-section {
+        min-height: 45px;
+        display: flex;
+        align-items: center;
+        background: #f6faf7;
+        border-bottom: 1px solid var(--border);
+        overflow: hidden;
+      }
+
+      .ticker-label {
+        padding: 0 20px;
+        color: var(--forest);
+        font-size: 12px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .live-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #22c55e;
+        border-radius: 50%;
+        margin-right: 5px;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+      }
+
+      .ticker-window {
+        overflow: hidden;
+        flex: 1;
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: tickerMove 35s linear infinite;
+      }
+
+      .ticker-track:hover {
+        animation-play-state: paused;
+      }
+
+      .ticker-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 0 30px;
+        border-left: 1px solid var(--border);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .ticker-name {
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      .ticker-item strong {
+        color: var(--forest);
+      }
+
+      .market-up {
+        color: #159447;
+        font-weight: 800;
+      }
+
+      .market-down {
+        color: #dc5555;
+        font-weight: 800;
+      }
+
+      .ticker-demo {
+        font-size: 9px;
+        color: var(--muted);
+        font-weight: 800;
+        padding: 0 15px;
+        white-space: nowrap;
+      }
+
+      @keyframes tickerMove {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ==========================================
+   HERO
+========================================== */
+
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(125deg, #071f16, #0c3925 65%, #103f29);
+        color: white;
+        padding: 85px 0 0;
+      }
+
+      .hero-background {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(44, 160, 87, 0.19),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 10% 80%,
+            rgba(44, 160, 87, 0.1),
+            transparent 30%
+          );
+        pointer-events: none;
+      }
+
+      .hero-container {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 65px;
+      }
+
+      .hero-content {
+        padding-bottom: 55px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 13px;
+        border: 1px solid rgba(74, 222, 128, 0.25);
+        border-radius: 50px;
+        background: rgba(74, 222, 128, 0.08);
+        color: #a5eab8;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+      }
+
+      .hero-content h1 {
+        max-width: 620px;
+        font-size: clamp(42px, 5.2vw, 66px);
+        letter-spacing: -2.8px;
+        line-height: 1.13;
+        color: white;
+      }
+
+      .hero-content h1 span {
+        display: block;
+        color: #64d98a;
+      }
+
+      .hero-description {
+        max-width: 500px;
+        margin: 23px 0 30px;
+        font-size: 15px;
+        line-height: 1.9;
+        color: #c0d0c6;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      .hero-trust {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 35px;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        color: #c5d7ca;
+      }
+
+      .trust-item svg {
+        width: 16px;
+        color: #63dc91;
+      }
+
+      /* Hero images */
+
+      .hero-visual {
+        position: relative;
+        min-height: 490px;
+        padding: 15px 15px 0 0;
+      }
+
+      .hero-image {
+        position: relative;
+        height: 390px;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), transparent 55%);
+      }
+
+      .floating-tag {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        background: white;
+        color: var(--forest);
+        padding: 13px 15px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+        min-width: 220px;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .tag-top {
+        top: 25px;
+        left: -28px;
+      }
+
+      .tag-bottom {
+        bottom: 25px;
+        right: -20px;
+        animation-delay: 1s;
+      }
+
+      .tag-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        background: var(--mint);
+        color: var(--green);
+      }
+
+      .tag-icon svg {
+        width: 20px;
+      }
+
+      .floating-tag strong {
+        display: block;
+        font-size: 11px;
+      }
+
+      .floating-tag small {
+        display: block;
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Hero calculator */
+
+      .hero-calculator-card {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 330px;
+        padding: 23px;
+        border-radius: 15px;
+        background: white;
+        color: var(--forest);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        z-index: 2;
+      }
+
+      .card-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .card-heading h3 {
+        font-size: 15px;
+        margin-top: 4px;
+      }
+
+      .calculator-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: var(--mint);
+        color: var(--green);
+        border-radius: 9px;
+      }
+
+      .calculator-icon svg {
+        width: 20px;
+      }
+
+      .simulator-input {
+        margin-top: 20px;
+      }
+
+      .simulator-input label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 7px;
+      }
+
+      .amount-input {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      .amount-input > span:first-child {
+        font-weight: 800;
+      }
+
+      .amount-input input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        padding: 0 8px;
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--forest);
+      }
+
+      .currency {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .simulator-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 17px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .simulator-info strong {
+        color: var(--green);
+        font-size: 14px;
+      }
+
+      .simulator-result {
+        padding: 17px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .simulator-result span {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .simulator-result h2 {
+        font-size: 29px;
+        color: var(--green);
+        margin: 4px 0;
+      }
+
+      .simulator-result small {
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      .simulator-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .simulator-link svg {
+        width: 16px;
+      }
+
+      /* Hero metrics */
+
+      .hero-metrics {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding-top: 32px;
+        padding-bottom: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .metric-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .metric-item > svg {
+        color: #6ce49b;
+        width: 25px;
+        height: 25px;
+      }
+
+      .metric-item strong {
+        display: block;
+        font-size: 15px;
+        color: white;
+      }
+
+      .metric-item span {
+        font-size: 13px;
+        color: #b4c6ba;
+      }
+
+      /* ==========================================
+   INTRODUCTION
+========================================== */
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 90px;
+        align-items: center;
+      }
+
+      .intro-image-wrapper {
+        position: relative;
+        padding: 20px 25px 35px 0;
+      }
+
+      .intro-main-image {
+        height: 430px;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .intro-main-image img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .intro-small-image {
+        position: absolute;
+        width: 160px;
+        height: 180px;
+        left: -25px;
+        bottom: 0;
+        border: 7px solid white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .intro-small-image img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .intro-small-image span {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--green);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .intro-small-image svg {
+        width: 17px;
+      }
+
+      .intro-stat-card {
+        position: absolute;
+        right: 0;
+        top: 35px;
+        padding: 16px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .intro-stat-card svg {
+        color: var(--green);
+        margin-bottom: 5px;
+      }
+
+      .intro-stat-card strong,
+      .intro-stat-card span {
+        display: block;
+        font-size: 11px;
+      }
+
+      .intro-stat-card span {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .intro-content h2 {
+        font-size: clamp(30px, 3vw, 42px);
+        color: var(--forest);
+        margin: 14px 0;
+      }
+
+      .intro-content h2 span {
+        color: var(--green);
+      }
+
+      .intro-content > p {
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+
+      .check-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .check-list > div {
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .check-list svg {
+        flex-shrink: 0;
+        width: 17px;
+        color: var(--green);
+      }
+
+      /* ==========================================
+   HOW IT WORKS
+========================================== */
+
+      .how-section {
+        background: var(--off-white);
+      }
+
+      .how-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .how-image {
+        position: relative;
+        height: 300px;
+        border-radius: 13px;
+        overflow: hidden;
+      }
+
+      .how-image img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .how-number {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: white;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .how-content {
+        padding: 20px 30px;
+      }
+
+      .how-step {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .how-step svg {
+        width: 28px;
+      }
+
+      .how-content h3 {
+        font-size: 24px;
+        color: var(--forest);
+        margin: 12px 0;
+      }
+
+      .how-content p {
+        font-size: 13px;
+      }
+
+      .how-content ul {
+        margin: 17px 0 0 16px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .how-content li {
+        margin-bottom: 8px;
+      }
+
+      /* ==========================================
+   MARKETS
+========================================== */
+
+      .markets-section {
+        background: white;
+      }
+
+      .markets-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      .market-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .market-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .market-card > img {
+        width: 100%;
+        height: 190px;
+        transition: transform 0.5s ease;
+      }
+
+      .market-card:hover > img {
+        transform: scale(1.06);
+      }
+
+      .market-card-content {
+        padding: 21px;
+      }
+
+      .market-card-content > span {
+        font-size: 9px;
+        color: var(--green);
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .market-card-content h3 {
+        margin: 9px 0;
+        color: var(--forest);
+        font-size: 17px;
+      }
+
+      .market-card-content p {
+        font-size: 12px;
+        min-height: 65px;
+      }
+
+      .market-card-content a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 17px;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .market-card-content a svg {
+        width: 14px;
+      }
+
+      /* ==========================================
+   FEATURES
+========================================== */
+
+      .features-section {
+        background: var(--off-white);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      .feature-card {
+        padding: 27px 23px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition: var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-7px);
+        border-color: #a8dfba;
+        box-shadow: var(--shadow);
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--mint);
+        color: var(--green);
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
+
+      .feature-icon svg {
+        width: 25px;
+      }
+
+      .feature-card h3 {
+        font-size: 16px;
+        color: var(--forest);
+        margin-bottom: 12px;
+      }
+
+      .feature-card p {
+        font-size: 12px;
+        min-height: 85px;
+      }
+
+      .feature-card a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--green);
+      }
+
+      .feature-card a svg {
+        width: 14px;
+      }
+
+      /* ==========================================
+   PORTFOLIO
+========================================== */
+
+      .portfolio-section {
+        background: #fff;
+      }
+
+      .portfolio-heading {
+        margin-bottom: 30px;
+      }
+
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 35px;
+      }
+
+      .filter-btn {
+        padding: 10px 18px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--forest);
+        border-color: var(--forest);
+        color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 23px;
+      }
+
+      .portfolio-card {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: white;
+        transition: var(--transition);
+      }
+
+      .portfolio-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .portfolio-card.hide-card {
+        display: none;
+      }
+
+      .portfolio-image {
+        height: 210px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .portfolio-image > img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-card:hover .portfolio-image > img {
+        transform: scale(1.06);
+      }
+
+      .location-badge,
+      .asset-badge {
+        position: absolute;
+        top: 13px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .location-badge {
+        left: 12px;
+        background: white;
+        color: var(--forest);
+      }
+
+      .location-badge svg {
+        width: 11px;
+        vertical-align: middle;
+        color: var(--green);
+      }
+
+      .asset-badge {
+        right: 12px;
+        color: white;
+        background: var(--green);
+      }
+
+      .portfolio-body {
+        padding: 22px;
+      }
+
+      .portfolio-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 9px;
+        font-weight: 800;
+        color: var(--muted);
+      }
+
+      .verified {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        color: var(--green);
+      }
+
+      .verified svg {
+        width: 13px;
+      }
+
+      .portfolio-body h3 {
+        color: var(--forest);
+        font-size: 18px;
+        margin: 11px 0 8px;
+      }
+
+      .portfolio-body > p {
+        font-size: 11px;
+        min-height: 47px;
+      }
+
+      .portfolio-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 18px 0;
+        padding: 15px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .portfolio-stats span,
+      .portfolio-stats strong {
+        display: block;
+      }
+
+      .portfolio-stats span {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .portfolio-stats strong {
+        color: var(--forest);
+        font-size: 13px;
+      }
+
+      .progress-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .progress-info strong {
+        color: var(--green);
+      }
+
+      .progress-bar {
+        height: 6px;
+        background: #edf3ef;
+        border-radius: 10px;
+        margin: 8px 0 20px;
+        overflow: hidden;
+      }
+
+      .progress-bar span {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, #35c76b, #0d8740);
+        border-radius: inherit;
+      }
+
+      .portfolio-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .portfolio-bottom span,
+      .portfolio-bottom strong {
+        display: block;
+      }
+
+      .portfolio-bottom span {
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      .portfolio-bottom strong {
+        font-size: 16px;
+        color: var(--forest);
+      }
+
+      .invest-btn {
+        font-size: 10px;
+        min-height: 38px;
+        padding: 9px 13px;
+      }
+
+      .portfolio-disclaimer {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+        max-width: 900px;
+        margin: 25px auto 0;
+        padding: 13px 16px;
+        border-radius: 8px;
+        background: #f3f8f4;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .portfolio-disclaimer svg {
+        color: var(--green);
+        flex-shrink: 0;
+        width: 16px;
+      }
+
+      /* ==========================================
+   CTA BANNER
+========================================== */
+
+      .cta-banner-section {
+        padding: 15px 0 95px;
+      }
+
+      .cta-banner {
+        position: relative;
+        min-height: 330px;
+        display: flex;
+        align-items: center;
+        padding: 55px;
+        overflow: hidden;
+        border-radius: 16px;
+        background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1500&q=85");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cta-banner-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(4, 30, 18, 0.95),
+          rgba(7, 45, 25, 0.72),
+          rgba(7, 45, 25, 0.2)
+        );
+      }
+
+      .cta-banner-content {
+        position: relative;
+        z-index: 1;
+        max-width: 550px;
+      }
+
+      .cta-banner-content h2 {
+        font-size: 40px;
+        color: white;
+        margin: 13px 0;
+      }
+
+      .cta-banner-content h2 span {
+        display: block;
+        color: #6de59a;
+      }
+
+      .cta-banner-content p {
+        color: #d1e1d5;
+        font-size: 13px;
+        margin-bottom: 25px;
+      }
+
+      /* ==========================================
+   PLANS
+========================================== */
+
+      .plans-section {
+        background: var(--off-white);
+      }
+
+      .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .plan-card {
+        position: relative;
+        padding: 30px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        transition: var(--transition);
+      }
+
+      .plan-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .featured-plan {
+        border: 2px solid var(--green);
+        box-shadow: 0 15px 35px rgba(21, 148, 71, 0.09);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -13px;
+        right: 25px;
+        padding: 7px 12px;
+        background: var(--green);
+        color: white;
+        font-size: 9px;
+        font-weight: 800;
+        border-radius: 30px;
+      }
+
+      .plan-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--mint);
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
+
+      .plan-icon svg {
+        width: 26px;
+      }
+
+      .plan-label {
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+      }
+
+      .plan-card h3 {
+        color: var(--forest);
+        font-size: 24px;
+        margin: 8px 0;
+      }
+
+      .plan-description {
+        font-size: 12px;
+        min-height: 45px;
+      }
+
+      .plan-amount {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .plan-amount strong,
+      .plan-amount span {
+        display: block;
+      }
+
+      .plan-amount strong {
+        font-size: 31px;
+        color: var(--forest);
+      }
+
+      .plan-amount span {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .plan-rate {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .plan-rate strong {
+        font-size: 27px;
+        color: var(--green);
+      }
+
+      .plan-rate span {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .plan-card ul {
+        list-style: none;
+        margin: 23px 0;
+      }
+
+      .plan-card li {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 14px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .plan-card li svg {
+        width: 15px;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+
+      .plan-card > button {
+        width: 100%;
+      }
+
+      .plan-disclaimer {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 10px;
+      }
+
+      /* ==========================================
+   CALCULATOR
+========================================== */
+
+      .calculator-section {
+        background: white;
+      }
+
+      .calculator-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .calculator-controls {
+        padding: 40px;
+      }
+
+      .calculator-field {
+        margin-bottom: 30px;
+      }
+
+      .calculator-field label {
+        display: block;
+        color: var(--forest);
+        font-size: 12px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+
+      .calculator-amount-input,
+      .rate-input {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      .calculator-amount-input span,
+      .rate-input span {
+        font-weight: 800;
+        color: var(--forest);
+      }
+
+      .calculator-amount-input input,
+      .rate-input input {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+        color: var(--forest);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--green);
+        cursor: pointer;
+      }
+
+      .range-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      .rate-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .rate-btn {
+        border: 1px solid var(--border);
+        background: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .rate-btn.active,
+      .rate-btn:hover {
+        background: var(--mint);
+        border-color: var(--green);
+        color: var(--green);
+      }
+
+      .calculator-field select {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 13px;
+        outline: none;
+        color: var(--forest);
+        font-weight: 700;
+        background: white;
+      }
+
+      .calculator-note {
+        display: flex;
+        gap: 10px;
+        padding: 13px;
+        background: #f5f9f6;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .calculator-note svg {
+        width: 17px;
+        flex-shrink: 0;
+        color: var(--green);
+      }
+
+      .calculator-results {
+        padding: 40px;
+        background: var(--forest);
+        color: white;
+      }
+
+      .calculator-results .small-label {
+        color: #9bc9aa;
+      }
+
+      .calculator-results h3 {
+        margin-top: 9px;
+        font-size: 20px;
+        color: white;
+      }
+
+      .projected-value {
+        font-family: "Plus Jakarta Sans";
+        font-size: clamp(30px, 4vw, 43px);
+        font-weight: 800;
+        color: #69e398;
+        margin: 20px 0;
+      }
+
+      .results-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        margin: 20px 0;
+      }
+
+      .result-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        font-size: 12px;
+      }
+
+      .result-row span {
+        color: #b6cdbd;
+      }
+
+      .result-row strong {
+        color: white;
+      }
+
+      .positive-value {
+        color: #69e398 !important;
+      }
+
+      .result-visual {
+        margin: 28px 0;
+      }
+
+      .result-visual-bar {
+        display: flex;
+        height: 11px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .result-visual-bar span:first-child {
+        background: #8fbaa0;
+      }
+
+      .result-visual-bar span:last-child {
+        background: #4ade80;
+      }
+
+      .visual-legend {
+        display: flex;
+        gap: 17px;
+        margin-top: 12px;
+        font-size: 9px;
+        color: #c1d4c7;
+      }
+
+      .visual-legend span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .visual-legend i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #8fbaa0;
+      }
+
+      .visual-legend span:last-child i {
+        background: #4ade80;
+      }
+
+      .calculator-cta {
+        width: 100%;
+      }
+
+      /* ==========================================
+   FEATURED PROJECTS
+========================================== */
+
+      .projects-section {
+        background: var(--off-white);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .project-card > img {
+        width: 100%;
+        height: 205px;
+      }
+
+      .project-body {
+        padding: 22px;
+      }
+
+      .project-body > span {
+        font-size: 9px;
+        color: var(--green);
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .project-body h3 {
+        color: var(--forest);
+        font-size: 17px;
+        margin: 10px 0;
+      }
+
+      .project-body p {
+        font-size: 11px;
+        min-height: 45px;
+      }
+
+      .project-body a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 800;
+        margin-top: 15px;
+      }
+
+      .project-body a svg {
+        width: 15px;
+      }
+
+      /* ==========================================
+   VIDEO
+========================================== */
+
+      .video-section {
+        background: white;
+      }
+
+      .video-container {
+        max-width: 950px;
+        margin: auto;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: white;
+      }
+
+      .video-placeholder {
+        position: relative;
+        height: 460px;
+        overflow: hidden;
+      }
+
+      .video-placeholder > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 25, 14, 0.45);
+      }
+
+      .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid white;
+        color: white;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(5px);
+        transition: var(--transition);
+      }
+
+      .video-play-btn:hover {
+        background: var(--green);
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .video-play-btn svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .video-label {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        color: white;
+        font-size: 11px;
+        letter-spacing: 2px;
+        font-weight: 800;
+      }
+
+      .video-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 22px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .video-controls span {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .video-controls svg {
+        width: 17px;
+        color: var(--green);
+      }
+
+      .video-controls button {
+        border: none;
+        color: var(--green);
+        background: none;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      /* ==========================================
+   IMPACT
+========================================== */
+
+      .impact-section {
+        background: var(--off-white);
+      }
+
+      .impact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+      }
+
+      .impact-content h2 {
+        font-size: clamp(30px, 4vw, 43px);
+        color: var(--forest);
+        margin: 15px 0;
+      }
+
+      .impact-content h2 span {
+        display: block;
+        color: var(--green);
+      }
+
+      .impact-content > p {
+        font-size: 13px;
+        margin-bottom: 25px;
+      }
+
+      .impact-points {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        margin-bottom: 30px;
+      }
+
+      .impact-points div {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .impact-points svg {
+        width: 19px;
+        color: var(--green);
+      }
+
+      .impact-image {
+        height: 420px;
+        position: relative;
+        border-radius: 14px;
+      }
+
+      .impact-image > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+      }
+
+      .impact-image-tag {
+        position: absolute;
+        bottom: 20px;
+        left: -25px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        background: white;
+        padding: 17px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      .impact-image-tag > svg {
+        width: 32px;
+        color: var(--green);
+      }
+
+      .impact-image-tag strong,
+      .impact-image-tag span {
+        display: block;
+      }
+
+      .impact-image-tag strong {
+        font-size: 11px;
+        color: var(--forest);
+      }
+
+      .impact-image-tag span {
+        font-size: 9px;
+        color: var(--muted);
+      }
+
+      /* ==========================================
+   APP BANNER
+========================================== */
+
+      .app-banner-section {
+        padding-top: 20px;
+      }
+
+      .app-banner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        background: linear-gradient(120deg, #08291b, #0f5030);
+        border-radius: 15px;
+        overflow: hidden;
+        color: white;
+      }
+
+      .app-banner-content {
+        padding: 55px;
+      }
+
+      .app-banner-content .section-eyebrow {
+        color: #73e19c;
+      }
+
+      .app-banner-content h2 {
+        color: white;
+        font-size: 34px;
+        margin: 15px 0;
+      }
+
+      .app-banner-content p {
+        color: #bfd2c5;
+        font-size: 12px;
+        max-width: 470px;
+      }
+
+      .app-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .app-store-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 14px;
+        color: white;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        text-align: left;
+      }
+
+      .app-store-btn svg {
+        width: 25px;
+      }
+
+      .app-store-btn small,
+      .app-store-btn strong {
+        display: block;
+      }
+
+      .app-store-btn small {
+        font-size: 8px;
+        color: #b7c9be;
+      }
+
+      .app-store-btn strong {
+        font-size: 11px;
+      }
+
+      .app-banner-image {
+        height: 320px;
+        padding: 20px;
+      }
+
+      .app-banner-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+      }
+
+      /* ==========================================
+   TESTIMONIALS
+========================================== */
+
+      .testimonials-section {
+        background: white;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .testimonial-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 25px;
+        transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+        box-shadow: var(--shadow);
+        transform: translateY(-5px);
+      }
+
+      .testimonial-stars {
+        color: #f3ae36;
+        letter-spacing: 3px;
+        font-size: 15px;
+      }
+
+      .testimonial-card > p {
+        margin: 17px 0 25px;
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--mint);
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .testimonial-author strong,
+      .testimonial-author span {
+        display: block;
+      }
+
+      .testimonial-author strong {
+        font-size: 12px;
+      }
+
+      .testimonial-author span {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .testimonial-disclaimer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 10px;
+      }
+
+      /* ==========================================
+   ACTIVITY FEED
+========================================== */
+
+      .activity-section {
+        background: #f5faf6;
+        padding: 35px 0;
+      }
+
+      .activity-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .activity-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 210px;
+      }
+
+      .activity-heading strong,
+      .activity-heading small {
+        display: block;
+      }
+
+      .activity-heading strong {
+        color: var(--forest);
+        font-size: 12px;
+      }
+
+      .activity-heading small {
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .activity-feed {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .activity-item > svg {
+        width: 18px;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+
+      .activity-item small {
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      /* ==========================================
+   FAQ
+========================================== */
+
+      .faq-section {
+        background: var(--off-white);
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 90px;
+      }
+
+      .faq-intro h2 {
+        font-size: 36px;
+        color: var(--forest);
+        margin: 15px 0;
+      }
+
+      .faq-intro > p {
+        font-size: 13px;
+      }
+
+      .faq-help {
+        margin-top: 35px;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        border: 1px solid var(--border);
+      }
+
+      .faq-help > svg {
+        color: var(--green);
+      }
+
+      .faq-help strong,
+      .faq-help span {
+        display: block;
+      }
+
+      .faq-help strong {
+        font-size: 12px;
+        color: var(--forest);
+      }
+
+      .faq-help span {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .faq-help a {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 11px;
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .faq-item {
+        padding: 0 20px;
+        border-radius: 9px;
+        border: 1px solid var(--border);
+        background: white;
+      }
+
+      .faq-question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border: none;
+        background: transparent;
+        color: var(--forest);
+        padding: 20px 0;
+        font-size: 12px;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .faq-question svg {
+        color: var(--green);
+        width: 18px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-question svg {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+      }
+
+      .faq-answer p {
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.9;
+      }
+
+      .faq-item.active .faq-answer {
+        grid-template-rows: 1fr;
+      }
+
+      .faq-item.active .faq-answer p {
+        padding-bottom: 20px;
+      }
+
+      /* ==========================================
+   NEWSLETTER
+========================================== */
+
+      .newsletter-section {
+        padding: 55px 0;
+        background: var(--forest);
+      }
+
+      .newsletter-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 35px;
+      }
+
+      .newsletter-container .section-eyebrow {
+        color: #6ee49b;
+      }
+
+      .newsletter-container h2 {
+        color: white;
+        font-size: 25px;
+        margin: 7px 0;
+      }
+
+      .newsletter-container p {
+        color: #c1d2c7;
+        font-size: 11px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        max-width: 470px;
+        width: 100%;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        min-width: 190px;
+        padding: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 7px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+        font-size: 11px;
+      }
+
+      .newsletter-form input::placeholder {
+        color: #c0d0c6;
+      }
+
+      .newsletter-form button {
+        min-height: 43px;
+      }
+
+      #newsletterMessage {
+        flex-basis: 100%;
+        color: #80e5a3;
+        font-size: 10px;
+      }
+
+      /* ==========================================
+   FOOTER
+========================================== */
+
+      .main-footer {
+        padding: 75px 0 20px;
+        background: #071d15;
+        color: white;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 45px;
+        padding-bottom: 55px;
+      }
+
+      .footer-brand {
+        color: white;
+      }
+
+      .footer-brand-column > p {
+        max-width: 300px;
+        font-size: 11px;
+        color: #aabbb0;
+        margin: 20px 0;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 9px;
+      }
+
+      .social-links a {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 7px;
+        color: #c5d6ca;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--green);
+        color: white;
+      }
+
+      .social-links svg {
+        width: 16px;
+      }
+
+      .footer-column h4 {
+        font-size: 13px;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .footer-column a {
+        display: block;
+        color: #aabbb0;
+        font-size: 11px;
+        margin-bottom: 13px;
+        transition: var(--transition);
+      }
+
+      .footer-column a:hover {
+        color: #6ee49b;
+        transform: translateX(3px);
+      }
+
+      .footer-disclaimer {
+        padding: 22px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-disclaimer strong {
+        display: block;
+        font-size: 11px;
+        color: #7de5a0;
+        margin-bottom: 8px;
+      }
+
+      .footer-disclaimer p {
+        color: #9eb2a4;
+        font-size: 10px;
+        line-height: 1.9;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding-top: 25px;
+        margin-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom p,
+      .footer-bottom span {
+        color: #92a99a;
+        font-size: 10px;
+      }
+
+      /* ==========================================
+   MODALS
+========================================== */
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 5000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .modal.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 20, 12, 0.78);
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 460px;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 35px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .modal.show .modal-content {
+        transform: translateY(0);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: #f0f5f1;
+        border-radius: 50%;
+        color: var(--forest);
+      }
+
+      .modal-close svg {
+        width: 17px;
+      }
+
+      .modal-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-family: "Plus Jakarta Sans";
+        font-weight: 800;
+        color: var(--forest);
+        margin-bottom: 25px;
+      }
+
+      .modal-brand .brand-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .modal-brand svg {
+        width: 19px;
+      }
+
+      .modal-content h2 {
+        font-size: 25px;
+        color: var(--forest);
+        margin-bottom: 8px;
+      }
+
+      .modal-content > p {
+        font-size: 12px;
+        margin-bottom: 22px;
+      }
+
+      .modal-content form label {
+        display: block;
+        margin: 17px 0 7px;
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--forest);
+      }
+
+      .modal-content form input {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        outline: none;
+        font-size: 12px;
+      }
+
+      .modal-content form input:focus {
+        border-color: var(--green);
+      }
+
+      .modal-submit {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .form-message {
+        font-size: 11px;
+        color: var(--green);
+        margin-top: 12px;
+      }
+
+      .modal-footnote {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 9px;
+        text-align: center;
+      }
+
+      .wallet-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .wallet-option {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        background: white;
+        border-radius: 9px;
+        text-align: left;
+        transition: var(--transition);
+      }
+
+      .wallet-option:hover {
+        border-color: var(--green);
+        background: var(--off-white);
+      }
+
+      .wallet-symbol {
+        font-size: 24px;
+      }
+
+      .wallet-option span:nth-child(2) {
+        flex: 1;
+      }
+
+      .wallet-option strong,
+      .wallet-option small {
+        display: block;
+      }
+
+      .wallet-option strong {
+        font-size: 12px;
+        color: var(--forest);
+      }
+
+      .wallet-option small {
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      .wallet-option > svg {
+        width: 16px;
+        color: var(--green);
+      }
+
+      .investment-modal-note {
+        display: flex;
+        gap: 10px;
+        padding: 14px;
+        background: var(--mint);
+        border-radius: 8px;
+        color: var(--forest);
+        font-size: 11px;
+        margin: 20px 0;
+      }
+
+      .investment-modal-note svg {
+        width: 18px;
+        flex-shrink: 0;
+        color: var(--green);
+      }
+
+      .demo-preview {
+        height: 190px;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: linear-gradient(135deg, #0c3020, #18583a);
+        border-radius: 10px;
+        color: white;
+      }
+
+      .demo-preview svg {
+        width: 48px;
+        height: 48px;
+        color: #6de49b;
+      }
+
+      .demo-preview p {
+        color: white;
+        margin-top: 12px;
+        font-weight: 800;
+        font-size: 13px;
+      }
+
+      .demo-preview span {
+        color: #c2d8ca;
+        font-size: 10px;
+      }
+
+      /* ==========================================
+   TOAST
+========================================== */
+
+      .toast-container {
+        position: fixed;
+        z-index: 8000;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .toast {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        max-width: 330px;
+        padding: 14px 18px;
+        background: white;
+        color: var(--forest);
+        border-radius: 9px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+        font-size: 11px;
+        animation: toastIn 0.35s ease;
+      }
+
+      .toast svg {
+        width: 18px;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+
+      .toast.remove {
+        animation: toastOut 0.3s forwards;
+      }
+
+      @keyframes toastIn {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes toastOut {
+        to {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+      }
+
+      /* ==========================================
+   BACK TO TOP
+========================================== */
+
+      .back-to-top {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        z-index: 100;
+        width: 43px;
+        height: 43px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--green);
+        color: white;
+        border: none;
+        border-radius: 9px;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .back-to-top svg {
+        width: 19px;
+      }
+
+      /* ==========================================
+   SCROLL ANIMATIONS
+========================================== */
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ==========================================
+   RESPONSIVE: TABLETS
+========================================== */
+
+      @media (max-width: 1050px) {
+        .desktop-nav {
+          gap: 15px;
+        }
+
+        .desktop-nav a {
+          font-size: 11px;
+        }
+
+        .nav-container {
+          gap: 12px;
+        }
+
+        .hero-container {
+          gap: 35px;
+        }
+
+        .hero-content h1 {
+          font-size: 51px;
+        }
+
+        .markets-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .intro-grid,
+        .impact-grid {
+          gap: 45px;
+        }
+
+        .faq-grid {
+          gap: 45px;
+        }
+      }
+
+      /* ==========================================
+   RESPONSIVE: MOBILE
+========================================== */
+
+      @media (max-width: 768px) {
+        body .container {
+          width: min(90%, 600px);
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .section-heading {
+          margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+          font-size: 29px;
+        }
+
+        /* Header */
+
+        .nav-container {
+          height: 68px;
+        }
+
+        .brand {
+          font-size: 21px;
+        }
+
+        .desktop-nav,
+        .nav-actions {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
+
+        .mobile-nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          padding: 0 22px;
+          background: white;
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            padding 0.3s ease;
+        }
+
+        .mobile-nav.open {
+          max-height: 500px;
+          opacity: 1;
+          padding: 10px 30px 20px;
+        }
+
+        .mobile-nav > a {
+          padding: 13px 0;
+          border-bottom: 1px solid var(--border);
+          font-size: 13px;
+          font-weight: 700;
+          color: var(--forest);
+        }
+
+        .mobile-nav .btn {
+          margin-top: 12px;
+        }
+
+        .mobile-login {
+          background: var(--forest);
+        }
+
+        /* Ticker */
+
+        .ticker-section {
+          min-height: 40px;
+        }
+
+        .ticker-label {
+          padding: 0 10px;
+          font-size: 8px;
+        }
+
+        .ticker-item {
+          padding: 0 18px;
+        }
+
+        .ticker-demo {
+          display: none;
+        }
+
+        /* Hero */
+
+        .hero-section {
+          padding-top: 65px;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        .hero-content {
+          padding-bottom: 0;
+        }
+
+        .hero-content h1 {
+          font-size: clamp(40px, 10vw, 57px);
+          letter-spacing: -1.8px;
+        }
+
+        .hero-description {
+          font-size: 13px;
+        }
+
+        .hero-buttons {
+          gap: 10px;
+        }
+
+        .hero-buttons .btn {
+          font-size: 14px;
+          padding: 11px 14px;
+        }
+
+        .hero-visual {
+          min-height: 475px;
+          padding: 0;
+          margin-top: 10px;
+        }
+
+        .hero-image {
+          height: 330px;
+        }
+
+        .tag-top {
+          left: 10px;
+        }
+
+        .tag-bottom {
+          right: 5px;
+          bottom: 75px;
+        }
+
+        .hero-calculator-card {
+          width: min(100% - 25px, 340px);
+          right: 12px;
+          bottom: 0;
+          padding: 20px;
+        }
+
+        .hero-metrics {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px 10px;
+          margin-top: 35px;
+          padding-top: 25px;
+        }
+
+        .metric-item {
+          gap: 8px;
+        }
+
+        .metric-item > svg {
+          width: 21px;
+        }
+
+        .metric-item strong {
+          font-size: 10px;
+        }
+
+        .metric-item span {
+          font-size: 9px;
+        }
+
+        /* Intro */
+
+        .intro-grid {
+          grid-template-columns: 1fr;
+          gap: 45px;
+        }
+
+        .intro-image-wrapper {
+          padding-left: 10px;
+        }
+
+        .intro-main-image {
+          height: 330px;
+        }
+
+        .intro-small-image {
+          left: 0;
+          width: 125px;
+          height: 135px;
+        }
+
+        .intro-content h2 {
+          font-size: 32px;
+        }
+
+        /* How */
+
+        .how-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .how-image {
+          height: 250px;
+        }
+
+        .how-content {
+          padding: 15px 5px 25px;
+        }
+
+        /* Markets */
+
+        .markets-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .market-card > img {
+          height: 150px;
+        }
+
+        .market-card-content {
+          padding: 14px;
+        }
+
+        .market-card-content h3 {
+          font-size: 14px;
+        }
+
+        .market-card-content p {
+          font-size: 10px;
+          min-height: 90px;
+        }
+
+        /* Features */
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .feature-card {
+          padding: 20px 15px;
+        }
+
+        .feature-card h3 {
+          font-size: 14px;
+        }
+
+        .feature-card p {
+          font-size: 10px;
+          min-height: 115px;
+        }
+
+        /* Portfolio */
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          max-width: 480px;
+          margin: auto;
+        }
+
+        .portfolio-image {
+          height: 230px;
+        }
+
+        .portfolio-filters {
+          gap: 7px;
+        }
+
+        .filter-btn {
+          padding: 9px 12px;
+          font-size: 9px;
+        }
+
+        /* CTA */
+
+        .cta-banner {
+          min-height: 350px;
+          padding: 30px;
+        }
+
+        .cta-banner-content h2 {
+          font-size: 32px;
+        }
+
+        /* Plans */
+
+        .plans-grid {
+          grid-template-columns: 1fr;
+          max-width: 470px;
+          margin: auto;
+          gap: 25px;
+        }
+
+        /* Calculator */
+
+        .calculator-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .calculator-controls,
+        .calculator-results {
+          padding: 25px;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .project-card > img {
+          height: 150px;
+        }
+
+        .project-body {
+          padding: 14px;
+        }
+
+        .project-body h3 {
+          font-size: 13px;
+        }
+
+        .project-body p {
+          font-size: 10px;
+          min-height: 75px;
+        }
+
+        .project-body a {
+          font-size: 9px;
+        }
+
+        /* Video */
+
+        .video-placeholder {
+          height: 280px;
+        }
+
+        /* Impact */
+
+        .impact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .impact-image {
+          height: 320px;
+          margin-left: 10px;
+        }
+
+        .impact-image-tag {
+          left: -10px;
+        }
+
+        /* App */
+
+        .app-banner {
+          grid-template-columns: 1fr;
+        }
+
+        .app-banner-content {
+          padding: 30px 25px;
+        }
+
+        .app-banner-content h2 {
+          font-size: 28px;
+        }
+
+        .app-banner-image {
+          height: 230px;
+        }
+
+        /* Testimonials */
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Activity */
+
+        .activity-container {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+        }
+
+        .activity-feed {
+          width: 100%;
+        }
+
+        /* FAQ */
+
+        .faq-grid {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+
+        .faq-intro h2 {
+          font-size: 30px;
+        }
+
+        /* Newsletter */
+
+        .newsletter-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .newsletter-form {
+          max-width: 100%;
+        }
+
+        /* Footer */
+
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 35px 20px;
+        }
+
+        .footer-brand-column {
+          grid-column: span 2;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* ==========================================
+   RESPONSIVE: SMALL PHONES
+========================================== */
+
+      @media (max-width: 420px) {
+        .hero-content h1 {
+          font-size: 39px;
+        }
+
+        .hero-badge {
+          font-size: 8px;
+        }
+
+        .hero-visual {
+          min-height: 450px;
+        }
+
+        .hero-image {
+          height: 300px;
+        }
+
+        .floating-tag {
+          min-width: 190px;
+          padding: 10px;
+        }
+
+        .tag-bottom {
+          bottom: 72px;
+        }
+
+        .markets-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .market-card > img {
+          height: 190px;
+        }
+
+        .market-card-content p {
+          min-height: auto;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-card p {
+          min-height: auto;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-card > img {
+          height: 200px;
+        }
+
+        .project-body p {
+          min-height: auto;
+        }
+
+        .hero-metrics {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .portfolio-bottom {
+          align-items: flex-end;
+        }
+
+        .portfolio-bottom .btn {
+          padding: 9px 10px;
+          font-size: 9px;
+        }
+
+        .modal-content {
+          padding: 27px 20px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .newsletter-form button {
+          width: 100%;
+        }
+
+        .footer-grid {
+          gap: 30px 15px;
+        }
+      }
+
+      /* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 3px solid rgba(34, 197, 94, 0.5);
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -36,561 +3598,568 @@
     <div id="preloader">
       <div class="loader-logo">
         <span class="brand-icon"><i data-lucide="sprout"></i></span>
-        <span>Agri<span>Invest</span></span>
+        <span>Agric<span>Invest</span></span>
       </div>
       <div class="loader-line"></div>
     </div>
 
-    <!-- ================= HEADER ================= -->
+    <div class="main-body">
+      <!-- ================= HEADER ================= -->
 
-    <header class="main-header" id="header">
-      <div class="container nav-container">
-        <a href="index.html" class="brand">
-          <span class="brand-icon">
-            <i data-lucide="sprout"></i>
-          </span>
-          <span>Agri<span>Invest</span></span>
-        </a>
+      <header class="main-header" id="header">
+        <div class="container nav-container">
+          <a href="index.html" class="brand">
+            <span class="brand-icon">
+              <i data-lucide="sprout"></i>
+            </span>
+            <span>Agric<span>Invest</span></span>
+          </a>
 
-        <nav class="desktop-nav" id="desktopNav">
-          <a href="about.html">About Us</a>
-          <a href="markets.html">Markets</a>
-          <a href="plan.html">Investment Plan</a>
-          <!-- <a href="#calculator">Investment Calculator</a> -->
-          <a href="#faq">FAQs</a>
-        </nav>
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="about.html">About Us</a>
+            <a href="markets.html">Markets</a>
+            <a href="plan.html">Investment Plan</a>
+            <!-- <a href="#calculator">Investment Calculator</a> -->
+            <a href="#faq">FAQs</a>
+          </nav>
 
-        <div class="nav-actions">
-          <button class="login-btn" data-open-modal="loginModal">Login</button>
+          <div class="nav-actions">
+            <button class="login-btn" data-open-modal="loginModal">
+              Login
+            </button>
 
-          <button
-            class="btn btn-primary nav-cta"
-            data-open-modal="connectModal"
-          >
-            Start Investing
-            <i data-lucide="arrow-up-right"></i>
-          </button>
-        </div>
-
-        <button
-          class="mobile-menu-btn"
-          id="mobileMenuBtn"
-          aria-label="Open navigation"
-          aria-expanded="false"
-        >
-          <i data-lucide="menu"></i>
-        </button>
-      </div>
-
-      <!-- Mobile navigation -->
-      <div class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="markets.html">Markets</a>
-        <a href="plan.html">Investment Plan</a>
-        <a href="faq.html">FAQs</a>
-
-        <button
-          class="btn btn-primary mobile-login"
-          data-open-modal="loginModal"
-        >
-          Login
-        </button>
-
-        <button class="btn btn-primary" data-open-modal="connectModal">
-          Start Investing
-        </button>
-      </div>
-    </header>
-
-    <!-- ================= MARKET TICKER ================= -->
-
-    <section class="ticker-section">
-      <div class="ticker-label">
-        <span class="live-dot"></span>
-        MARKET WATCH
-      </div>
-
-      <div class="ticker-window">
-        <div class="ticker-track" id="tickerTrack">
-          <div class="ticker-item">
-            <span class="ticker-name">CORN</span>
-            <strong>$452.80</strong>
-            <span class="market-up">+1.24%</span>
-          </div>
-
-          <div class="ticker-item">
-            <span class="ticker-name">WHEAT</span>
-            <strong>$618.45</strong>
-            <span class="market-up">+0.86%</span>
-          </div>
-
-          <div class="ticker-item">
-            <span class="ticker-name">SOYBEANS</span>
-            <strong>$1,024.60</strong>
-            <span class="market-down">-0.32%</span>
-          </div>
-
-          <div class="ticker-item">
-            <span class="ticker-name">COFFEE</span>
-            <strong>$3.84</strong>
-            <span class="market-up">+2.18%</span>
-          </div>
-
-          <div class="ticker-item">
-            <span class="ticker-name">CATTLE</span>
-            <strong>$184.25</strong>
-            <span class="market-up">+0.73%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- <span class="ticker-demo">DEMO DATA</span> -->
-    </section>
-
-    <!-- ================= HERO SECTION ================= -->
-
-    <section class="hero-section" id="home">
-      <div class="hero-background"></div>
-
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="live-dot"></span>
-            THE FUTURE OF AGRICULTURAL INVESTING
-          </div>
-
-          <h1>
-            Invest in
-            <span>Agriculture.</span>
-            Grow Your Future.
-          </h1>
-
-          <p class="hero-description">
-            Access institutional-grade agricultural opportunities through a
-            smarter, more transparent investment platform. Own a share of
-            tomorrow's food economy.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="portfolios.html" class="btn btn-primary">
-              Explore Opportunities
+            <button
+              class="btn btn-primary nav-cta"
+              data-open-modal="connectModal"
+            >
+              Start Investing
               <i data-lucide="arrow-up-right"></i>
-            </a>
-
-            <button class="btn btn-outline-light" data-open-modal="demoModal">
-              <i data-lucide="play-circle"></i>
-              Watch Platform Demo
             </button>
           </div>
 
-          <div class="hero-trust">
-            <div class="trust-item">
-              <i data-lucide="shield-check"></i>
-              <span>Asset-backed opportunities</span>
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+
+        <!-- Mobile navigation -->
+        <div class="mobile-nav" id="mobileNav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="markets.html">Markets</a>
+          <a href="plan.html">Investment Plan</a>
+          <a href="faq.html">FAQs</a>
+
+          <button
+            class="btn btn-primary mobile-login"
+            data-open-modal="loginModal"
+          >
+            Login
+          </button>
+
+          <button class="btn btn-primary" data-open-modal="connectModal">
+            Start Investing
+          </button>
+        </div>
+      </header>
+
+      <!-- ================= MARKET TICKER ================= -->
+
+      <section class="ticker-section">
+        <div class="ticker-label">
+          <span class="live-dot"></span>
+          MARKET WATCH
+        </div>
+
+        <div class="ticker-window">
+          <div class="ticker-track" id="tickerTrack">
+            <div class="ticker-item">
+              <span class="ticker-name">CORN</span>
+              <strong>$452.80</strong>
+              <span class="market-up">+1.24%</span>
             </div>
 
-            <div class="trust-item">
-              <i data-lucide="globe"></i>
-              <span>Global agricultural markets</span>
+            <div class="ticker-item">
+              <span class="ticker-name">WHEAT</span>
+              <strong>$618.45</strong>
+              <span class="market-up">+0.86%</span>
             </div>
 
-            <div class="trust-item">
-              <i data-lucide="lock-keyhole"></i>
-              <span>Transparent reporting</span>
+            <div class="ticker-item">
+              <span class="ticker-name">SOYBEANS</span>
+              <strong>$1,024.60</strong>
+              <span class="market-down">-0.32%</span>
+            </div>
+
+            <div class="ticker-item">
+              <span class="ticker-name">COFFEE</span>
+              <strong>$3.84</strong>
+              <span class="market-up">+2.18%</span>
+            </div>
+
+            <div class="ticker-item">
+              <span class="ticker-name">CATTLE</span>
+              <strong>$184.25</strong>
+              <span class="market-up">+0.73%</span>
             </div>
           </div>
         </div>
 
-        <!-- Hero investment card -->
+        <!-- <span class="ticker-demo">DEMO DATA</span> -->
+      </section>
 
-        <div class="hero-visual">
-          <div class="hero-image">
-            <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
-              alt="Expansive green agricultural farmland"
-            />
+      <!-- ================= HERO SECTION ================= -->
 
-            <div class="image-overlay"></div>
+      <section class="hero-section" id="home">
+        <div class="hero-background"></div>
 
-            <div class="floating-tag tag-top">
-              <span class="tag-icon">
-                <i data-lucide="sprout"></i>
-              </span>
-              <div>
-                <strong>Real-world assets</strong>
-                <small>Agricultural opportunities</small>
-              </div>
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="live-dot"></span>
+              THE FUTURE OF AGRICULTURAL INVESTING
             </div>
 
-            <div class="floating-tag tag-bottom">
-              <div class="tag-icon">
-                <i data-lucide="chart-no-axes-combined"></i>
+            <h1>
+              Invest in
+              <span>Agriculture.</span>
+              Grow Your Future.
+            </h1>
+
+            <p class="hero-description">
+              Access institutional-grade agricultural opportunities through a
+              smarter, more transparent investment platform. Own a share of
+              tomorrow's food economy.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="portfolios.html" class="btn btn-primary">
+                Explore Opportunities
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+
+              <button class="btn btn-outline-light" data-open-modal="demoModal">
+                <i data-lucide="play-circle"></i>
+                Watch Platform Demo
+              </button>
+            </div>
+
+            <div class="hero-trust">
+              <div class="trust-item">
+                <i data-lucide="shield-check"></i>
+                <span>Asset-backed opportunities</span>
               </div>
-              <div>
-                <strong>Portfolio insights</strong>
-                <small>Illustrative projections</small>
+
+              <div class="trust-item">
+                <i data-lucide="globe"></i>
+                <span>Global agricultural markets</span>
+              </div>
+
+              <div class="trust-item">
+                <i data-lucide="lock-keyhole"></i>
+                <span>Transparent reporting</span>
               </div>
             </div>
           </div>
 
-          <div class="hero-calculator-card">
-            <div class="card-heading">
+          <!-- Hero investment card -->
+
+          <div class="hero-visual">
+            <div class="hero-image">
+              <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
+                alt="Expansive green agricultural farmland"
+              />
+
+              <div class="image-overlay"></div>
+
+              <div class="floating-tag tag-top">
+                <span class="tag-icon">
+                  <i data-lucide="sprout"></i>
+                </span>
+                <div>
+                  <strong>Real-world assets</strong>
+                  <small>Agricultural opportunities</small>
+                </div>
+              </div>
+
+              <div class="floating-tag tag-bottom">
+                <div class="tag-icon">
+                  <i data-lucide="chart-no-axes-combined"></i>
+                </div>
+                <div>
+                  <strong>Portfolio insights</strong>
+                  <small>Illustrative projections</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-calculator-card">
+              <div class="card-heading">
+                <div>
+                  <span class="small-label">INVESTMENT SIMULATOR</span>
+                  <h3>Explore Your Potential</h3>
+                </div>
+
+                <span class="calculator-icon">
+                  <i data-lucide="calculator"></i>
+                </span>
+              </div>
+
+              <div class="simulator-input">
+                <label for="heroAmount">Investment amount</label>
+
+                <div class="amount-input">
+                  <span>$</span>
+                  <input type="number" id="heroAmount" value="5000" min="0" />
+                  <span class="currency">USD</span>
+                </div>
+              </div>
+
+              <div class="simulator-info">
+                <span>Illustrative annual rate</span>
+                <strong>8%</strong>
+              </div>
+
+              <div class="simulator-result">
+                <span>Illustrative annual projection</span>
+                <h2 id="heroReturn">$5,400.00</h2>
+                <small>Before fees, taxes and market changes</small>
+              </div>
+
+              <a href="#calculator" class="simulator-link">
+                Calculate your returns
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero metrics -->
+
+        <div class="container hero-metrics">
+          <div class="metric-item">
+            <i data-lucide="shield-check"></i>
+            <div>
+              <strong>Asset Focused</strong>
+              <span>Real-world opportunities</span>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <div>
+              <strong>Transparent</strong>
+              <span>Portfolio reporting</span>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <i data-lucide="globe"></i>
+            <div>
+              <strong>Global Access</strong>
+              <span>Multiple market sectors</span>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <i data-lucide="leaf"></i>
+            <div>
+              <strong>Sustainable Focus</strong>
+              <span>Supporting food systems</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INTRODUCTION ================= -->
+
+      <section class="section intro-section" id="about">
+        <div class="container intro-grid">
+          <div class="intro-image-wrapper">
+            <div class="intro-main-image">
+              <img
+                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=85"
+                alt="Farmer working in an agricultural field"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="intro-small-image">
+              <img
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
+                alt="Agricultural crops"
+                loading="lazy"
+              />
+              <span><i data-lucide="sprout"></i></span>
+            </div>
+
+            <div class="intro-stat-card">
+              <i data-lucide="tractor"></i>
+              <strong>Real-world</strong>
+              <span>Agricultural assets</span>
+            </div>
+          </div>
+
+          <div class="intro-content">
+            <span class="section-eyebrow">A SMARTER WAY TO INVEST</span>
+
+            <h2>
+              Why You Should Invest With
+              <span>AgricInvest</span>
+            </h2>
+
+            <p>
+              Agriculture is more than an essential industry. It is a foundation
+              of global economic growth. AgricInvest brings agricultural
+              opportunities and modern financial technology together in one
+              accessible platform.
+            </p>
+
+            <div class="check-list">
               <div>
-                <span class="small-label">INVESTMENT SIMULATOR</span>
-                <h3>Explore Your Potential</h3>
+                <i data-lucide="check-circle"></i>
+                <span
+                  >Access diversified agricultural asset opportunities.</span
+                >
               </div>
 
-              <span class="calculator-icon">
-                <i data-lucide="calculator"></i>
-              </span>
-            </div>
+              <div>
+                <i data-lucide="check-circle"></i>
+                <span>Explore transparent portfolio information.</span>
+              </div>
 
-            <div class="simulator-input">
-              <label for="heroAmount">Investment amount</label>
+              <div>
+                <i data-lucide="check-circle"></i>
+                <span>Monitor investment allocations and progress.</span>
+              </div>
 
-              <div class="amount-input">
-                <span>$</span>
-                <input type="number" id="heroAmount" value="5000" min="0" />
-                <span class="currency">USD</span>
+              <div>
+                <i data-lucide="check-circle"></i>
+                <span>Discover agriculture-focused investment strategies.</span>
               </div>
             </div>
 
-            <div class="simulator-info">
-              <span>Illustrative annual rate</span>
-              <strong>8%</strong>
-            </div>
-
-            <div class="simulator-result">
-              <span>Illustrative annual projection</span>
-              <h2 id="heroReturn">$5,400.00</h2>
-              <small>Before fees, taxes and market changes</small>
-            </div>
-
-            <a href="#calculator" class="simulator-link">
-              Calculate your returns
+            <a href="markets.html" class="btn btn-primary">
+              Discover Opportunities
               <i data-lucide="arrow-right"></i>
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Hero metrics -->
+      <!-- ================= HOW IT WORKS ================= -->
 
-      <div class="container hero-metrics">
-        <div class="metric-item">
-          <i data-lucide="shield-check"></i>
-          <div>
-            <strong>Asset Focused</strong>
-            <span>Real-world opportunities</span>
-          </div>
-        </div>
+      <section class="section how-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow"
+              >SIMPLE. TRANSPARENT. ACCESSIBLE.</span
+            >
 
-        <div class="metric-item">
-          <i data-lucide="chart-no-axes-combined"></i>
-          <div>
-            <strong>Transparent</strong>
-            <span>Portfolio reporting</span>
-          </div>
-        </div>
-
-        <div class="metric-item">
-          <i data-lucide="globe"></i>
-          <div>
-            <strong>Global Access</strong>
-            <span>Multiple market sectors</span>
-          </div>
-        </div>
-
-        <div class="metric-item">
-          <i data-lucide="leaf"></i>
-          <div>
-            <strong>Sustainable Focus</strong>
-            <span>Supporting food systems</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= INTRODUCTION ================= -->
-
-    <section class="section intro-section" id="about">
-      <div class="container intro-grid">
-        <div class="intro-image-wrapper">
-          <div class="intro-main-image">
-            <img
-              src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=85"
-              alt="Farmer working in an agricultural field"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="intro-small-image">
-            <img
-              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
-              alt="Agricultural crops"
-              loading="lazy"
-            />
-            <span><i data-lucide="sprout"></i></span>
-          </div>
-
-          <div class="intro-stat-card">
-            <i data-lucide="tractor"></i>
-            <strong>Real-world</strong>
-            <span>Agricultural assets</span>
-          </div>
-        </div>
-
-        <div class="intro-content">
-          <span class="section-eyebrow">A SMARTER WAY TO INVEST</span>
-
-          <h2>
-            Why You Should Invest With
-            <span>AgricInvest</span>
-          </h2>
-
-          <p>
-            Agriculture is more than an essential industry. It is a foundation
-            of global economic growth. AgricInvest brings agricultural
-            opportunities and modern financial technology together in one
-            accessible platform.
-          </p>
-
-          <div class="check-list">
-            <div>
-              <i data-lucide="check-circle"></i>
-              <span>Access diversified agricultural asset opportunities.</span>
-            </div>
-
-            <div>
-              <i data-lucide="check-circle"></i>
-              <span>Explore transparent portfolio information.</span>
-            </div>
-
-            <div>
-              <i data-lucide="check-circle"></i>
-              <span>Monitor investment allocations and progress.</span>
-            </div>
-
-            <div>
-              <i data-lucide="check-circle"></i>
-              <span>Discover agriculture-focused investment strategies.</span>
-            </div>
-          </div>
-
-          <a href="markets.html" class="btn btn-primary">
-            Discover Opportunities
-            <i data-lucide="arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= HOW IT WORKS ================= -->
-
-    <section class="section how-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">SIMPLE. TRANSPARENT. ACCESSIBLE.</span>
-
-          <h2>How To Invest With AgricInvest</h2>
-
-          <p>
-            Explore agricultural opportunities through a straightforward
-            investment experience.
-          </p>
-        </div>
-
-        <div class="how-grid">
-          <div class="how-image">
-            <img
-              src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=85"
-              alt="Fresh agricultural produce"
-              loading="lazy"
-            />
-            <span class="how-number">01</span>
-          </div>
-
-          <div class="how-content">
-            <div class="how-step">
-              <span>STEP 01</span>
-              <i data-lucide="user-round-plus"></i>
-            </div>
-
-            <h3>Create Your Account</h3>
+            <h2>How To Invest With AgricInvest</h2>
 
             <p>
-              Register for an AgricInvest account and complete any required
-              identity verification before accessing eligible investment
-              opportunities.
+              Explore agricultural opportunities through a straightforward
+              investment experience.
             </p>
-
-            <ul>
-              <li>- Simple registration process</li>
-              <li>- Account security controls</li>
-              <li>- Investor profile management</li>
-            </ul>
           </div>
 
-          <div class="how-image">
-            <img
-              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
-              alt="Fresh produce market"
-              loading="lazy"
-            />
-            <span class="how-number">02</span>
-          </div>
-
-          <div class="how-content">
-            <div class="how-step">
-              <span>STEP 02</span>
-              <i data-lucide="chart-pie"></i>
+          <div class="how-grid">
+            <div class="how-image">
+              <img
+                src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=85"
+                alt="Fresh agricultural produce"
+                loading="lazy"
+              />
+              <span class="how-number">01</span>
             </div>
 
-            <h3>Choose Your Portfolio</h3>
+            <div class="how-content">
+              <div class="how-step">
+                <span>STEP 01</span>
+                <i data-lucide="user-round-plus"></i>
+              </div>
 
-            <p>
-              Review available agricultural asset categories, understand their
-              associated risks and select an opportunity that matches your
-              investment objectives.
-            </p>
+              <h3>Create Your Account</h3>
 
-            <ul>
-              <li>- Explore asset categories</li>
-              <li>- Review investment terms</li>
-              <li>- Compare portfolio details</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= MARKETS ================= -->
-
-    <section class="section markets-section" id="markets">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">EXPLORE GLOBAL OPPORTUNITIES</span>
-
-          <h2>International Agricultural Markets</h2>
-
-          <p>
-            Discover agricultural sectors that play an important role in feeding
-            and powering the global economy.
-          </p>
-        </div>
-
-        <div class="markets-grid">
-          <article class="market-card">
-            <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
-              alt="Farmland"
-              loading="lazy"
-            />
-            <div class="market-card-content">
-              <span>01 / LAND</span>
-              <h3>Farmland</h3>
               <p>
-                Explore productive agricultural land and farmland-related
+                Register for an AgricInvest account and complete any required
+                identity verification before accessing eligible investment
                 opportunities.
               </p>
-              <a href="markets.html"
-                >Explore Market <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
 
-          <article class="market-card">
-            <img
-              src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&w=700&q=80"
-              alt="Livestock"
-              loading="lazy"
-            />
-            <div class="market-card-content">
-              <span>02 / LIVESTOCK</span>
-              <h3>Livestock</h3>
-              <p>
-                Discover opportunities connected to animal agriculture and
-                production.
-              </p>
-              <a href="markets.html"
-                >Explore Market <i data-lucide="arrow-up-right"></i
-              ></a>
+              <ul>
+                <li>- Simple registration process</li>
+                <li>- Account security controls</li>
+                <li>- Investor profile management</li>
+              </ul>
             </div>
-          </article>
 
-          <article class="market-card">
-            <img
-              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
-              alt="Greenhouse farming"
-              loading="lazy"
-            />
-            <div class="market-card-content">
-              <span>03 / AGRI-TECH</span>
-              <h3>Greenhouses</h3>
-              <p>
-                Explore controlled-environment agriculture and modern farming
-                technology.
-              </p>
-              <a href="markets.html"
-                >Explore Market <i data-lucide="arrow-up-right"></i
-              ></a>
+            <div class="how-image">
+              <img
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=85"
+                alt="Fresh produce market"
+                loading="lazy"
+              />
+              <span class="how-number">02</span>
             </div>
-          </article>
 
-          <article class="market-card">
-            <img
-              src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80"
-              alt="Agricultural crops"
-              loading="lazy"
-            />
-            <div class="market-card-content">
-              <span>04 / COMMODITIES</span>
-              <h3>Crop Production</h3>
+            <div class="how-content">
+              <div class="how-step">
+                <span>STEP 02</span>
+                <i data-lucide="chart-pie"></i>
+              </div>
+
+              <h3>Choose Your Portfolio</h3>
+
               <p>
-                Discover opportunities across essential global crop production
-                sectors.
+                Review available agricultural asset categories, understand their
+                associated risks and select an opportunity that matches your
+                investment objectives.
               </p>
-              <a href="markets.html"
-                >Explore Market <i data-lucide="arrow-up-right"></i
-              ></a>
+
+              <ul>
+                <li>- Explore asset categories</li>
+                <li>- Review investment terms</li>
+                <li>- Compare portfolio details</li>
+              </ul>
             </div>
-          </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ================= VALUE PROPOSITION ================= -->
+      <!-- ================= MARKETS ================= -->
 
-    <section class="section features-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">THE AgricInvest ADVANTAGE</span>
+      <section class="section markets-section" id="markets">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">EXPLORE GLOBAL OPPORTUNITIES</span>
 
-          <h2>A Better Perspective On Agricultural Investing</h2>
+            <h2>International Agricultural Markets</h2>
 
-          <p>
-            Technology, transparency and agricultural expertise working
-            together.
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i data-lucide="chart-no-axes-combined"></i>
-            </div>
-            <h3>Diversified Opportunities</h3>
             <p>
-              Explore multiple agricultural sectors and asset categories through
-              one platform.
+              Discover agricultural sectors that play an important role in
+              feeding and powering the global economy.
             </p>
-            <a href="markets.html"
-              >Learn more <i data-lucide="arrow-up-right"></i
-            ></a>
           </div>
 
-          <!-- <div class="feature-card">
+          <div class="markets-grid">
+            <article class="market-card">
+              <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80"
+                alt="Farmland"
+                loading="lazy"
+              />
+              <div class="market-card-content">
+                <span>01 / LAND</span>
+                <h3>Farmland</h3>
+                <p>
+                  Explore productive agricultural land and farmland-related
+                  opportunities.
+                </p>
+                <a href="markets.html"
+                  >Explore Market <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <img
+                src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&w=700&q=80"
+                alt="Livestock"
+                loading="lazy"
+              />
+              <div class="market-card-content">
+                <span>02 / LIVESTOCK</span>
+                <h3>Livestock</h3>
+                <p>
+                  Discover opportunities connected to animal agriculture and
+                  production.
+                </p>
+                <a href="markets.html"
+                  >Explore Market <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <img
+                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
+                alt="Greenhouse farming"
+                loading="lazy"
+              />
+              <div class="market-card-content">
+                <span>03 / AGRI-TECH</span>
+                <h3>Greenhouses</h3>
+                <p>
+                  Explore controlled-environment agriculture and modern farming
+                  technology.
+                </p>
+                <a href="markets.html"
+                  >Explore Market <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <img
+                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80"
+                alt="Agricultural crops"
+                loading="lazy"
+              />
+              <div class="market-card-content">
+                <span>04 / COMMODITIES</span>
+                <h3>Crop Production</h3>
+                <p>
+                  Discover opportunities across essential global crop production
+                  sectors.
+                </p>
+                <a href="markets.html"
+                  >Explore Market <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= VALUE PROPOSITION ================= -->
+
+      <section class="section features-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">THE AgricInvest ADVANTAGE</span>
+
+            <h2>A Better Perspective On Agricultural Investing</h2>
+
+            <p>
+              Technology, transparency and agricultural expertise working
+              together.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="chart-no-axes-combined"></i>
+              </div>
+              <h3>Diversified Opportunities</h3>
+              <p>
+                Explore multiple agricultural sectors and asset categories
+                through one platform.
+              </p>
+              <a href="markets.html"
+                >Learn more <i data-lucide="arrow-up-right"></i
+              ></a>
+            </div>
+
+            <!-- <div class="feature-card">
             <div class="feature-icon">
               <i data-lucide="shield-check"></i>
             </div>
@@ -602,36 +4171,40 @@
             <a href="#faq">Learn more <i data-lucide="arrow-up-right"></i></a>
           </div> -->
 
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i data-lucide="satellite"></i>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="satellite"></i>
+              </div>
+              <h3>Smart Monitoring</h3>
+              <p>
+                Discover how satellite imagery and agricultural data can support
+                asset monitoring.
+              </p>
+              <a href="about.html"
+                >Learn more <i data-lucide="arrow-up-right"></i
+              ></a>
             </div>
-            <h3>Smart Monitoring</h3>
-            <p>
-              Discover how satellite imagery and agricultural data can support
-              asset monitoring.
-            </p>
-            <a href="about.html">Learn more <i data-lucide="arrow-up-right"></i></a>
-          </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i data-lucide="blocks"></i>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="blocks"></i>
+              </div>
+              <h3>Digital Infrastructure</h3>
+              <p>
+                Explore a modern platform concept designed around transparent
+                digital asset records.
+              </p>
+              <a href="about.html"
+                >Learn more <i data-lucide="arrow-up-right"></i
+              ></a>
             </div>
-            <h3>Digital Infrastructure</h3>
-            <p>
-              Explore a modern platform concept designed around transparent
-              digital asset records.
-            </p>
-            <a href="about.html">Learn more <i data-lucide="arrow-up-right"></i></a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ================= PORTFOLIOS ================= -->
+      <!-- ================= PORTFOLIOS ================= -->
 
-    <!-- <section class="section portfolio-section" id="portfolios">
+      <!-- <section class="section portfolio-section" id="portfolios">
       <div class="container">
         <div class="section-heading portfolio-heading">
           <span class="section-eyebrow">DISCOVER YOUR NEXT OPPORTUNITY</span>
@@ -923,919 +4496,932 @@
       </div>
     </section> -->
 
-    <!-- ================= DARK CTA BANNER ================= -->
+      <!-- ================= DARK CTA BANNER ================= -->
 
-    <section class="cta-banner-section">
-      <div class="container">
-        <div class="cta-banner">
-          <div class="cta-banner-overlay"></div>
+      <section class="cta-banner-section">
+        <div class="container">
+          <div class="cta-banner">
+            <div class="cta-banner-overlay"></div>
 
-          <div class="cta-banner-content">
-            <span class="section-eyebrow">GROW WITH PURPOSE</span>
+            <div class="cta-banner-content">
+              <span class="section-eyebrow">GROW WITH PURPOSE</span>
 
-            <h2>
-              Together We
-              <span>Make It Happen.</span>
-            </h2>
+              <h2>
+                Together We
+                <span>Make It Happen.</span>
+              </h2>
 
-            <p>
-              Discover a smarter approach to agricultural asset opportunities
-              and become part of the evolving global food economy.
-            </p>
+              <p>
+                Discover a smarter approach to agricultural asset opportunities
+                and become part of the evolving global food economy.
+              </p>
 
-            <a href="#portfolios" class="btn btn-primary">
-              Explore Opportunities
-              <i data-lucide="arrow-up-right"></i>
-            </a>
+              <a href="#portfolios" class="btn btn-primary">
+                Explore Opportunities
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ================= INVESTMENT PLANS ================= -->
+      <!-- ================= INVESTMENT PLANS ================= -->
 
-    <section class="section plans-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">FLEXIBLE INVESTMENT STRATEGIES</span>
+      <section class="section plans-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">FLEXIBLE INVESTMENT STRATEGIES</span>
 
-          <h2>Choose A Plan That Fits Your Goals</h2>
+            <h2>Choose A Plan That Fits Your Goals</h2>
 
-          <p>
-            Compare illustrative investment levels and explore different
-            agricultural portfolio strategies.
-          </p>
-        </div>
-
-        <div class="plans-grid">
-          <article class="plan-card">
-            <div class="plan-icon">
-              <i data-lucide="sprout"></i>
-            </div>
-
-            <span class="plan-label">STARTER</span>
-
-            <h3>Seed Plan</h3>
-
-            <p class="plan-description">
-              For exploring agricultural investment opportunities.
+            <p>
+              Compare illustrative investment levels and explore different
+              agricultural portfolio strategies.
             </p>
+          </div>
 
-            <div class="plan-amount">
-              <strong>$300</strong>
-              <span>Illustrative minimum</span>
-            </div>
+          <div class="plans-grid">
+            <article class="plan-card">
+              <div class="plan-icon">
+                <i data-lucide="sprout"></i>
+              </div>
 
-            <div class="plan-rate">
-              <strong>1.5%</strong>
-              <span>Illustrative annual target</span>
-            </div>
+              <span class="plan-label">STARTER</span>
 
-            <ul>
-              <li><i data-lucide="check"></i> Entry-level portfolio access</li>
-              <li><i data-lucide="check"></i> Portfolio overview</li>
-              <li><i data-lucide="check"></i> Investment dashboard concept</li>
-              <li><i data-lucide="check"></i> Standard reporting</li>
-            </ul>
+              <h3>Seed Plan</h3>
 
-            <button
-              class="btn btn-outline-dark plan-select"
-              data-plan="Seed Plan"
-            >
-              Explore Plan
-            </button>
-          </article>
+              <p class="plan-description">
+                For exploring agricultural investment opportunities.
+              </p>
 
-          <article class="plan-card featured-plan">
-            <span class="popular-badge">POPULAR CHOICE</span>
+              <div class="plan-amount">
+                <strong>$300</strong>
+                <span>Illustrative minimum</span>
+              </div>
 
-            <div class="plan-icon">
-              <i data-lucide="wheat"></i>
-            </div>
+              <div class="plan-rate">
+                <strong>1.5%</strong>
+                <span>Illustrative annual target</span>
+              </div>
 
-            <span class="plan-label">GROWTH</span>
+              <ul>
+                <li>
+                  <i data-lucide="check"></i> Entry-level portfolio access
+                </li>
+                <li><i data-lucide="check"></i> Portfolio overview</li>
+                <li>
+                  <i data-lucide="check"></i> Investment dashboard concept
+                </li>
+                <li><i data-lucide="check"></i> Standard reporting</li>
+              </ul>
 
-            <h3>Harvest Plan</h3>
+              <button
+                class="btn btn-outline-dark plan-select"
+                data-plan="Seed Plan"
+              >
+                Explore Plan
+              </button>
+            </article>
 
-            <p class="plan-description">
-              For investors exploring broader agricultural exposure.
-            </p>
+            <article class="plan-card featured-plan">
+              <span class="popular-badge">POPULAR CHOICE</span>
 
-            <div class="plan-amount">
-              <strong>$3,000</strong>
-              <span>Illustrative minimum</span>
-            </div>
+              <div class="plan-icon">
+                <i data-lucide="wheat"></i>
+              </div>
 
-            <div class="plan-rate">
-              <strong>2.5%</strong>
-              <span>Illustrative annual target</span>
-            </div>
+              <span class="plan-label">GROWTH</span>
 
-            <ul>
-              <li><i data-lucide="check"></i> Expanded portfolio access</li>
-              <li><i data-lucide="check"></i> Detailed portfolio insights</li>
-              <li><i data-lucide="check"></i> Performance reporting</li>
-              <li><i data-lucide="check"></i> Priority support concept</li>
-            </ul>
+              <h3>Harvest Plan</h3>
 
-            <button
-              class="btn btn-primary plan-select"
-              data-plan="Harvest Plan"
-            >
-              Explore Plan
-            </button>
-          </article>
+              <p class="plan-description">
+                For investors exploring broader agricultural exposure.
+              </p>
 
-          <article class="plan-card">
-            <div class="plan-icon">
-              <i data-lucide="trees"></i>
-            </div>
+              <div class="plan-amount">
+                <strong>$3,000</strong>
+                <span>Illustrative minimum</span>
+              </div>
 
-            <span class="plan-label">ADVANCED</span>
+              <div class="plan-rate">
+                <strong>2.5%</strong>
+                <span>Illustrative annual target</span>
+              </div>
 
-            <h3>Sovereign Plan</h3>
+              <ul>
+                <li><i data-lucide="check"></i> Expanded portfolio access</li>
+                <li><i data-lucide="check"></i> Detailed portfolio insights</li>
+                <li><i data-lucide="check"></i> Performance reporting</li>
+                <li><i data-lucide="check"></i> Priority support concept</li>
+              </ul>
 
-            <p class="plan-description">
-              For exploring larger agricultural portfolio allocations.
-            </p>
+              <button
+                class="btn btn-primary plan-select"
+                data-plan="Harvest Plan"
+              >
+                Explore Plan
+              </button>
+            </article>
 
-            <div class="plan-amount">
-              <strong>$10,000</strong>
-              <span>Illustrative minimum</span>
-            </div>
+            <article class="plan-card">
+              <div class="plan-icon">
+                <i data-lucide="trees"></i>
+              </div>
 
-            <div class="plan-rate">
-              <strong>3.8%</strong>
-              <span>Illustrative annual target</span>
-            </div>
+              <span class="plan-label">ADVANCED</span>
 
-            <ul>
-              <li><i data-lucide="check"></i> Advanced portfolio insights</li>
-              <li><i data-lucide="check"></i> Expanded asset categories</li>
-              <li><i data-lucide="check"></i> Detailed reporting concept</li>
-              <li><i data-lucide="check"></i> Dedicated support concept</li>
-            </ul>
+              <h3>Sovereign Plan</h3>
 
-            <button
-              class="btn btn-outline-dark plan-select"
-              data-plan="Sovereign Plan"
-            >
-              Explore Plan
-            </button>
-          </article>
-        </div>
+              <p class="plan-description">
+                For exploring larger agricultural portfolio allocations.
+              </p>
 
-        <!-- <p class="plan-disclaimer">
+              <div class="plan-amount">
+                <strong>$10,000</strong>
+                <span>Illustrative minimum</span>
+              </div>
+
+              <div class="plan-rate">
+                <strong>3.8%</strong>
+                <span>Illustrative annual target</span>
+              </div>
+
+              <ul>
+                <li><i data-lucide="check"></i> Advanced portfolio insights</li>
+                <li><i data-lucide="check"></i> Expanded asset categories</li>
+                <li><i data-lucide="check"></i> Detailed reporting concept</li>
+                <li><i data-lucide="check"></i> Dedicated support concept</li>
+              </ul>
+
+              <button
+                class="btn btn-outline-dark plan-select"
+                data-plan="Sovereign Plan"
+              >
+                Explore Plan
+              </button>
+            </article>
+          </div>
+
+          <!-- <p class="plan-disclaimer">
           These plan examples and percentages are demonstration content only.
           They do not represent actual available products or promised returns.
         </p> -->
-      </div>
-    </section>
-
-    <!-- ================= ROI CALCULATOR ================= -->
-
-    <section class="section calculator-section" id="calculator">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">PLAN YOUR INVESTMENT</span>
-
-          <h2>Investment Growth Calculator</h2>
-
-          <p>
-            Explore hypothetical investment growth using your preferred amount,
-            annual rate and investment period.
-          </p>
         </div>
+      </section>
 
-        <div class="calculator-wrapper">
-          <div class="calculator-controls">
-            <div class="calculator-field">
-              <label for="investmentAmount">Investment amount</label>
+      <!-- ================= ROI CALCULATOR ================= -->
 
-              <div class="calculator-amount-input">
-                <span>$</span>
+      <section class="section calculator-section" id="calculator">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">PLAN YOUR INVESTMENT</span>
+
+            <h2>Investment Growth Calculator</h2>
+
+            <p>
+              Explore hypothetical investment growth using your preferred
+              amount, annual rate and investment period.
+            </p>
+          </div>
+
+          <div class="calculator-wrapper">
+            <div class="calculator-controls">
+              <div class="calculator-field">
+                <label for="investmentAmount">Investment amount</label>
+
+                <div class="calculator-amount-input">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    id="investmentAmount"
+                    value="5000"
+                    min="100"
+                    max="10000000"
+                  />
+                </div>
+
                 <input
-                  type="number"
-                  id="investmentAmount"
-                  value="5000"
+                  type="range"
+                  id="investmentSlider"
                   min="100"
-                  max="10000000"
+                  max="50000"
+                  step="100"
+                  value="5000"
                 />
+
+                <div class="range-labels">
+                  <span>$100</span>
+                  <span>$50,000</span>
+                </div>
               </div>
 
-              <input
-                type="range"
-                id="investmentSlider"
-                min="100"
-                max="50000"
-                step="100"
-                value="5000"
+              <div class="calculator-field">
+                <label for="annualRate">Illustrative annual rate</label>
+
+                <div class="rate-input">
+                  <input
+                    type="number"
+                    id="annualRate"
+                    value="8"
+                    min="0"
+                    max="100"
+                    step="0.5"
+                  />
+                  <span>%</span>
+                </div>
+
+                <div class="rate-options">
+                  <button class="rate-btn active" data-rate="6">6%</button>
+                  <button class="rate-btn" data-rate="8">8%</button>
+                  <button class="rate-btn" data-rate="10">10%</button>
+                  <button class="rate-btn" data-rate="12">12%</button>
+                </div>
+              </div>
+
+              <div class="calculator-field">
+                <label for="investmentDuration">Investment duration</label>
+
+                <select id="investmentDuration">
+                  <option value="3">3 Months</option>
+                  <option value="6">6 Months</option>
+                  <option value="12" selected>12 Months</option>
+                  <option value="18">18 Months</option>
+                  <option value="24">24 Months</option>
+                  <option value="36">36 Months</option>
+                </select>
+              </div>
+
+              <div class="calculator-note">
+                <i data-lucide="info"></i>
+                This calculator uses hypothetical simple interest. Actual
+                investment performance can be lower or negative.
+              </div>
+            </div>
+
+            <div class="calculator-results">
+              <span class="small-label">YOUR ILLUSTRATIVE PROJECTION</span>
+
+              <h3>Potential Portfolio Value</h3>
+
+              <div class="projected-value" id="projectedValue">$5,400.00</div>
+
+              <div class="results-divider"></div>
+
+              <div class="result-row">
+                <span>Initial investment</span>
+                <strong id="initialInvestment">$5,000.00</strong>
+              </div>
+
+              <div class="result-row">
+                <span>Estimated growth</span>
+                <strong class="positive-value" id="estimatedProfit"
+                  >+$400.00</strong
+                >
+              </div>
+
+              <div class="result-row">
+                <span>Investment period</span>
+                <strong id="periodResult">12 Months</strong>
+              </div>
+
+              <div class="result-row">
+                <span>Annual rate</span>
+                <strong id="rateResult">8%</strong>
+              </div>
+
+              <div class="result-visual">
+                <div class="result-visual-bar">
+                  <span id="principalBar"></span>
+                  <span id="growthBar"></span>
+                </div>
+                <div class="visual-legend">
+                  <span><i></i> Initial capital</span>
+                  <span><i></i> Illustrative growth</span>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-primary calculator-cta"
+                data-open-modal="connectModal"
+              >
+                Get Started
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FEATURED PROJECTS ================= -->
+
+      <section class="section projects-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">AGRICULTURE IN ACTION</span>
+
+            <h2>Featured Agricultural Projects</h2>
+
+            <p>
+              Explore examples of agricultural production and sustainable
+              farming activities.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=700&q=85"
+                alt="Sunset over farmland"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>FIELD PRODUCTION</span>
+                <h3>Sustainable Grain Farming</h3>
+                <p>
+                  Modern farming methods supporting agricultural productivity.
+                </p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85"
+                alt="Agricultural spices and produce"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>COMMODITY PRODUCTION</span>
+                <h3>Specialty Crop Production</h3>
+                <p>
+                  Exploring the role of high-value agricultural commodities.
+                </p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=700&q=85"
+                alt="Vegetable farm"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>FOOD PRODUCTION</span>
+                <h3>Modern Vegetable Farming</h3>
+                <p>Innovative growing methods for essential food production.</p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=85"
+                alt="Green agricultural landscape"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>LAND DEVELOPMENT</span>
+                <h3>Regenerative Agriculture</h3>
+                <p>
+                  Exploring agricultural practices that support soil health.
+                </p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1523742817438-0b4f8f0e7a15?auto=format&fit=crop&w=700&q=85"
+                alt="Agricultural plantation"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>PLANTATION</span>
+                <h3>Commercial Crop Plantation</h3>
+                <p>Discover the importance of structured crop production.</p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85"
+                alt="Expansive agricultural landscape"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <span>FARMLAND</span>
+                <h3>Productive Agricultural Land</h3>
+                <p>Explore farmland as part of a diversified asset strategy.</p>
+                <a href="#portfolios"
+                  >Explore Project <i data-lucide="arrow-up-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= VIDEO SECTION ================= -->
+
+      <section class="section video-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">SEE AGRICULTURE DIFFERENTLY</span>
+            <h2>See AgricInvest In Action</h2>
+            <p>
+              Discover our platform concept and agricultural investment
+              approach.
+            </p>
+          </div>
+
+          <div class="video-container">
+            <div class="video-placeholder" id="videoPlaceholder">
+              <img
+                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1400&q=85"
+                alt="Agricultural landscape"
+                loading="lazy"
               />
 
-              <div class="range-labels">
-                <span>$100</span>
-                <span>$50,000</span>
+              <div class="video-overlay"></div>
+
+              <button
+                class="video-play-btn"
+                id="videoPlayBtn"
+                aria-label="Play demo"
+              >
+                <i data-lucide="play"></i>
+              </button>
+
+              <span class="video-label">PLATFORM OVERVIEW</span>
+            </div>
+
+            <div class="video-controls">
+              <span><i data-lucide="video"></i> AgricInvest Introduction</span>
+              <button data-open-modal="demoModal">Watch Overview</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= REAL FARMERS ================= -->
+
+      <section class="section impact-section">
+        <div class="container impact-grid">
+          <div class="impact-content">
+            <span class="section-eyebrow">OUR VISION</span>
+
+            <h2>
+              Real Farmers.
+              <span>Real Projects.</span>
+              Real Impact.
+            </h2>
+
+            <p>
+              We believe agricultural development and financial innovation can
+              work together to support a more resilient global food system.
+            </p>
+
+            <div class="impact-points">
+              <div>
+                <i data-lucide="leaf"></i>
+                <span>Supporting sustainable farming initiatives</span>
+              </div>
+
+              <div>
+                <i data-lucide="users"></i>
+                <span
+                  >Connecting investors with agricultural opportunities</span
+                >
+              </div>
+
+              <div>
+                <i data-lucide="globe"></i>
+                <span>Promoting transparent agricultural information</span>
               </div>
             </div>
 
-            <div class="calculator-field">
-              <label for="annualRate">Illustrative annual rate</label>
+            <a href="#about" class="btn btn-primary">
+              Learn About Us
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
 
-              <div class="rate-input">
-                <input
-                  type="number"
-                  id="annualRate"
-                  value="8"
-                  min="0"
-                  max="100"
-                  step="0.5"
-                />
-                <span>%</span>
+          <div class="impact-image">
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
+              alt="Beautiful agricultural farmland"
+              loading="lazy"
+            />
+
+            <div class="impact-image-tag">
+              <i data-lucide="sprout"></i>
+              <div>
+                <strong>Growing Together</strong>
+                <span>Building agricultural opportunities</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div class="rate-options">
-                <button class="rate-btn active" data-rate="6">6%</button>
-                <button class="rate-btn" data-rate="8">8%</button>
-                <button class="rate-btn" data-rate="10">10%</button>
-                <button class="rate-btn" data-rate="12">12%</button>
+      <!-- ================= PWA BANNER ================= -->
+
+      <section class="section app-banner-section">
+        <div class="container">
+          <div class="app-banner">
+            <div class="app-banner-content">
+              <span class="section-eyebrow">INVESTMENT ACCESS, SIMPLIFIED</span>
+
+              <h2>Manage Your Investment On The Go</h2>
+
+              <p>
+                Access your AgricInvest account, review your portfolio and stay
+                informed wherever you are.
+              </p>
+
+              <div class="app-buttons">
+                <button class="app-store-btn" data-open-modal="appModal">
+                  <i data-lucide="smartphone"></i>
+                  <span>
+                    <small>EXPLORE OUR</small>
+                    <strong>Mobile Experience</strong>
+                  </span>
+                </button>
+
+                <button class="app-store-btn" data-open-modal="appModal">
+                  <i data-lucide="monitor-smartphone"></i>
+                  <span>
+                    <small>ACCESS YOUR</small>
+                    <strong>Web Dashboard</strong>
+                  </span>
+                </button>
               </div>
             </div>
 
-            <div class="calculator-field">
-              <label for="investmentDuration">Investment duration</label>
-
-              <select id="investmentDuration">
-                <option value="3">3 Months</option>
-                <option value="6">6 Months</option>
-                <option value="12" selected>12 Months</option>
-                <option value="18">18 Months</option>
-                <option value="24">24 Months</option>
-                <option value="36">36 Months</option>
-              </select>
+            <div class="app-banner-image">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85"
+                alt="Digital technology"
+                loading="lazy"
+              />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="calculator-note">
-              <i data-lucide="info"></i>
-              This calculator uses hypothetical simple interest. Actual
-              investment performance can be lower or negative.
+      <!-- ================= TESTIMONIALS ================= -->
+
+      <section class="section testimonials-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-eyebrow">COMMUNITY PERSPECTIVES</span>
+
+            <h2>What Our Community Says</h2>
+
+            <p>
+              Example feedback cards illustrating how community testimonials
+              could appear on the platform.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+
+              <p>
+                "The platform concept makes agricultural opportunities easier to
+                understand. I particularly like the organized portfolio
+                presentation."
+              </p>
+
+              <div class="testimonial-author">
+                <div class="avatar">JM</div>
+                <div>
+                  <strong>Jordan M.</strong>
+                  <span>Sample testimonial</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+
+              <p>
+                "I appreciate the emphasis on transparency and the presentation
+                of agricultural assets alongside investment information."
+              </p>
+
+              <div class="testimonial-author">
+                <div class="avatar">AK</div>
+                <div>
+                  <strong>Alex K.</strong>
+                  <span>Sample testimonial</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+
+              <p>
+                "Bringing modern technology and agricultural opportunities
+                together is an interesting concept with plenty of potential."
+              </p>
+
+              <div class="testimonial-author">
+                <div class="avatar">SL</div>
+                <div>
+                  <strong>Sarah L.</strong>
+                  <span>Sample testimonial</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="testimonial-disclaimer">
+            Testimonials above are fictional demonstration content and are not
+            verified investor reviews.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= ACTIVITY FEED ================= -->
+
+      <section class="activity-section">
+        <div class="container activity-container">
+          <div class="activity-heading">
+            <span class="live-dot"></span>
+            <div>
+              <strong>Platform Activity Preview</strong>
+              <small>Illustrative simulated activity</small>
             </div>
           </div>
 
-          <div class="calculator-results">
-            <span class="small-label">YOUR ILLUSTRATIVE PROJECTION</span>
-
-            <h3>Potential Portfolio Value</h3>
-
-            <div class="projected-value" id="projectedValue">$5,400.00</div>
-
-            <div class="results-divider"></div>
-
-            <div class="result-row">
-              <span>Initial investment</span>
-              <strong id="initialInvestment">$5,000.00</strong>
+          <div id="activityFeed" class="activity-feed">
+            <div class="activity-item">
+              <i data-lucide="wallet"></i>
+              <span>Sample transaction activity will appear here.</span>
+              <!-- <small>DEMO</small> -->
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="result-row">
-              <span>Estimated growth</span>
-              <strong class="positive-value" id="estimatedProfit"
-                >+$400.00</strong
-              >
-            </div>
+      <!-- ================= FAQ ================= -->
 
-            <div class="result-row">
-              <span>Investment period</span>
-              <strong id="periodResult">12 Months</strong>
-            </div>
+      <section class="section faq-section" id="faq">
+        <div class="container faq-grid">
+          <div class="faq-intro">
+            <span class="section-eyebrow">NEED MORE INFORMATION?</span>
 
-            <div class="result-row">
-              <span>Annual rate</span>
-              <strong id="rateResult">8%</strong>
-            </div>
+            <h2>Frequently Asked Questions</h2>
 
-            <div class="result-visual">
-              <div class="result-visual-bar">
-                <span id="principalBar"></span>
-                <span id="growthBar"></span>
+            <p>
+              Find answers to common questions about AgricInvest, agricultural
+              assets and our platform concept.
+            </p>
+
+            <div class="faq-help">
+              <i data-lucide="message-circle"></i>
+              <div>
+                <strong>Still have questions?</strong>
+                <span>Our team is here to help.</span>
               </div>
-              <div class="visual-legend">
-                <span><i></i> Initial capital</span>
-                <span><i></i> Illustrative growth</span>
+              <a href="mailto:support@AgricInvest.example">Contact Us</a>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" aria-expanded="true">
+                What is AgricInvest?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  AgricInvest is a digital agricultural investment platform
+                  concept designed to connect users with agricultural asset
+                  opportunities, portfolio information and digital financial
+                  tools.
+                </p>
               </div>
             </div>
 
-            <button
-              class="btn btn-primary calculator-cta"
-              data-open-modal="connectModal"
-            >
-              Get Started
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How do I create an account?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Use the registration interface to begin creating an account. A
+                  production platform should include secure authentication,
+                  identity verification where required and account protection
+                  measures.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What agricultural assets are available?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Example asset categories include farmland, livestock, crop
+                  production and greenhouse agriculture. Actual offerings must
+                  be documented, verified and made available only where legally
+                  permitted.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Are investment returns guaranteed?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  No. Agricultural investments carry risks including weather
+                  events, crop failure, commodity price fluctuations,
+                  operational challenges and liquidity constraints. Returns are
+                  not guaranteed.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I use USDT or USDC?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Stablecoin deposits are not currently connected in this
+                  frontend demonstration. A live implementation would need
+                  supported network integrations, transaction verification and
+                  appropriate compliance controls.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How can I withdraw my funds?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Withdrawal availability would depend on the actual investment
+                  terms, applicable restrictions, liquidity and verified payment
+                  infrastructure. This demonstration does not process
+                  withdrawals.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How does asset monitoring work?
+                <i data-lucide="plus"></i>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  A production agricultural monitoring system could combine farm
+                  reports, satellite imagery, environmental information and
+                  operational records to provide portfolio updates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEWSLETTER ================= -->
+
+      <section class="newsletter-section">
+        <div class="container newsletter-container">
+          <div>
+            <span class="section-eyebrow">STAY INFORMED</span>
+            <h2>Grow Your Knowledge With AgricInvest</h2>
+            <p>
+              Get updates about agricultural markets, technology and platform
+              developments.
+            </p>
+          </div>
+
+          <form id="newsletterForm" class="newsletter-form">
+            <input
+              type="email"
+              id="newsletterEmail"
+              placeholder="Enter your email address"
+              required
+            />
+
+            <button type="submit" class="btn btn-primary">
+              Subscribe
               <i data-lucide="arrow-right"></i>
             </button>
-          </div>
+
+            <small id="newsletterMessage"></small>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ================= FEATURED PROJECTS ================= -->
+      <!-- ================= FOOTER ================= -->
 
-    <section class="section projects-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">AGRICULTURE IN ACTION</span>
-
-          <h2>Featured Agricultural Projects</h2>
-
-          <p>
-            Explore examples of agricultural production and sustainable farming
-            activities.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=700&q=85"
-              alt="Sunset over farmland"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>FIELD PRODUCTION</span>
-              <h3>Sustainable Grain Farming</h3>
-              <p>
-                Modern farming methods supporting agricultural productivity.
-              </p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=85"
-              alt="Agricultural spices and produce"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>COMMODITY PRODUCTION</span>
-              <h3>Specialty Crop Production</h3>
-              <p>Exploring the role of high-value agricultural commodities.</p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=700&q=85"
-              alt="Vegetable farm"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>FOOD PRODUCTION</span>
-              <h3>Modern Vegetable Farming</h3>
-              <p>Innovative growing methods for essential food production.</p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=85"
-              alt="Green agricultural landscape"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>LAND DEVELOPMENT</span>
-              <h3>Regenerative Agriculture</h3>
-              <p>Exploring agricultural practices that support soil health.</p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1523742817438-0b4f8f0e7a15?auto=format&fit=crop&w=700&q=85"
-              alt="Agricultural plantation"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>PLANTATION</span>
-              <h3>Commercial Crop Plantation</h3>
-              <p>Discover the importance of structured crop production.</p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85"
-              alt="Expansive agricultural landscape"
-              loading="lazy"
-            />
-            <div class="project-body">
-              <span>FARMLAND</span>
-              <h3>Productive Agricultural Land</h3>
-              <p>Explore farmland as part of a diversified asset strategy.</p>
-              <a href="#portfolios"
-                >Explore Project <i data-lucide="arrow-up-right"></i
-              ></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= VIDEO SECTION ================= -->
-
-    <section class="section video-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">SEE AGRICULTURE DIFFERENTLY</span>
-          <h2>See AgricInvest In Action</h2>
-          <p>
-            Discover our platform concept and agricultural investment approach.
-          </p>
-        </div>
-
-        <div class="video-container">
-          <div class="video-placeholder" id="videoPlaceholder">
-            <img
-              src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1400&q=85"
-              alt="Agricultural landscape"
-              loading="lazy"
-            />
-
-            <div class="video-overlay"></div>
-
-            <button
-              class="video-play-btn"
-              id="videoPlayBtn"
-              aria-label="Play demo"
-            >
-              <i data-lucide="play"></i>
-            </button>
-
-            <span class="video-label">PLATFORM OVERVIEW</span>
-          </div>
-
-          <div class="video-controls">
-            <span><i data-lucide="video"></i> AgricInvest Introduction</span>
-            <button data-open-modal="demoModal">Watch Overview</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= REAL FARMERS ================= -->
-
-    <section class="section impact-section">
-      <div class="container impact-grid">
-        <div class="impact-content">
-          <span class="section-eyebrow">OUR VISION</span>
-
-          <h2>
-            Real Farmers.
-            <span>Real Projects.</span>
-            Real Impact.
-          </h2>
-
-          <p>
-            We believe agricultural development and financial innovation can
-            work together to support a more resilient global food system.
-          </p>
-
-          <div class="impact-points">
-            <div>
-              <i data-lucide="leaf"></i>
-              <span>Supporting sustainable farming initiatives</span>
-            </div>
-
-            <div>
-              <i data-lucide="users"></i>
-              <span>Connecting investors with agricultural opportunities</span>
-            </div>
-
-            <div>
-              <i data-lucide="globe"></i>
-              <span>Promoting transparent agricultural information</span>
-            </div>
-          </div>
-
-          <a href="#about" class="btn btn-primary">
-            Learn About Us
-            <i data-lucide="arrow-right"></i>
-          </a>
-        </div>
-
-        <div class="impact-image">
-          <img
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
-            alt="Beautiful agricultural farmland"
-            loading="lazy"
-          />
-
-          <div class="impact-image-tag">
-            <i data-lucide="sprout"></i>
-            <div>
-              <strong>Growing Together</strong>
-              <span>Building agricultural opportunities</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PWA BANNER ================= -->
-
-    <section class="section app-banner-section">
-      <div class="container">
-        <div class="app-banner">
-          <div class="app-banner-content">
-            <span class="section-eyebrow">INVESTMENT ACCESS, SIMPLIFIED</span>
-
-            <h2>Manage Your Investment On The Go</h2>
-
-            <p>
-              Access your AgricInvest account, review your portfolio and stay
-              informed wherever you are.
-            </p>
-
-            <div class="app-buttons">
-              <button class="app-store-btn" data-open-modal="appModal">
-                <i data-lucide="smartphone"></i>
-                <span>
-                  <small>EXPLORE OUR</small>
-                  <strong>Mobile Experience</strong>
+      <footer class="main-footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand-column">
+              <a href="#home" class="brand footer-brand">
+                <span class="brand-icon">
+                  <i data-lucide="sprout"></i>
                 </span>
-              </button>
+                <span>Agric<span>Invest</span></span>
+              </a>
 
-              <button class="app-store-btn" data-open-modal="appModal">
-                <i data-lucide="monitor-smartphone"></i>
-                <span>
-                  <small>ACCESS YOUR</small>
-                  <strong>Web Dashboard</strong>
-                </span>
-              </button>
-            </div>
-          </div>
+              <p>
+                Connecting agricultural opportunities with modern digital
+                finance. Discover a smarter perspective on agricultural asset
+                markets.
+              </p>
 
-          <div class="app-banner-image">
-            <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85"
-              alt="Digital technology"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TESTIMONIALS ================= -->
-
-    <section class="section testimonials-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">COMMUNITY PERSPECTIVES</span>
-
-          <h2>What Our Community Says</h2>
-
-          <p>
-            Example feedback cards illustrating how community testimonials could
-            appear on the platform.
-          </p>
-        </div>
-
-        <div class="testimonials-grid">
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-
-            <p>
-              "The platform concept makes agricultural opportunities easier to
-              understand. I particularly like the organized portfolio
-              presentation."
-            </p>
-
-            <div class="testimonial-author">
-              <div class="avatar">JM</div>
-              <div>
-                <strong>Jordan M.</strong>
-                <span>Sample testimonial</span>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook"
+                  ><i data-lucide="facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i data-lucide="instagram"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i data-lucide="linkedin"></i
+                ></a>
+                <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
               </div>
             </div>
-          </article>
 
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
+            <div class="footer-column">
+              <h4>Platform</h4>
 
-            <p>
-              "I appreciate the emphasis on transparency and the presentation of
-              agricultural assets alongside investment information."
-            </p>
-
-            <div class="testimonial-author">
-              <div class="avatar">AK</div>
-              <div>
-                <strong>Alex K.</strong>
-                <span>Sample testimonial</span>
-              </div>
+              <a href="markets.html">Markets</a>
+              <a href="plans.html">Asset Portfolios</a>
+              <a href="#calculator">ROI Calculator</a>
+              <!-- <a href="markets.html">Markets</a> -->
+              <a href="about.html">About Us</a>
+              <a href="faq.html">FAQs</a>
             </div>
-          </article>
 
-          <article class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
+            <div class="footer-column">
+              <h4>Resources</h4>
 
-            <p>
-              "Bringing modern technology and agricultural opportunities
-              together is an interesting concept with plenty of potential."
-            </p>
-
-            <div class="testimonial-author">
-              <div class="avatar">SL</div>
-              <div>
-                <strong>Sarah L.</strong>
-                <span>Sample testimonial</span>
-              </div>
+              <a href="about.html">How It Works</a>
+              <a href="plans.html">Investment Plan</a>
+              <a href="#faq">Help Center</a>
+              <!-- <a href="#faq">Risk Information</a> -->
+              <a href="#faq">Contact Support</a>
             </div>
-          </article>
-        </div>
 
-        <p class="testimonial-disclaimer">
-          Testimonials above are fictional demonstration content and are not
-          verified investor reviews.
-        </p>
-      </div>
-    </section>
+            <div class="footer-column">
+              <h4>Legal</h4>
 
-    <!-- ================= ACTIVITY FEED ================= -->
-
-    <section class="activity-section">
-      <div class="container activity-container">
-        <div class="activity-heading">
-          <span class="live-dot"></span>
-          <div>
-            <strong>Platform Activity Preview</strong>
-            <small>Illustrative simulated activity</small>
-          </div>
-        </div>
-
-        <div id="activityFeed" class="activity-feed">
-          <div class="activity-item">
-            <i data-lucide="wallet"></i>
-            <span>Sample transaction activity will appear here.</span>
-            <!-- <small>DEMO</small> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FAQ ================= -->
-
-    <section class="section faq-section" id="faq">
-      <div class="container faq-grid">
-        <div class="faq-intro">
-          <span class="section-eyebrow">NEED MORE INFORMATION?</span>
-
-          <h2>Frequently Asked Questions</h2>
-
-          <p>
-            Find answers to common questions about AgricInvest, agricultural
-            assets and our platform concept.
-          </p>
-
-          <div class="faq-help">
-            <i data-lucide="message-circle"></i>
-            <div>
-              <strong>Still have questions?</strong>
-              <span>Our team is here to help.</span>
-            </div>
-            <a href="mailto:support@AgricInvest.example">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="faq-list">
-          <div class="faq-item active">
-            <button class="faq-question" aria-expanded="true">
-              What is AgricInvest?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                AgricInvest is a digital agricultural investment platform
-                concept designed to connect users with agricultural asset
-                opportunities, portfolio information and digital financial
-                tools.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              How do I create an account?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Use the registration interface to begin creating an account. A
-                production platform should include secure authentication,
-                identity verification where required and account protection
-                measures.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              What agricultural assets are available?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Example asset categories include farmland, livestock, crop
-                production and greenhouse agriculture. Actual offerings must be
-                documented, verified and made available only where legally
-                permitted.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Are investment returns guaranteed?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                No. Agricultural investments carry risks including weather
-                events, crop failure, commodity price fluctuations, operational
-                challenges and liquidity constraints. Returns are not
-                guaranteed.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Can I use USDT or USDC?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Stablecoin deposits are not currently connected in this frontend
-                demonstration. A live implementation would need supported
-                network integrations, transaction verification and appropriate
-                compliance controls.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              How can I withdraw my funds?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Withdrawal availability would depend on the actual investment
-                terms, applicable restrictions, liquidity and verified payment
-                infrastructure. This demonstration does not process withdrawals.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              How does asset monitoring work?
-              <i data-lucide="plus"></i>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                A production agricultural monitoring system could combine farm
-                reports, satellite imagery, environmental information and
-                operational records to provide portfolio updates.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= NEWSLETTER ================= -->
-
-    <section class="newsletter-section">
-      <div class="container newsletter-container">
-        <div>
-          <span class="section-eyebrow">STAY INFORMED</span>
-          <h2>Grow Your Knowledge With AgricInvest</h2>
-          <p>
-            Get updates about agricultural markets, technology and platform
-            developments.
-          </p>
-        </div>
-
-        <form id="newsletterForm" class="newsletter-form">
-          <input
-            type="email"
-            id="newsletterEmail"
-            placeholder="Enter your email address"
-            required
-          />
-
-          <button type="submit" class="btn btn-primary">
-            Subscribe
-            <i data-lucide="arrow-right"></i>
-          </button>
-
-          <small id="newsletterMessage"></small>
-        </form>
-      </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="main-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand-column">
-            <a href="#home" class="brand footer-brand">
-              <span class="brand-icon">
-                <i data-lucide="sprout"></i>
-              </span>
-              <span>Agric<span>Invest</span></span>
-            </a>
-
-            <p>
-              Connecting agricultural opportunities with modern digital finance.
-              Discover a smarter perspective on agricultural asset markets.
-            </p>
-
-            <div class="social-links">
-              <a href="#" aria-label="Facebook"
-                ><i data-lucide="facebook"></i
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><i data-lucide="instagram"></i
-              ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><i data-lucide="linkedin"></i
-              ></a>
-              <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <h4>Platform</h4>
-
-            <a href="markets.html">Markets</a>
-            <a href="plans.html">Asset Portfolios</a>
-            <a href="#calculator">ROI Calculator</a>
-            <!-- <a href="markets.html">Markets</a> -->
-            <a href="about.html">About Us</a>
-            <a href="faq.html">FAQs</a>
-          </div>
-
-          <div class="footer-column">
-            <h4>Resources</h4>
-
-            <a href="about.html">How It Works</a>
-            <a href="plans.html">Investment Plan</a>
-            <a href="#faq">Help Center</a>
-            <!-- <a href="#faq">Risk Information</a> -->
-            <a href="#faq">Contact Support</a>
-          </div>
-
-          <div class="footer-column">
-            <h4>Legal</h4>
-
-            <a href="#" class="legal-link" data-legal="Privacy Policy"
-              >Privacy Policy</a
-            >
-            <a href="#" class="legal-link" data-legal="Terms of Service"
-              >Terms of Service</a
-            >
-            <a href="#" class="legal-link" data-legal="Risk Disclosure"
-              >Risk Disclosure</a
-            >
-            <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
+              <a href="#" class="legal-link" data-legal="Privacy Policy"
+                >Privacy Policy</a
+              >
+              <a href="#" class="legal-link" data-legal="Terms of Service"
+                >Terms of Service</a
+              >
+              <a href="#" class="legal-link" data-legal="Risk Disclosure"
+                >Risk Disclosure</a
+              >
+              <!-- <a href="#" class="legal-link" data-legal="Cookie Policy"
               >Cookie Policy</a
             > -->
+            </div>
           </div>
-        </div>
 
-        <!-- <div class="footer-disclaimer">
+          <!-- <div class="footer-disclaimer">
           <strong>Important Risk Disclosure</strong>
 
           <p>
@@ -1851,276 +5437,281 @@
           </p>
         </div> -->
 
-        <div class="footer-bottom">
-          <p>
-            © <span id="currentYear"></span> AgricInvest. All rights reserved.
-          </p>
+          <div class="footer-bottom">
+            <p>
+              © <span id="currentYear"></span> AgricInvest. All rights reserved.
+            </p>
 
-          <span>Built for a sustainable agricultural future.</span>
+            <span>Built for a sustainable agricultural future.</span>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
 
-    <!-- ================= LOGIN MODAL ================= -->
+      <!-- ================= LOGIN MODAL ================= -->
 
-    <div
-      class="modal"
-      id="loginModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="loginTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
+      <div
+        class="modal"
+        id="loginModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="loginTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
 
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
-
-        <div class="modal-brand">
-          <span class="brand-icon"><i data-lucide="sprout"></i></span>
-          AgricInvest
-        </div>
-
-        <h2 id="loginTitle">Welcome Back</h2>
-        <p>Sign in to access your account interface.</p>
-
-        <form id="loginForm">
-          <label for="loginEmail">Email Address</label>
-          <input
-            type="email"
-            id="loginEmail"
-            placeholder="you@example.com"
-            required
-          />
-
-          <label for="loginPassword">Password</label>
-          <input
-            type="password"
-            id="loginPassword"
-            placeholder="Enter your password"
-            required
-          />
-
-          <button type="submit" class="btn btn-primary modal-submit">
-            Sign In
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
           </button>
 
-          <div id="loginMessage" class="form-message"></div>
-        </form>
+          <div class="modal-brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            AgricInvest
+          </div>
 
-        <!-- <div class="modal-footnote">
+          <h2 id="loginTitle">Welcome Back</h2>
+          <p>Sign in to access your account interface.</p>
+
+          <form id="loginForm">
+            <label for="loginEmail">Email Address</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="you@example.com"
+              required
+            />
+
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Enter your password"
+              required
+            />
+
+            <button type="submit" class="btn btn-primary modal-submit">
+              Sign In
+            </button>
+
+            <div id="loginMessage" class="form-message"></div>
+          </form>
+
+          <!-- <div class="modal-footnote">
           Demonstration only. No real account authentication is connected.
         </div> -->
-      </div>
-    </div>
-
-    <!-- ================= WALLET MODAL ================= -->
-
-    <div
-      class="modal"
-      id="connectModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="connectTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
-
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
-
-        <div class="modal-brand">
-          <span class="brand-icon"><i data-lucide="sprout"></i></span>
-          AgricInvest
-        </div>
-
-        <h2 id="connectTitle">Connect Your Wallet</h2>
-
-        <p>Choose a wallet provider to preview the connection interface.</p>
-
-        <div class="wallet-options">
-          <button class="wallet-option" data-wallet="MetaMask">
-            <span class="wallet-symbol">🦊</span>
-            <span>
-              <strong>MetaMask</strong>
-              <small>Browser wallet</small>
-            </span>
-            <i data-lucide="arrow-up-right"></i>
-          </button>
-
-          <button class="wallet-option" data-wallet="WalletConnect">
-            <span class="wallet-symbol">🔗</span>
-            <span>
-              <strong>WalletConnect</strong>
-              <small>Connect a compatible wallet</small>
-            </span>
-            <i data-lucide="arrow-up-right"></i>
-          </button>
-
-          <button class="wallet-option" data-wallet="Coinbase Wallet">
-            <span class="wallet-symbol">🔵</span>
-            <span>
-              <strong>Coinbase Wallet</strong>
-              <small>Digital asset wallet</small>
-            </span>
-            <i data-lucide="arrow-up-right"></i>
-          </button>
-        </div>
-
-        <div id="walletMessage" class="form-message"></div>
-
-        <div class="modal-footnote">
-          This is a frontend simulation. No wallet is connected and no
-          transactions are signed.
         </div>
       </div>
-    </div>
 
-    <!-- ================= INVESTMENT MODAL ================= -->
+      <!-- ================= WALLET MODAL ================= -->
 
-    <div
-      class="modal"
-      id="investmentModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="investmentTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
+      <div
+        class="modal"
+        id="connectModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="connectTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
 
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
 
-        <div class="modal-brand">
-          <span class="brand-icon"><i data-lucide="sprout"></i></span>
-          AgricInvest
+          <div class="modal-brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            AgricInvest
+          </div>
+
+          <h2 id="connectTitle">Connect Your Wallet</h2>
+
+          <p>Choose a wallet provider to preview the connection interface.</p>
+
+          <div class="wallet-options">
+            <button class="wallet-option" data-wallet="MetaMask">
+              <span class="wallet-symbol">🦊</span>
+              <span>
+                <strong>MetaMask</strong>
+                <small>Browser wallet</small>
+              </span>
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+
+            <button class="wallet-option" data-wallet="WalletConnect">
+              <span class="wallet-symbol">🔗</span>
+              <span>
+                <strong>WalletConnect</strong>
+                <small>Connect a compatible wallet</small>
+              </span>
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+
+            <button class="wallet-option" data-wallet="Coinbase Wallet">
+              <span class="wallet-symbol">🔵</span>
+              <span>
+                <strong>Coinbase Wallet</strong>
+                <small>Digital asset wallet</small>
+              </span>
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+          </div>
+
+          <div id="walletMessage" class="form-message"></div>
+
+          <div class="modal-footnote">
+            This is a frontend simulation. No wallet is connected and no
+            transactions are signed.
+          </div>
         </div>
+      </div>
 
-        <span class="section-eyebrow">PORTFOLIO INFORMATION</span>
+      <!-- ================= INVESTMENT MODAL ================= -->
 
-        <h2 id="investmentTitle">Investment Opportunity</h2>
+      <div
+        class="modal"
+        id="investmentModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="investmentTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
 
-        <p id="investmentDescription">
-          Review this illustrative portfolio opportunity.
-        </p>
-<!-- 
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
+
+          <div class="modal-brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            AgricInvest
+          </div>
+
+          <span class="section-eyebrow">PORTFOLIO INFORMATION</span>
+
+          <h2 id="investmentTitle">Investment Opportunity</h2>
+
+          <p id="investmentDescription">
+            Review this illustrative portfolio opportunity.
+          </p>
+          <!-- 
         <div class="investment-modal-note">
           <i data-lucide="info"></i>
           This is a demonstration interface, not a real investment offer.
         </div> -->
 
-        <button class="btn btn-primary modal-submit" data-close-modal>
-          Close
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= DEMO MODAL ================= -->
-
-    <div
-      class="modal"
-      id="demoModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="demoTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
-
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
-
-        <div class="modal-brand">
-          <span class="brand-icon"><i data-lucide="sprout"></i></span>
-          AgricInvest
-        </div>
-
-        <h2 id="demoTitle">Platform Overview</h2>
-
-        <div class="demo-preview">
-          <i data-lucide="play-circle"></i>
-          <p>AgricInvest Platform Demonstration</p>
-          <span>Demo video placeholder</span>
-        </div>
-
-        <p>Add your actual platform introduction video here when available.</p>
-      </div>
-    </div>
-
-    <!-- ================= APP MODAL ================= -->
-
-    <div
-      class="modal"
-      id="appModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="appTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
-
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
-
-        <div class="modal-brand">
-          <span class="brand-icon"><i data-lucide="sprout"></i></span>
-          AgricInvest
-        </div>
-
-        <h2 id="appTitle">Mobile Experience</h2>
-
-        <p>
-          The mobile application and PWA experience can be connected when the
-          production application is ready.
-        </p>
-
-        <div class="investment-modal-note">
-          <i data-lucide="smartphone"></i>
-          Mobile app links have not yet been configured.
+          <button class="btn btn-primary modal-submit" data-close-modal>
+            Close
+          </button>
         </div>
       </div>
-    </div>
 
-    <!-- ================= LEGAL MODAL ================= -->
+      <!-- ================= DEMO MODAL ================= -->
 
-    <div
-      class="modal"
-      id="legalModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="legalTitle"
-    >
-      <div class="modal-overlay" data-close-modal></div>
+      <div
+        class="modal"
+        id="demoModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="demoTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
 
-      <div class="modal-content">
-        <button class="modal-close" data-close-modal aria-label="Close">
-          <i data-lucide="x"></i>
-        </button>
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
 
-        <h2 id="legalTitle">Legal Information</h2>
+          <div class="modal-brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            AgricInvest
+          </div>
 
-        <p id="legalDescription">Legal documentation will be published here.</p>
+          <h2 id="demoTitle">Platform Overview</h2>
 
-        <button class="btn btn-primary modal-submit" data-close-modal>
-          Close
-        </button>
+          <div class="demo-preview">
+            <i data-lucide="play-circle"></i>
+            <p>AgricInvest Platform Demonstration</p>
+            <span>Demo video placeholder</span>
+          </div>
+
+          <p>
+            Add your actual platform introduction video here when available.
+          </p>
+        </div>
       </div>
+
+      <!-- ================= APP MODAL ================= -->
+
+      <div
+        class="modal"
+        id="appModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
+
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
+
+          <div class="modal-brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            AgricInvest
+          </div>
+
+          <h2 id="appTitle">Mobile Experience</h2>
+
+          <p>
+            The mobile application and PWA experience can be connected when the
+            production application is ready.
+          </p>
+
+          <div class="investment-modal-note">
+            <i data-lucide="smartphone"></i>
+            Mobile app links have not yet been configured.
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= LEGAL MODAL ================= -->
+
+      <div
+        class="modal"
+        id="legalModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="legalTitle"
+      >
+        <div class="modal-overlay" data-close-modal></div>
+
+        <div class="modal-content">
+          <button class="modal-close" data-close-modal aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
+
+          <h2 id="legalTitle">Legal Information</h2>
+
+          <p id="legalDescription">
+            Legal documentation will be published here.
+          </p>
+
+          <button class="btn btn-primary modal-submit" data-close-modal>
+            Close
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= TOAST ================= -->
+
+      <div id="toastContainer" class="toast-container"></div>
+
+      <!-- ================= BACK TO TOP ================= -->
+
+      <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+      </button>
     </div>
-
-    <!-- ================= TOAST ================= -->
-
-    <div id="toastContainer" class="toast-container"></div>
-
-    <!-- ================= BACK TO TOP ================= -->
-
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">
-      <i data-lucide="arrow-up"></i>
-    </button>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
