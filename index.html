@@ -3940,7 +3940,7 @@
           </nav>
 
           <div class="nav-actions">
-            <button class="login-btn" data-open-modal="loginModal">
+            <button class="login-btn" href="login.html" >
               Login
             </button>
 
@@ -3973,7 +3973,7 @@
 
           <button
             class="btn btn-primary mobile-login"
-            data-open-modal="loginModal"
+            href="login.html" 
           >
             Login
           </button>
@@ -5833,58 +5833,6 @@
       </footer>
 
       <!-- ================= LOGIN MODAL ================= -->
-
-      <div
-        class="modal"
-        id="loginModal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="loginTitle"
-      >
-        <div class="modal-overlay" data-close-modal></div>
-
-        <div class="modal-content">
-          <button class="modal-close" data-close-modal aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
-
-          <div class="modal-brand">
-            <span class="brand-icon"><i data-lucide="sprout"></i></span>
-            AgricInvest
-          </div>
-
-          <h2 id="loginTitle">Welcome Back</h2>
-          <p>Sign in to access your account interface.</p>
-
-          <form id="loginForm">
-            <label for="loginEmail">Email Address</label>
-            <input
-              type="email"
-              id="loginEmail"
-              placeholder="you@example.com"
-              required
-            />
-
-            <label for="loginPassword">Password</label>
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="Enter your password"
-              required
-            />
-
-            <button type="submit" class="btn btn-primary modal-submit">
-              Sign In
-            </button>
-
-            <div id="loginMessage" class="form-message"></div>
-          </form>
-
-          <!-- <div class="modal-footnote">
-          Demonstration only. No real account authentication is connected.
-        </div> -->
-        </div>
-      </div>
 
       <!-- ================= WALLET MODAL ================= -->
 
