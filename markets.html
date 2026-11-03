@@ -1207,15 +1207,12 @@
         </nav>
 
         <div class="nav-actions">
-          <button class="login-btn" data-open-modal="loginModal">Login</button>
+          <a class="login-btn" href="login.html">Login</a>
 
-          <button
-            class="btn btn-primary nav-cta"
-            data-open-modal="connectModal"
-          >
+          <a class="btn btn-primary nav-cta" href="register.html">
             Start Investing
             <i data-lucide="arrow-up-right"></i>
-          </button>
+          </a>
         </div>
 
         <button
@@ -1236,16 +1233,9 @@
         <a href="plans.html">Investment Plan</a>
         <a href="faq.html">FAQs</a>
 
-        <button
-          class="btn btn-primary mobile-login"
-          data-open-modal="loginModal"
-        >
-          Login
-        </button>
+        <a class="btn btn-primary mobile-login" href="login.html"> Login </a>
 
-        <button class="btn btn-primary" data-open-modal="connectModal">
-          Start Investing
-        </button>
+        <a class="btn btn-primary" href="register.html"> Start Investing </a>
       </div>
     </header>
 
@@ -1998,8 +1988,8 @@
                       ><strong class="market-value">$12.60</strong>
                     </div>
                     <div>
-                      <span class="market-change">+0.0% · sample</span
-                      ><span class="demo-caption">24h change not live</span>
+                      <span class="market-change">+0.0% </span
+                      ><span class="demo-caption">24h change</span>
                     </div>
                   </div>
                   <div class="sample-market-metrics">
@@ -2019,20 +2009,7 @@
                   >
                     <div class="progress-bar" style="width: 27%"></div>
                   </div>
-                  <!-- <div class="stat-grid">
-                    <div class="stat-cell">
-                      <span>Expected APY</span
-                      ><strong class="pending">Not provided</strong>
-                    </div>
-                    <div class="stat-cell">
-                      <span>Settlement</span
-                      ><strong class="pending">Not provided</strong>
-                    </div>
-                    <div class="stat-cell">
-                      <span>Risk tier</span
-                      ><strong class="pending">Not assessed</strong>
-                    </div>
-                  </div>   -->
+
                   <button
                     class="btn-agri market-action"
                     type="button"
@@ -2136,21 +2113,6 @@
               </article>
             </div>
           </div>
-
-          <!-- <div class="market-empty" id="marketEmpty" role="status">
-            <i class="bi bi-search" aria-hidden="true"></i>
-            No sample markets match those filters. Try another category or
-            search.
-          </div>
-          <p class="market-risk-note" id="risk-disclosure">
-            *Sorting uses the explicitly simulated sample values shown on this
-            page. No yield is provided or implied. Agricultural, commodity,
-            tokenized-asset, and carbon-credit activities can involve material
-            risk, including loss of capital and liquidity, market, custody,
-            operational, regulatory, and environmental-claim risks. Verify asset
-            rights, methodologies, offering documents, and applicable
-            regulations independently.
-          </p> -->
         </div>
       </section>
 
@@ -2168,7 +2130,7 @@
               before considering any investment.
             </p>
           </div>
-          <a class="btn-agri btn-agri-light" href="investment-plans.html">
+          <a class="btn-agri btn-agri-light" href="plans.html">
             Explore the platform
             <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
           </a>
@@ -2212,88 +2174,11 @@
       </div>
     </section>
 
-    <!-- <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand-column">
-            <a class="navbar-brand footer-brand" href="index.html">
-              <span class="brand-mark" aria-hidden="true"
-                ><i class="bi bi-flower1"></i
-              ></span>
-              <span>AgriLedger</span>
-            </a>
-            <p class="footer-description">
-              Connecting agricultural opportunities with thoughtful digital
-              experiences. Explore the platform with care and clear information.
-            </p>
-            <div class="footer-socials" aria-label="Social links">
-              <a href="#" aria-label="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><i class="bi bi-linkedin"></i
-              ></a>
-              <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-            </div>
-          </div>
-          <nav class="footer-column" aria-label="Platform links">
-            <h3>Platform</h3>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="investment-plans.html">Investment Plans</a>
-            <a href="markets.html">Markets</a>
-            <a href="index.html#faq">FAQs</a>
-          </nav>
-          <nav class="footer-column" aria-label="Agricultural assets">
-            <h3>Market classes</h3>
-            <a href="#market-list" data-footer-filter="grain">Grain futures</a>
-            <a href="#market-list" data-footer-filter="livestock"
-              >Livestock &amp; protein</a
-            >
-            <a href="#market-list" data-footer-filter="specialty"
-              >Specialty crops</a
-            >
-            <a href="#market-list" data-footer-filter="carbon"
-              >Green carbon credits</a
-            >
-            <a href="#market-list" data-footer-filter="farmland"
-              >Farmland real estate</a
-            >
-          </nav>
-          <nav class="footer-column" aria-label="Support and legal">
-            <h3>Support</h3>
-            <a href="index.html#faq">Contact</a>
-            <a href="#risk-disclosure">Risk disclosure</a>
-            <a href="#legal-note">Privacy notice (not provided)</a>
-            <a href="#legal-note">Terms (not provided)</a>
-          </nav>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            © <span id="currentYear"></span> AgriLedger. All rights reserved.
-          </p>
-          <div class="footer-legal">
-            <a href="#legal-note">Privacy</a>
-            <a href="#legal-note">Terms</a>
-            <a href="#risk-disclosure">Risk disclosure</a>
-          </div>
-        </div>
-        <p class="legal-note" id="legal-note">
-          Privacy and terms documents were not supplied for this demonstration.
-          Review official platform documents before providing personal or
-          financial information.
-        </p>
-      </div>
-    </footer> -->
-
     <footer class="main-footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand-column">
-            <a href="#home" class="brand footer-brand">
+            <a href="index.html" class="brand footer-brand">
               <span class="brand-icon">
                 <i data-lucide="sprout"></i>
               </span>
@@ -2305,7 +2190,7 @@
               Discover a smarter perspective on agricultural asset markets.
             </p>
 
-            <div class="social-links">
+            <!-- <div class="social-links">
               <a href="#" aria-label="Facebook"
                 ><i data-lucide="facebook"></i
               ></a>
@@ -2316,7 +2201,7 @@
                 ><i data-lucide="linkedin"></i
               ></a>
               <a href="#" aria-label="X"><i data-lucide="twitter"></i></a>
-            </div>
+            </div> -->
           </div>
 
           <div class="footer-column">
@@ -2335,9 +2220,9 @@
 
             <a href="about.html">How It Works</a>
             <a href="plans.html">Investment Plan</a>
-            <a href="#faq">Help Center</a>
-            <!-- <a href="#faq">Risk Information</a> -->
-            <a href="#faq">Contact Support</a>
+            <a href="faq.html">Help Center</a>
+            <!-- <a href="faq.html">Risk Information</a> -->
+            <a href="faq.html">Contact Support</a>
           </div>
 
           <div class="footer-column">
@@ -2357,22 +2242,6 @@
             > -->
           </div>
         </div>
-
-        <!-- <div class="footer-disclaimer">
-          <strong>Important Risk Disclosure</strong>
-
-          <p>
-            Agricultural investments involve substantial risks, including loss
-            of capital, commodity price volatility, weather-related events,
-            operational risks, regulatory changes and liquidity limitations.
-            Past performance does not guarantee future results. Any percentages,
-            projections, asset valuations, testimonials, market prices and
-            activity shown on this demonstration website are illustrative and do
-            not represent actual investment products, guaranteed returns or
-            verified transactions. Do not invest without independently reviewing
-            the relevant offering documents and risks.
-          </p>
-        </div> -->
 
         <div class="footer-bottom">
           <p>
@@ -2404,16 +2273,16 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
-            <p class="mb-2">
+          <!-- <div class="modal-body"> -->
+          <!-- <p class="mb-2">
               <strong id="previewAssetName">Sample market</strong>
-            </p>
-            <p class="small text-secondary mb-0">
+            </p> -->
+          <!-- <p class="small text-secondary mb-0">
               This is a visual demonstration only. The market, asset data, and
               token are not verified; no wallet, order, or trading service is
               connected. Review independently before making financial decisions.
-            </p>
-          </div>
+            </p> -->
+          <!-- </div> -->
           <div class="modal-footer">
             <button
               type="button"
